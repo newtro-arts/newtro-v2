@@ -1,0 +1,45 @@
+{
+  "name": "newtro-web",
+  "private": true,
+  "version": "0.1.0",
+  "node": "18.x",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "clean": "rm .next -r && next dev"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.8.7",
+    "@rainbow-me/rainbowkit": "^1.0.11",
+    "@react-three/drei": "^9.85.2",
+    "@react-three/fiber": "^8.14.3",
+    "@zoralabs/nft-hooks": "^1.2.1",
+    "graphql": "^16.8.1",
+    "next": "^13.4.19",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-fast-marquee": "^1.6.4",
+    "react-icons": "^4.11.0",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1",
+    "three": "^0.156.1",
+    "viem": "~1.10.7",
+    "wagmi": "~1.4.1"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "@types/node": "^18.16.12",
+    "@types/react": "^18.2.21",
+    "@types/react-slick": "^0.23.13",
+    "autoprefixer": "^10.4.15",
+    "eslint": "^8.15.0",
+    "eslint-config-next": "^13.4.19",
+    "eslint-plugin-react": "^7.34.1",
+    "postcss": "^8.4.29",
+    "tailwind-scrollbar": "^3.0.5",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.0.4"
+  }
+}
