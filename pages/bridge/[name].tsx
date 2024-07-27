@@ -1,81 +1,14 @@
-import React from "react";
-import Header from "@/components/Header";
-import TextSplitter from "@/components/TextSplitter";
-import MintButton from "@/components/MintButton";
-import AmountSelector from "@/components/AmountSelector";
-import { useIsMounted } from "@/hooks/useIsMounted";
-import { useAccount } from "wagmi";
-import { useRouter } from "next/router";
-import Head from "next/head";
 import nextwave from "@/nextwave";
-import DetailContent from "@/components/DetailContent";
-import MintInformation from "@/components/ZoraInformation";
-import useZoraMint from "@/hooks/useZoraMint";
+import React from "react";
+import TokenPage from "@/components/TokenPage";
+import { useRouter } from "next/router";
 
-const ItemDetailPage: React.FC = () => {
+const BridgeCollection = () => {
   const router = useRouter();
   const { name } = router.query;
   const selectedDrop = nextwave.find((a) => a.name === name);
-  const {
-    incrementAmount,
-    decrementAmount,
-    isMintLoading,
-    isMinted,
-    mint,
-    quantity,
-    mintData,
-  } = useZoraMint(selectedDrop);
-  const mounted = useIsMounted();
-  const { isConnected } = useAccount();
 
-  return (
-    <>
-      <div className="flex flex-col-reverse md:flex-row bg-primary-dark text-fourth-green pt-20 p-8 justify-between">
-        <Head>
-          <title>{selectedDrop?.name}</title>
-        </Head>
-        <Header />
-
-        <div className="flex w-full md:w-[50%]">
-          <div className="flex flex-col mr-4">
-            <h1 className="font-semibold text-xl md:text-3xl uppercase pragmatica-text my-4">
-              {selectedDrop?.name}
-            </h1>
-
-            <TextSplitter description={selectedDrop?.description} />
-
-            <div className="flex pt-2">
-              <MintButton
-                isMintLoading={isMintLoading}
-                isMintStarted={isMinted}
-                isMinted={isMinted}
-                mint={mint}
-                isConnected={isConnected}
-              />
-
-              <AmountSelector
-                amount={quantity}
-                incrementAmount={incrementAmount}
-                decrementAmount={decrementAmount}
-              />
-            </div>
-            <MintInformation
-              mounted={mounted}
-              isConnected={isConnected}
-              isMinted={isMinted}
-              mintData={{ hash: mintData }}
-            />
-          </div>
-        </div>
-
-        <DetailContent
-          mime={selectedDrop?.webAssets.originalAsset.mime}
-          originalAsset={selectedDrop?.webAssets.originalAsset.originalAsset}
-          previewAsset={selectedDrop?.webAssets.previewAsset.previewImage}
-        />
-      </div>
-    </>
-  );
+  return <TokenPage selectedDrop={selectedDrop} />;
 };
 
-export default ItemDetailPage;
+export default BridgeCollection;
