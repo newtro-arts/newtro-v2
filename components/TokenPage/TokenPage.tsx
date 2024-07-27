@@ -10,7 +10,7 @@ import DetailContent from "../../components/DetailContent";
 import MintInformation from "../../components/ZoraInformation";
 import useZoraMint from "@/hooks/useZoraMint";
 
-const TokenPage: React.FC = ({ selectedDrop }: any) => {
+const TokenPage = ({ selectedDrop }: any) => {
   const {
     quantity: amount,
     incrementAmount,
