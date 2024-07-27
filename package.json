@@ -12,10 +12,12 @@
   },
   "dependencies": {
     "@apollo/client": "^3.8.7",
-    "@rainbow-me/rainbowkit": "^1.0.11",
+    "@rainbow-me/rainbowkit": "2",
     "@react-three/drei": "^9.85.2",
     "@react-three/fiber": "^8.14.3",
+    "@tanstack/react-query": "^5.51.15",
     "@zoralabs/nft-hooks": "^1.2.1",
+    "@zoralabs/protocol-sdk": "^0.7.4",
     "graphql": "^16.8.1",
     "next": "^13.4.19",
     "react": "^18.2.0",
@@ -25,8 +27,8 @@
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1",
     "three": "^0.156.1",
-    "viem": "~1.10.7",
-    "wagmi": "~1.4.1"
+    "viem": "2.x",
+    "wagmi": "2"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

@@ -13,7 +13,6 @@ const Mirrorscape: NextPage = () => {
         <title>Mirrorscape</title>
       </Head>
       <Header />
-      {/* <DropList drops={drops} showNames={false} bgColor="#eaeaea"/> */}
       <div className="flex flex-col mx-8">
         <h3 className="text-xl pragmatica-text uppercase md:text-2xl font-semibold">
           Mirrorscape

@@ -13,10 +13,9 @@ const MyceliumMiscellany: NextPage = () => {
         <title>Mycelium Miscellany</title>
       </Head>
       <Header />
-      {/* <DropList drops={drops} showNames={false} bgColor="#eaeaea"/> */}
       <div className="flex flex-col mx-8">
         <h3 className="text-xl pragmatica-text uppercase md:text-2xl font-semibold">
-        Mycelium Miscellany
+          Mycelium Miscellany
         </h3>
         <div className="my-4">
           <TextWithHTML
@@ -24,7 +23,8 @@ const MyceliumMiscellany: NextPage = () => {
           In the vastness of Latin American land, a biological phenomenon occurs beneath our feet, almost invisible but essential for the ecosystem's balance: mycelium. An intricate system of fungal roots extends through the soil, connecting trees and plants in an underground network of collaboration. Through this network, forest elements exchange nutrients and strengthen each other, creating an interdependent community. <br>
           In Mycelium & Miscellany we immerse ourselves in an analogous world in the digital sphere, where 20 talented Latin American artists have converged to explore and celebrate the richness of creative collaboration and cultural diversity in the context of art on the W3B. <br><br>
           YON | Nesva | AVA | Rogerin | Jotta | Basaia | Tornado Rodriguez | Boyvoid | Santiago Ruau | BosqueGracias | Marietta | emilia Fantasia | Rustic Digital Art | Virkkk|Aempatia | Mote | Ludmila Pandolfo | Gabriel Nebular | Santiago Neymrqz | Dambass
-          "/>
+          "
+          />
         </div>
       </div>
 

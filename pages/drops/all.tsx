@@ -13,10 +13,9 @@ const Mirrorscape: NextPage = () => {
         <title>Explore All</title>
       </Head>
       <Header />
-      {/* <DropList drops={drops} showNames={false} bgColor="#eaeaea"/> */}
       <div className="flex flex-col mx-8">
         <h3 className="text-xl pragmatica-text uppercase md:text-2xl font-semibold pb-8">
-        Explore All
+          Explore All
         </h3>
       </div>
 

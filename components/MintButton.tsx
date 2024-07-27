@@ -1,20 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import check from "../public/check.svg";
-import {
-  useContractWrite,
-  useWaitForTransaction,
-  UseContractWriteConfig,
-} from "wagmi";
 import CustomButton from "./CustomButton";
 
 interface MintButtonProps {
-  config?: UseContractWriteConfig;
+  config?: any;
   isMintLoading: boolean;
   isMintStarted: boolean;
   isMinted: boolean;
   mint: (() => void) | undefined;
-  mintData: { hash?: string } | undefined;
   isConnected: boolean;
 }
 
@@ -24,7 +18,6 @@ const MintButton: React.FC<MintButtonProps> = ({
   isMintStarted,
   isMinted,
   mint,
-  mintData,
   isConnected,
 }) => (
   <div>
