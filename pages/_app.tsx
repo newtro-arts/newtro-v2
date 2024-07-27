@@ -19,7 +19,7 @@ const queryClient = new QueryClient();
 
 const config = getDefaultConfig({
   appName: "newtro",
-  projectId: "YOUR_PROJECT_ID",
+  projectId: "ee656e02d549f1ce6f5ab87d3a47c743",
   chains: [CHAIN],
   transports: {
     [CHAIN_ID]: http(),
