@@ -4,7 +4,6 @@ import { formatLogs } from './formatLogs';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const logs = await getSetupNewContractLogs()
-    console.log(logs)
     const formattedLogs = formatLogs(logs);
     res.status(200).json({data: formattedLogs}); 
 }
