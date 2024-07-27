@@ -31,7 +31,6 @@ const useZoraMint = (selectedDrop: any) => {
         chainId: CHAIN_ID,
         value: parseEther(value),
       };
-      console.log("writeConfig", writeConfig);
       await writeContract(writeConfig);
     } catch (err) {
       console.error(err);
