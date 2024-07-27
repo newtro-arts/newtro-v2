@@ -1,28 +1,23 @@
 import React from "react";
-import Header from "@/components/Header";
-import TextSplitter from "@/components/TextSplitter";
-import MintButton from "@/components/MintButton";
-import AmountSelector from "@/components/AmountSelector";
-import { useIsMounted } from "@/hooks/useIsMounted";
+import Header from "../../components/Header";
+import TextSplitter from "../../components/TextSplitter";
+import MintButton from "../../components/MintButton";
+import AmountSelector from "../../components/AmountSelector";
+import { useIsMounted } from "../../hooks/useIsMounted";
 import { useAccount } from "wagmi";
-import { useRouter } from "next/router";
 import Head from "next/head";
-import nextwave from "@/nextwave";
-import DetailContent from "@/components/DetailContent";
-import MintInformation from "@/components/ZoraInformation";
+import DetailContent from "../../components/DetailContent";
+import MintInformation from "../../components/ZoraInformation";
 import useZoraMint from "@/hooks/useZoraMint";
 
-const ItemDetailPage: React.FC = () => {
-  const router = useRouter();
-  const { name } = router.query;
-  const selectedDrop = nextwave.find((a) => a.name === name);
+const TokenPage: React.FC = ({ selectedDrop }: any) => {
   const {
+    quantity: amount,
     incrementAmount,
     decrementAmount,
-    isMintLoading,
     isMinted,
+    isMintLoading,
     mint,
-    quantity,
     mintData,
   } = useZoraMint(selectedDrop);
   const mounted = useIsMounted();
@@ -43,7 +38,6 @@ const ItemDetailPage: React.FC = () => {
             </h1>
 
             <TextSplitter description={selectedDrop?.description} />
-
             <div className="flex pt-2">
               <MintButton
                 isMintLoading={isMintLoading}
@@ -54,7 +48,7 @@ const ItemDetailPage: React.FC = () => {
               />
 
               <AmountSelector
-                amount={quantity}
+                amount={amount}
                 incrementAmount={incrementAmount}
                 decrementAmount={decrementAmount}
               />
@@ -78,4 +72,4 @@ const ItemDetailPage: React.FC = () => {
   );
 };
 
-export default ItemDetailPage;
+export default TokenPage;

@@ -4,8 +4,13 @@ import TextSplitter from "../../components/TextSplitter";
 import MintButton from "../../components/MintButton";
 import AmountSelector from "../../components/AmountSelector";
 import ZoraInformation from "../../components/ZoraInformation";
-import { useIsMounted } from "../../components/hooks/useIsMounted";
-import { useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction } from "wagmi";
+import { useIsMounted } from "../../hooks/useIsMounted";
+import {
+  useAccount,
+  useContractWrite,
+  useSimulateContract,
+  useWaitForTransactionReceipt,
+} from "wagmi";
 import useGetContractInfo from "../../components/gql/getContractInfo";
 import padAddress from "../../components/utils/padAddress";
 import { parseEther } from "viem";
@@ -71,7 +76,7 @@ const ItemDetailPage: React.FC = () => {
     }
   }, [address]);
 
-  const { config } = usePrepareContractWrite({
+  const config = useSimulateContract({
     address: selectedDrop?.address as `0x${string}`,
     abi: ERC1155.abi!,
     functionName: "mintWithRewards",
@@ -93,7 +98,7 @@ const ItemDetailPage: React.FC = () => {
     isSuccess: isMintStarted,
   } = useContractWrite(config);
 
-  const { isSuccess: txSuccess } = useWaitForTransaction({
+  const { isSuccess: txSuccess } = useWaitForTransactionReceipt({
     hash: mintData?.hash,
   });
 
@@ -144,7 +149,7 @@ const ItemDetailPage: React.FC = () => {
               />
             </div>
             <MintInformation
-            mounted={mounted}
+              mounted={mounted}
               isConnected={isConnected}
               isMinted={isMinted}
               mintData={mintData}
