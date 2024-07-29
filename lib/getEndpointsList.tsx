@@ -1,1 +1,1 @@
-export const endpoints = [{ apiType: "GET", route: "/api/drops" }];
+export const endpoints = [{ apiType: "GET", route: "/api/collections" }];

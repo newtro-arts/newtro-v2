@@ -13,10 +13,9 @@ const HashedThreads: NextPage = () => {
         <title>Hashed Threads</title>
       </Head>
       <Header />
-      {/* <DropList drops={drops} showNames={false} bgColor="#eaeaea"/> */}
       <div className="flex flex-col mx-8">
         <h3 className="text-xl pragmatica-text uppercase md:text-2xl font-semibold">
-        Hashed Threads
+          Hashed Threads
         </h3>
         <div className="my-4">
           <TextWithHTML
@@ -24,7 +23,8 @@ const HashedThreads: NextPage = () => {
           <strong>-Threads-</strong> Artists are weavers of the future, impacting reality. Education and information serve as the loom upon which our tapestry of tomorrow is woven. NewtroArts is not merely a platform for Latin American artists and W3B culture; it's a dynamic learning space where curiosity is nurtured, and expertise is cultivated. Through workshops, discussions, and shared resources, we empower our community.<br>
           Together, we will weave stories that resonate across the digital expanse, leaving an enduring legacy for generations to come.<br><br>
           Flora Marquez | Stani | Pimbyblu | Lilaempty | Morlacos | Magnetismo | Espinosa | La Delmas | Ekeko | Fernando Oropeza | Ed Marola | Vinito | Quilla Nina | Chamaland | The Myth | Alejandro Peters | Cap'n | M.Suksu | Halo Machine | Sulkian
-          "/>
+          "
+          />
         </div>
       </div>
 
