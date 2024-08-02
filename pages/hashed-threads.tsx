@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import NewDrop from "../components/NewDrop";
 import { drop2HashedThreads } from "../drop2-hashed-threads";
 import TextWithHTML from "../components/TextWithHTML";
+import { Address } from "viem";
 
 const HashedThreads: NextPage = () => {
   return (
@@ -33,13 +34,9 @@ const HashedThreads: NextPage = () => {
           <div key={index} id={`${index}`}>
             <NewDrop
               name={x.name}
-              description={x.description}
               image={x.webAssets.previewAsset.previewImage}
-              index={index + 1}
-              mime={x.webAssets.originalAsset.mime}
-              contract={x.address}
+              contract={x.address as Address}
               token_id={x.tokenId}
-              dropName="hashed-threads"
             />
           </div>
         ))}
