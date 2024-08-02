@@ -15,7 +15,6 @@ const getSelectedDrop = async (collectionAddress: Address, tokenId: number) => {
     const selectedDrop = {
       address: data.data.token.contract.address,
       description: metadata.description,
-      dropId: "TODO",
       name: metadata.name,
       tokenId: data.data.token.tokenId,
       minter: data.data.token.salesConfig.address,
