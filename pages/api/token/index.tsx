@@ -18,7 +18,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       tokenId,
     });
     const data = format(response);
-    console.log("SWEETS data", data);
     res.status(200).json({ data });
   } catch (error) {
     console.error(error);

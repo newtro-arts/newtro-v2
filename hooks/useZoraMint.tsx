@@ -16,7 +16,6 @@ const useZoraMint = (selectedDrop: any) => {
   const isMinted = status === "success";
 
   const mint = async () => {
-    console.log("SWEETS MINTING", selectedDrop.minter);
     try {
       const writeConfig = {
         address: selectedDrop?.address as `0x${string}`,
@@ -32,7 +31,6 @@ const useZoraMint = (selectedDrop: any) => {
         chainId: CHAIN_ID,
         value: parseEther(value),
       };
-      console.log("SWEETS writeConfig", writeConfig);
       await writeContract(writeConfig);
     } catch (err) {
       console.error(err);
