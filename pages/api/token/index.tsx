@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Address } from "viem";
-import { format } from "./format";
 import getCollectorClient from "@/lib/zora/getCollectorClient";
+import { format } from "../collection/format";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
