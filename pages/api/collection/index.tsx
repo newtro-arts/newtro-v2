@@ -8,7 +8,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const collectionAddress = (req.query?.collectionAddress ||
       DEFAULT_COLLECTION) as Address;
-    console.log(collectionAddress);
     const collectorClient = getCollectorClient();
     const response = await collectorClient.getTokensOfContract({
       tokenContract: collectionAddress,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface MintInformationProps {
   mounted: boolean;
@@ -7,7 +7,12 @@ interface MintInformationProps {
   mintData: { hash?: string } | undefined;
 }
 
-const MintInformation: React.FC<MintInformationProps> = ({ mounted, isConnected, isMinted, mintData }) => (
+const MintInformation: React.FC<MintInformationProps> = ({
+  mounted,
+  isConnected,
+  isMinted,
+  mintData,
+}) => (
   <>
     {mounted && !isConnected ? (
       <p className="text-[14px] pt-2 font-light">
@@ -17,10 +22,7 @@ const MintInformation: React.FC<MintInformationProps> = ({ mounted, isConnected,
 
     <p className="text-[14px] pt-2 font-light">
       We're minting on Zora Network.
-      <a
-        href="https://bridge.zora.energy/"
-        className="underline pl-2"
-      >
+      <a href="https://bridge.zora.energy/" className="underline pl-2">
         Bridge Here
       </a>
     </p>
@@ -31,6 +33,8 @@ const MintInformation: React.FC<MintInformationProps> = ({ mounted, isConnected,
         <a
           href={`https://explorer.zora.energy/tx/${mintData?.hash}`}
           className="text-blue-600 underline underline-offset-1"
+          target="_blank"
+          rel="noreferrer"
         >
           {" "}
           Zora Explorer.

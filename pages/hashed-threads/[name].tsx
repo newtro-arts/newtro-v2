@@ -7,7 +7,6 @@ const HashedThreadsCollection = () => {
   const router = useRouter();
   const { name } = router.query;
   const selectedDrop = drop2HashedThreads.find((a) => a.name === name);
-  console.log("SWEETS SELECTED DROP", selectedDrop);
   return <TokenPage selectedDrop={selectedDrop} />;
 };
 

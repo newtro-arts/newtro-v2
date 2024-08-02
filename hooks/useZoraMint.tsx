@@ -16,13 +16,14 @@ const useZoraMint = (selectedDrop: any) => {
   const isMinted = status === "success";
 
   const mint = async () => {
+    console.log("SWEETS MINTING", selectedDrop.minter);
     try {
       const writeConfig = {
         address: selectedDrop?.address as `0x${string}`,
         abi: ERC1155.abi!,
         functionName: "mintWithRewards",
         args: [
-          zoraCreatorFixedPriceSaleStrategyAddress[CHAIN_ID],
+          selectedDrop.minter,
           selectedDrop?.tokenId,
           quantity,
           minter,
@@ -31,6 +32,7 @@ const useZoraMint = (selectedDrop: any) => {
         chainId: CHAIN_ID,
         value: parseEther(value),
       };
+      console.log("SWEETS writeConfig", writeConfig);
       await writeContract(writeConfig);
     } catch (err) {
       console.error(err);

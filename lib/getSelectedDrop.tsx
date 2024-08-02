@@ -3,8 +3,6 @@ import fetchIpfsUri from "./ipfs/fetchIpfsUri";
 
 const getSelectedDrop = async (collectionAddress: Address, tokenId: number) => {
   try {
-    console.log("SWEETS GETTING SELECTED DROP", collectionAddress, tokenId);
-
     const response = await fetch(
       `/api/token?collectionAddress=${collectionAddress}&tokenId=${tokenId}`
     );
@@ -12,8 +10,6 @@ const getSelectedDrop = async (collectionAddress: Address, tokenId: number) => {
       return {};
     }
     const data = await response.json();
-    console.log("SWEETS data", data);
-
     const { tokenURI } = data.data.token;
     const metadata = await fetchIpfsUri(tokenURI);
     const selectedDrop = {
@@ -22,6 +18,7 @@ const getSelectedDrop = async (collectionAddress: Address, tokenId: number) => {
       dropId: "TODO",
       name: metadata.name,
       tokenId: data.data.token.tokenId,
+      minter: data.data.token.salesConfig.address,
       webAssets: {
         originalAsset: {
           mime: metadata.content.mime || "",
