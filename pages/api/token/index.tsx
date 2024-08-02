@@ -9,7 +9,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const tokenId = req.query?.tokenId;
     if (!(collectionAddress && tokenId))
       return res
-        .status(500)
+        .status(400)
         .json({ error: "missing collectionAddress or tokenId" });
     const collectorClient = getCollectorClient();
     const response = await collectorClient.getToken({
