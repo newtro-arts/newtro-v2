@@ -39,7 +39,7 @@ const DropContent: React.FC<WebAsset> = ({
       )}
       {isDefaultContent && (
         <Image
-          src={getIpfsLink(mime ? originalAsset : previewAsset)}
+          src={getIpfsLink(isPhoto ? originalAsset : previewAsset)}
           alt="preview"
           width={isOther ? 400 : 200}
           height={isOther ? 400 : 200}
