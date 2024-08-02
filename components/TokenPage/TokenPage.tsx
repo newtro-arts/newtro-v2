@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Header from "../../components/Header";
 import TextSplitter from "../../components/TextSplitter";
@@ -39,13 +41,15 @@ const TokenPage = ({ selectedDrop }: any) => {
 
             <TextSplitter description={selectedDrop?.description} />
             <div className="flex pt-2">
-              <MintButton
-                isMintLoading={isMintLoading}
-                isMintStarted={isMinted}
-                isMinted={isMinted}
-                mint={mint}
-                isConnected={isConnected}
-              />
+              {selectedDrop?.name && (
+                <MintButton
+                  isMintLoading={isMintLoading}
+                  isMintStarted={isMinted}
+                  isMinted={isMinted}
+                  mint={mint}
+                  isConnected={isConnected}
+                />
+              )}
 
               <AmountSelector
                 amount={amount}

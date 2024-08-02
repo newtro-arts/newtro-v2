@@ -13,7 +13,7 @@ const Token = () => {
     address as Address,
     parseInt(tokenId as string, 10)
   );
-  return <TokenPage selectedDrop={selectedDrop} />;
+  return <div>{selectedDrop && <TokenPage selectedDrop={selectedDrop} />}</div>;
 };
 
 export default Token;
