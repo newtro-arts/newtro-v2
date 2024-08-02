@@ -23,7 +23,7 @@ const DropContent: React.FC<WebAsset> = ({
     mime === "model/gltf-binary" ||
     mime === "";
   const isIframe = mime === "application/zip";
-  const isDefaultContent = isOther || isPhoto;
+  const isDefaultContent = !isVideo && !isIframe;
 
   return (
     <div className="w-full h-full">
