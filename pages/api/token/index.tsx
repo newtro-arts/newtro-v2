@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Address } from "viem";
-import getCollectorClient from "@/lib/zora/getCollectorClient";
 import { format } from "../collection/format";
+import getToken from "@/lib/zora/getToken";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
@@ -11,12 +11,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       return res
         .status(400)
         .json({ error: "missing collectionAddress or tokenId" });
-    const collectorClient = getCollectorClient();
-    const response = await collectorClient.getToken({
-      tokenContract: collectionAddress,
-      mintType: "1155",
-      tokenId,
-    });
+    const response = await getToken(collectionAddress, tokenId as string);
     const data = format(response);
     res.status(200).json({ data });
   } catch (error) {
