@@ -6,7 +6,7 @@ import AmountSelector from "../../components/AmountSelector";
 import { useIsMounted } from "../../hooks/useIsMounted";
 import { useAccount } from "wagmi";
 import Head from "next/head";
-import DetailContent from "../../components/DetailContent";
+import DropContent from "@/components/DropContent";
 import MintInformation from "../../components/ZoraInformation";
 import useZoraMint from "@/hooks/useZoraMint";
 
@@ -62,7 +62,7 @@ const TokenPage = ({ selectedDrop }: any) => {
           </div>
         </div>
 
-        <DetailContent
+        <DropContent
           mime={selectedDrop?.webAssets.originalAsset.mime}
           originalAsset={selectedDrop?.webAssets.originalAsset.originalAsset}
           previewAsset={selectedDrop?.webAssets.previewAsset.previewImage}
