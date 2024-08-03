@@ -14,7 +14,7 @@ const DropContent: React.FC<WebAsset> = ({
   previewAsset,
 }) => {
   const isVideo = mime === "video/mp4";
-  const isPhoto = mime?.includes("image") || !mime;
+  const isPhoto = mime?.includes("image");
   const isOther =
     mime === "application/pdf" ||
     mime === "text/html" ||
