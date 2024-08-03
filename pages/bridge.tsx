@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import NewDrop from "../components/NewDrop";
 import drops from "../nextwave";
 import TextWithHTML from "../components/TextWithHTML";
+import { Address } from "viem";
 
 const Bridge: NextPage = () => {
   return (
@@ -31,13 +32,9 @@ const Bridge: NextPage = () => {
           <div key={index} id={`${index}`}>
             <NewDrop
               name={x.name}
-              description={x.description}
               image={x.webAssets.previewAsset.previewImage}
-              index={index + 1}
-              mime={x.webAssets.originalAsset.mime}
-              contract={x.address}
+              contract={x.address as Address}
               token_id={x.tokenId}
-              dropName="bridge"
             />
           </div>
         ))}

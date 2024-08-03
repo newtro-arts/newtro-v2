@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Header from "../../components/Header";
 import TextSplitter from "../../components/TextSplitter";
@@ -6,7 +8,7 @@ import AmountSelector from "../../components/AmountSelector";
 import { useIsMounted } from "../../hooks/useIsMounted";
 import { useAccount } from "wagmi";
 import Head from "next/head";
-import DetailContent from "../../components/DetailContent";
+import DropContent from "@/components/DropContent";
 import MintInformation from "../../components/ZoraInformation";
 import useZoraMint from "@/hooks/useZoraMint";
 
@@ -39,13 +41,15 @@ const TokenPage = ({ selectedDrop }: any) => {
 
             <TextSplitter description={selectedDrop?.description} />
             <div className="flex pt-2">
-              <MintButton
-                isMintLoading={isMintLoading}
-                isMintStarted={isMinted}
-                isMinted={isMinted}
-                mint={mint}
-                isConnected={isConnected}
-              />
+              {selectedDrop?.name && (
+                <MintButton
+                  isMintLoading={isMintLoading}
+                  isMintStarted={isMinted}
+                  isMinted={isMinted}
+                  mint={mint}
+                  isConnected={isConnected}
+                />
+              )}
 
               <AmountSelector
                 amount={amount}
@@ -62,7 +66,7 @@ const TokenPage = ({ selectedDrop }: any) => {
           </div>
         </div>
 
-        <DetailContent
+        <DropContent
           mime={selectedDrop?.webAssets.originalAsset.mime}
           originalAsset={selectedDrop?.webAssets.originalAsset.originalAsset}
           previewAsset={selectedDrop?.webAssets.previewAsset.previewImage}
