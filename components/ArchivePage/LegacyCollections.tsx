@@ -9,7 +9,7 @@ const LegacyCollections = () => (
         key={drop.link}
         link={drop.link}
         title={drop.title}
-        video={drop.video}
+        video="/bridge.mp4"
         description={drop.description}
         protoworld={drop.protoworld}
       />
