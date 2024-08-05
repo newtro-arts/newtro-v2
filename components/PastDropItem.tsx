@@ -19,6 +19,7 @@ export default function PastDropItem({
   description,
   protoworld,
 }: PastDropItemProps) {
+  console.log("SWEETS image", image);
   return (
     <div className="flex flex-col lg:flex-row w-full my-4">
       <div className="flex justify-center object-scale-down h-full lg:w-[50%]">
