@@ -14,6 +14,9 @@ const ArchivePage: NextPage = () => (
     <Header />
     <main className="mx-8">
       <h1 className="text-2xl pt-4 pb-2 pragmatica-text uppercase">Archive</h1>
+      <video autoPlay muted loop>
+        <source src="/bridge.mp4" />
+      </video>
       <LegacyCollections />
       <CollaborativeCollections />
     </main>
