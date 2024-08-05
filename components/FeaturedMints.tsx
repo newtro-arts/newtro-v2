@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import NewDrop from "./NewDrop";
 import {
   MdOutlineKeyboardArrowRight,
   MdOutlineKeyboardArrowLeft,
@@ -14,7 +13,6 @@ import FeaturedMintsHome from "./FeaturedMintsHome";
 import nextwave from "../nextwave";
 import { allDrops } from "../allDrops";
 import Link from "next/link";
-
 
 const filterList = [
   "All",
@@ -32,19 +30,6 @@ const FeaturedMints: React.FC = () => {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
-
-  // useEffect(() => {
-  // const hasAllFilter = mintList.some((mint) => mint.tag === "all");
-  //  if (!hasAllFilter) {
-  //     setSelectedFilter("all");
-  //   }
-
-  // }, [mintList]);
-
-  // const filteredMints =
-  // selectedFilter === "all"
-  // ? mintList
-  //   : mintList.filter((mint) => mint.tag === selectedFilter);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -113,7 +98,7 @@ const FeaturedMints: React.FC = () => {
     case "vuelapelucas":
       displayedData = vuelapelucas;
       break;
-    case "bridge n3xtwave x newtro": 
+    case "bridge n3xtwave x newtro":
       displayedData = nextwave;
       break;
     case "mirrorscape":
@@ -133,11 +118,14 @@ const FeaturedMints: React.FC = () => {
     <div className="max-w-full px-8 pb-2  pt-8">
       <div className="flex justify-between">
         <h5 className="mb-4 text-xl lg:text-2xl">Featured Mints</h5>
-         <div>
-          <Link href="/drops/all" className=" align-middle leading-3 text-xs lg:text-lg cursor-pointer p-buttons border hover:border-fourth-green bg-fourth-green text-primary-dark hover:bg-primary-dark hover:text-fourth-green"
-          >Explore all </Link>
-        </div>
-{" "}
+        <div>
+          <Link
+            href="/drops/all"
+            className=" align-middle leading-3 text-xs lg:text-lg cursor-pointer p-buttons border hover:border-fourth-green bg-fourth-green text-primary-dark hover:bg-primary-dark hover:text-fourth-green"
+          >
+            Explore all{" "}
+          </Link>
+        </div>{" "}
       </div>
       <div className="relative">
         <div
@@ -148,13 +136,9 @@ const FeaturedMints: React.FC = () => {
             <div key={key}>
               <FeaturedMintsHome
                 name={mint.name}
-                description={mint.description}
                 image={mint.webAssets.previewAsset.previewImage}
-                index={mint.index}
-                mime={mint.webAssets.previewAsset.mime}
                 contract={mint.address}
                 token_id={mint.tokenId}
-                dropName={mint.dropId}
               />
             </div>
           ))}
@@ -168,7 +152,7 @@ const FeaturedMints: React.FC = () => {
           )}
           {showRightArrow && (
             <button
-            className="hidden lg:block absolute top-1/2 right-2 transform -translate-y-1/2 border bg-primary-dark border-fourth-green px-2 py-1 "
+              className="hidden lg:block absolute top-1/2 right-2 transform -translate-y-1/2 border bg-primary-dark border-fourth-green px-2 py-1 "
               onClick={scrollRight}
             >
               <MdOutlineKeyboardArrowRight className="active:hover:fill-white" />

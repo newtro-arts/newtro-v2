@@ -22,7 +22,7 @@ const useZoraMint = (selectedDrop: any) => {
         abi: ERC1155.abi!,
         functionName: "mintWithRewards",
         args: [
-          zoraCreatorFixedPriceSaleStrategyAddress[CHAIN_ID],
+          selectedDrop.minter,
           selectedDrop?.tokenId,
           quantity,
           minter,
