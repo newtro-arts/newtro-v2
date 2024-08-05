@@ -3,20 +3,17 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "@/components/Header";
 import NewDrop from "@/components/NewDrop";
-import drops from "@/nextwave";
 import TextWithHTML from "@/components/TextWithHTML";
 import { Address } from "viem";
 import useCollectionPage from "@/hooks/useCollectionPage";
 
 const CollectionPage: NextPage = () => {
   const { name, description, tokens } = useCollectionPage();
-  console.log("SWEETS tokens", tokens);
-  console.log("SWEETS description", description);
-  console.log("SWEETS name", name);
+
   return (
     <div className="bg-primary-dark text-fourth-green pt-20">
       <Head>
-        <title>Newtro Arts</title>
+        <title>{name}: Newtro Arts</title>
       </Head>
       <Header />
       <div className="flex flex-col mx-8">
