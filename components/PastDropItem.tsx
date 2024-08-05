@@ -21,14 +21,9 @@ export default function PastDropItem({
   description,
   protoworld,
 }: PastDropItemProps) {
-  console.log("SWEETS image", image);
   return (
     <div className="flex flex-col lg:flex-row w-full my-4">
-      <div className="flex justify-center object-scale-down h-full lg:w-[50%]">
-        {image?.includes?.("ipfs") && (
-          <Image alt={title} src={image} height={300} width={300} />
-        )}
-
+      <div className="object-scale-down h-full lg:w-[50%]">
         <video autoPlay muted loop>
           <source src={video} />
         </video>
