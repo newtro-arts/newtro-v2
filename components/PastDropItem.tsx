@@ -7,7 +7,8 @@ import TextWithHTML from "./TextWithHTML";
 interface PastDropItemProps {
   link: string;
   title: string;
-  image: string;
+  image?: string;
+  video?: string;
   description: string;
   protoworld?: string;
 }
@@ -16,6 +17,7 @@ export default function PastDropItem({
   link,
   title,
   image,
+  video,
   description,
   protoworld,
 }: PastDropItemProps) {
@@ -23,11 +25,13 @@ export default function PastDropItem({
   return (
     <div className="flex flex-col lg:flex-row w-full my-4">
       <div className="flex justify-center object-scale-down h-full lg:w-[50%]">
-        {image.includes("ipfs") ? (
+        {image?.includes?.("ipfs") && (
           <Image alt={title} src={image} height={300} width={300} />
-        ) : (
+        )}
+
+        {video && (
           <video autoPlay muted loop>
-            <source src={image} />
+            <source src={video} />
           </video>
         )}
       </div>
