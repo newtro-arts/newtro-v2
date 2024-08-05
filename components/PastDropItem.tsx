@@ -29,11 +29,9 @@ export default function PastDropItem({
           <Image alt={title} src={image} height={300} width={300} />
         )}
 
-        {video && (
-          <video autoPlay muted loop>
-            <source src={video} />
-          </video>
-        )}
+        <video autoPlay muted loop>
+          <source src={video} />
+        </video>
       </div>
       <div className="lg:w-[50%] lg:ml-4 mt-4 lg:mt-0 border border-fourth-green p-8">
         <div className="flex flex-col h-full">
