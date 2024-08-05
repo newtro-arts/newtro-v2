@@ -14,13 +14,6 @@ const ArchivePage: NextPage = () => (
     <Header />
     <main className="mx-8">
       <h1 className="text-2xl pt-4 pb-2 pragmatica-text uppercase">Archive</h1>
-      <video autoPlay muted loop>
-        <source
-          src={getIpfsLink(
-            "ipfs://QmNgM2hokbjARTN16uEkmSX4KQQ2YkMwH1ZXYVLX4zNQBu"
-          )}
-        />
-      </video>
       <LegacyCollections />
       <CollaborativeCollections />
     </main>

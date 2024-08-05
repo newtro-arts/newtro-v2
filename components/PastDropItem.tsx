@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import TextSplitter from "./TextSplitter";
 import TextWithHTML from "./TextWithHTML";
+import getIpfsLink from "@/lib/ipfs/getIpfsLink";
 
 interface PastDropItemProps {
   link: string;
@@ -23,10 +24,20 @@ export default function PastDropItem({
 }: PastDropItemProps) {
   return (
     <div className="flex flex-col lg:flex-row w-full my-4">
-      <div className="object-scale-down h-full lg:w-[50%]">
-        <video autoPlay muted loop>
-          <source src="/bridge.mp4" />
-        </video>
+      <div className="flex justify-center object-scale-down h-full lg:w-[50%]">
+        {video && (
+          <video autoPlay muted loop>
+            <source src={getIpfsLink(video)} />
+          </video>
+        )}
+        {image && (
+          <Image
+            src={getIpfsLink(image)}
+            alt={title}
+            height={333}
+            width={333}
+          />
+        )}
       </div>
       <div className="lg:w-[50%] lg:ml-4 mt-4 lg:mt-0 border border-fourth-green p-8">
         <div className="flex flex-col h-full">
