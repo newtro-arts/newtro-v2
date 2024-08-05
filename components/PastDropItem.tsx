@@ -25,7 +25,7 @@ export default function PastDropItem({
     <div className="flex flex-col lg:flex-row w-full my-4">
       <div className="object-scale-down h-full lg:w-[50%]">
         <video autoPlay muted loop>
-          <source src={video} />
+          <source src="/bridge.mp4" />
         </video>
       </div>
       <div className="lg:w-[50%] lg:ml-4 mt-4 lg:mt-0 border border-fourth-green p-8">
