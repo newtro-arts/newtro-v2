@@ -1,31 +1,31 @@
 import React from "react";
-import logo from "../public/logo-bottom.svg";
+import logo from "../public/Logo_NegroVerde.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { GoLinkExternal } from "react-icons/go";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-row justify-between pl-5 pr-8 py-4 w-full bottom-0 items-center border-t bg-primary-dark text-fourth-green border-t-fourth-green">
+    <footer className="flex flex-row justify-between pl-5 pr-8 py-1 w-full bottom-0 items-center bg-primary-dark text-fourth-green ">
       <Link href="/">
-        <Image alt="Newtro Logo" width={140} height={53} src={logo} />
+        <Image alt="Newtro Logo" width={49} height={49} src={logo} />
       </Link>
-      <div className='hidden lg:flex flex-col items-end justify-end'>
+      <div className='hidden lg:flex flex-col lg:flex-row items-center justify-end gap-4'>
         <Link href="https://x.com/NewtroArts" target='_blank' className='flex items-center mb-1'>
           <GoLinkExternal size={18}/>
-          <p className='ml-1 text-lg'>X</p>
+          <p className='ml-1'>X</p>
         </Link>
         <Link href="https://www.instagram.com/newtroarts/" target='_blank' className='flex items-center mb-1'>
           <GoLinkExternal size={18}/>
-          <p className='ml-1 text-lg'>INSTAGRAM</p>
+          <p className='ml-1'>Instagram</p>
         </Link>
         <Link href="https://www.youtube.com/channel/UCnr-Jd3qkb0N_e0Dvzhig7Q" target='_blank' className='flex items-center mb-1'>
           <GoLinkExternal size={18}/>
-          <p className='ml-1 text-lg'>YOUTUBE</p>
+          <p className='ml-1'>Youtube</p>
         </Link>
         <Link href="https://warpcast.com/newtroarts" target='_blank' className='flex items-center'>
           <GoLinkExternal size={18}/>
-          <p className='ml-1 text-lg'>WARPCAST</p>
+          <p className='ml-1'>Warpcast</p>
         </Link>
       </div>
     </footer>
