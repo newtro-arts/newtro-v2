@@ -32,7 +32,7 @@ module.exports = {
           "linear-gradient(90deg, rgba(234, 234, 234, 0.8) 0%, rgba(255, 255, 255, 0.2) 100%)",
       },
       padding: {
-        buttons: "4px 12px",
+        buttons: "5px 10px",
       },
     },
   },
