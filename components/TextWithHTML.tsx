@@ -5,7 +5,7 @@ interface TextWithHTMLProps {
 }
 
 const TextWithHTML: React.FC<TextWithHTMLProps> = ({ description }) => (
-  <div className='mb-4 text-sm' dangerouslySetInnerHTML={{ __html: description }} />
+  <div className='mb-4 text-base' dangerouslySetInnerHTML={{ __html: description }} />
 );
 
 export default TextWithHTML;
