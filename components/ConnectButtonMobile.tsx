@@ -56,7 +56,7 @@ export default function ConnectButtonMobile() {
                 );
               }
               return (
-                <div className="flex items-center gap-2 px-4 py-2 lg:px-0 border-gradient-buttons">
+                <div className="flex items-center gap-2 py-2 lg:px-0 border-gradient-buttons justify-between">
                   <button
                     onClick={openChainModal}
                     style={{
