@@ -1,5 +1,6 @@
 import { Address } from "viem";
 import fetchIpfsUri from "./ipfs/fetchIpfsUri";
+import getFormattedNewtroToken from "./getFormattedNewtroToken";
 
 const getSelectedDrop = async (collectionAddress: Address, tokenId: number) => {
   try {
@@ -12,23 +13,11 @@ const getSelectedDrop = async (collectionAddress: Address, tokenId: number) => {
     const data = await response.json();
     const { tokenURI } = data.data.token;
     const metadata = await fetchIpfsUri(tokenURI);
-    const selectedDrop = {
-      address: data.data.token.contract.address,
-      description: metadata.description,
-      name: metadata.name,
-      tokenId: data.data.token.tokenId,
-      minter: data.data.token.salesConfig.address,
-      webAssets: {
-        originalAsset: {
-          mime: metadata.content.mime || "",
-          originalAsset: metadata.content.uri,
-        },
-        previewAsset: {
-          mime: "image/png",
-          previewImage: metadata.image,
-        },
-      },
-    };
+    const selectedDrop = getFormattedNewtroToken(
+      data.data.token.contract,
+      metadata,
+      data.data.token
+    );
     return selectedDrop;
   } catch (error) {
     console.error("Error fetching selected drop:", error);
