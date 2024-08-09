@@ -9,7 +9,6 @@ import { Address } from "viem";
 const useCollectionPage = () => {
   const { query } = useRouter();
   const { contractAddress } = query;
-  console.log("SWEETS contractAddress", contractAddress);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [tokens, setTokens] = useState<any[]>([]);
@@ -21,15 +20,12 @@ const useCollectionPage = () => {
         (contractAddress as string).split(":")[1] as Address
       );
       if (!response) return;
-      console.log("SWEETS response", response);
       setName(response.contract.name);
       setDescription(response.contract.description);
       const formattedTokens = response.tokens.map((token) =>
         getFormattedNewtroToken(response.contract, token.metadata, token.token)
       );
-      console.log("SWEETS formattedTokens", formattedTokens);
       setTokens(formattedTokens);
-      console.log("SWEETS response", response);
     };
 
     if (!contractAddress) return;

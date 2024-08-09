@@ -1,3 +1,4 @@
+import { Address } from "viem";
 import getIpfsLink from "./ipfs/getIpfsLink";
 
 const fetchCollectionWithMetadata = async (collectionAddress: Address) => {
@@ -9,15 +10,12 @@ const fetchCollectionWithMetadata = async (collectionAddress: Address) => {
       throw new Error("Failed to fetch collections");
     }
     const data = await response.json();
-    console.log("SWEETS DATA", data);
     const tokensWithMetadata = await Promise.all(
       data.data.tokens.map(async (token: any) => {
         try {
-          console.log("SWEETS token", token);
           const metadataResponse = await fetch(
             getIpfsLink(token.token.tokenURI)
           );
-          console.log("SWEETS metadataResponse", metadataResponse);
           if (!metadataResponse.ok) {
             throw new Error("Failed to fetch metadata");
           }
