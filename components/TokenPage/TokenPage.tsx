@@ -33,7 +33,7 @@ const TokenPage = ({ selectedDrop }: any) => {
         </Head>
         <Header />
 
-        <div className="flex w-full md:w-[50%]">
+        <div className="flex w-full md:min-w-[50%]">
           <div className="flex flex-col mr-4">
             <h1 className="font-semibold text-xl md:text-3xl uppercase pragmatica-text my-4">
               {selectedDrop?.name}
