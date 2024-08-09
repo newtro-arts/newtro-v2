@@ -24,7 +24,6 @@ const DropContent: React.FC<WebAsset> = ({
     mime === "";
   const isIframe = mime === "application/zip";
   const isDefaultContent = !isVideo && !isIframe;
-
   return (
     <div className="w-full h-full">
       {isVideo && (
