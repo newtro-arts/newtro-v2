@@ -6,7 +6,7 @@ import CommunitySlider from "./CommunitySlider";
 const Community = () => {
   return (
     <div className="max-w-full">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 border-b border-b-fourth-green">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div className="flex">
           <div className="flex flex-col px-8">
           <h5 className="text-xl lg:text-2xl py-6">Community</h5>

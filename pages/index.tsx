@@ -27,7 +27,8 @@ const Home: NextPage = () => {
       </Link>
       <AboutHome/>
       <FeaturedMints/>
-      <Membership/>
+{/*       <Membership/>
+ */}      
       <Community/>
       <Sponsors/>
     </div>

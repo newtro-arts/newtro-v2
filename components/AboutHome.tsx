@@ -3,7 +3,7 @@ import React from "react";
 
 const AboutHome = () => {
   return (
-    <p className="px-8 text-2xl lg:text-3xl pt-0 pb-4 lg:pt-4 lg:pb-8 border-b border-b-fourth-green cursor-default">
+    <p className="px-8 text-2xl lg:text-3xl pt-0 pb-4 lg:pt-4 lg:pb-8  cursor-default">
       Newtro Arts aims to promote, educate and introduce latin american artists
       and cultural agents to blockchain technology.
       <Link
