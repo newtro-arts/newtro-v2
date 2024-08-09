@@ -1,4 +1,3 @@
-import fetchCollaborativeCollection from "@/lib/fetchCollection";
 import fetchTokensWithMetadata from "@/lib/fetchCollectionWithMetadata";
 import getFormattedNewtroToken from "@/lib/getFormattedNewtroToken";
 import getLegacyCollectionPageInfo from "@/lib/getLegacyCollectionPageInfo";
