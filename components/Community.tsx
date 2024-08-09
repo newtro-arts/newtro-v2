@@ -9,7 +9,7 @@ const Community = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div className="flex">
           <div className="flex flex-col px-8">
-          <h5 className="text-xl lg:text-2xl py-6">Community</h5>
+          <h5 className="text-xl lg:text-2xl py-6 pragmatica-text uppercase">Community</h5>
             <p className="text-sm lg:text-base">
             The Newtro Arts collective is composed of people who participated in our Art and W3B Workshop. Today, we are more than 200 on-chain artists from Argentina and LATAM. Throughout the years, we have organized various joint encounters, streams, collective drops, IRL exhibitions, virtual galleries, trips, training sessions, and testing of new applications, among other activities.
             <br></br><br></br>
@@ -26,7 +26,7 @@ const Community = () => {
         </div>
         <VideoComponent />
       </div>
-      <h5 className="w-full text-left text-xl lg:text-2xl px-8 mt-8 mb-4">
+      <h5 className="w-full pragmatica-text uppercase text-left text-xl lg:text-2xl px-8 mt-8 mb-4">
         Artists Are Saying
       </h5>
       <CommunitySlider />

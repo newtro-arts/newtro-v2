@@ -5,7 +5,7 @@ import React from 'react'
 const Sponsors = () => {
   return (
     <div className='w-full bg-fifth-purple flex flex-col lg:flex-row items-center justify-between py-5 px-8'>
-        <h3 className='text-xl lg:text-2xl'>Newtro's supporters:</h3>
+        <h3 className='text-xl lg:text-2xl pragmatica-text uppercase'>Newtro's supporters</h3>
         <div className='flex items-center pt-8 lg:pt-0'>
         <Link href="https://zora.co/" target='_blank'>
               <Image src="/zora.svg" width={150} height={72} alt='Zora'  className='pr-8 pb-4 lg:pb-0'/>
