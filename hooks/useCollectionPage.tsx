@@ -15,7 +15,7 @@ const useCollectionPage = () => {
   const isCollaborative = contractAddress?.includes("0x");
 
   useEffect(() => {
-    const init = async () => {
+    const initCollaborative = async () => {
       const response = await fetchTokensWithMetadata(
         (contractAddress as string).split(":")[1] as Address
       );
@@ -30,7 +30,7 @@ const useCollectionPage = () => {
 
     if (!contractAddress) return;
     if (isCollaborative) {
-      init();
+      initCollaborative();
       return;
     }
     const {
