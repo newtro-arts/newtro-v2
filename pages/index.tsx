@@ -20,17 +20,20 @@ const Home: NextPage = () => {
         <title>Newtro Arts</title>
       </Head>
       <Header />
-      <MediaHero/>
+      <MediaHero />
       {/* TODO: CTA??? */}
       <Link href="https://linktr.ee/newtroarts" target="_blank">
-        <Marquee className="marquee max-w-full my-4 border-y-[1px]">ANOTATE AL TALLER ARTE Y W3B • ANOTATE AL TALLER ARTE Y W3B • ANOTATE AL TALLER ARTE Y W3B • </Marquee>
+        <Marquee className="marquee max-w-full my-4 border-y-[1px]">
+          ANOTATE AL TALLER ARTE Y W3B • ANOTATE AL TALLER ARTE Y W3B • ANOTATE
+          AL TALLER ARTE Y W3B •{" "}
+        </Marquee>
       </Link>
-      <AboutHome/>
-      <FeaturedMints/>
-{/*       <Membership/>
- */}      
-      <Community/>
-      <Sponsors/>
+      <AboutHome />
+      <FeaturedMints />
+      {/*       <Membership/>
+       */}
+      <Community />
+      <Sponsors />
     </div>
   );
 };

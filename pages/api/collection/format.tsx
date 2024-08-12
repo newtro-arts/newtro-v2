@@ -13,7 +13,7 @@ export const format = (obj: any): any => {
 
   if (typeof obj === "object") {
     return Object.fromEntries(
-      Object.entries(obj).map(([k, v]) => [k, format(v)])
+      Object.entries(obj).map(([k, v]) => [k, format(v)]),
     );
   }
 

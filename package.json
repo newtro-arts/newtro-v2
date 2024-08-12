@@ -8,6 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write --list-different .",
     "clean": "rm .next -r && next dev"
   },
   "dependencies": {
@@ -20,6 +22,7 @@
     "@zoralabs/protocol-sdk": "^0.7.4",
     "graphql": "^16.8.1",
     "next": "^13.4.19",
+    "prettier": "^3.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.4",
@@ -38,6 +41,7 @@
     "autoprefixer": "^10.4.15",
     "eslint": "^8.15.0",
     "eslint-config-next": "^13.4.19",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.34.1",
     "postcss": "^8.4.29",
     "tailwind-scrollbar": "^3.0.5",

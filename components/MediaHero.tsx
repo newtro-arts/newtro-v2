@@ -19,17 +19,16 @@ const MediaHero = () => {
                 Artist Residency
               </h5>
               <div className="flex items-end">
-  <h5 className="text-xl md:text-4xl xl:text-8xl leading-none media-hero text-white">
-    BOSQUEGRACIAS
-  </h5>
-  <Link
-    href="/log"
-    className="ml-2 mb-2 lg:mb-4 ibm-text text-xs h-fit leading-none md:text-md xl:text-lg cursor-pointer rounded-tl-[15px] rounded-br-[15px] bg-fourth-green text-primary-dark hover:border hover:border-fourth-green hover:bg-primary-dark hover:text-fourth-green p-buttons flex items-center"
-  >
-    Enter
-  </Link>
-</div>
-
+                <h5 className="text-xl md:text-4xl xl:text-8xl leading-none media-hero text-white">
+                  BOSQUEGRACIAS
+                </h5>
+                <Link
+                  href="/log"
+                  className="ml-2 mb-2 lg:mb-4 ibm-text text-xs h-fit leading-none md:text-md xl:text-lg cursor-pointer rounded-tl-[15px] rounded-br-[15px] bg-fourth-green text-primary-dark hover:border hover:border-fourth-green hover:bg-primary-dark hover:text-fourth-green p-buttons flex items-center"
+                >
+                  Enter
+                </Link>
+              </div>
             </div>
           </div>
         </div>

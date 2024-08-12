@@ -1,3 +1,3 @@
-import ApiPage from './ApiPage';
+import ApiPage from "./ApiPage";
 
 export default ApiPage;
