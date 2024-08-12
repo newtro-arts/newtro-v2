@@ -28,7 +28,7 @@ const MintButton: React.FC<MintButtonProps> = ({
     ) : (
       <button
         disabled={isMintLoading || isMintStarted || !isConnected}
-        className="h-full border cursor-pointer p-buttons bg-fourth-green text-primary-dark hover:bg-primary-dark hover:border hover:border-fourth-green hover:text-fourth-green mr-4"
+        className="h-full border cursor-pointer p-2 bg-fourth-green text-primary-dark hover:bg-primary-dark hover:border hover:border-fourth-green hover:text-fourth-green mr-4"
         data-mint-loading={isMintLoading}
         data-mint-started={isMintStarted}
         onClick={() => mint?.()}

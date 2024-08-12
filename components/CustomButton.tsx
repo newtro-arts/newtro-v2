@@ -13,8 +13,6 @@ export default function Button() {
         authenticationStatus,
         mounted,
       }) => {
-        // Note: If your app doesn't use authentication, you
-        // can remove all 'authenticationStatus' checks
         const ready = mounted && authenticationStatus !== "loading";
         const connected =
           ready &&
@@ -36,7 +34,7 @@ export default function Button() {
               if (!connected) {
                 return (
                   <button
-                    className="text-sm border px-4 lg:px-2 py-1 mt-1 lg:text-fourth-green lg:bg-primary-dark lg:hover:bg-fourth-green lg:hover:text-primary-dark"
+                    className="text-sm border p-2 mr-2 lg:text-fourth-green lg:bg-primary-dark lg:hover:bg-fourth-green lg:hover:text-primary-dark"
                     onClick={openConnectModal}
                     type="button"
                   >
