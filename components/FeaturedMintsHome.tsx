@@ -28,7 +28,8 @@ export default function FeaturedMintsHome({
     data?.zoraCreateTokens[0]?.totalSupply.toString() + " Minted" ??
     "No mints yet";
   return (
-    <div
+    <Link
+      href={getTokenLink(contract, token_id)}
       className={`flex h-fit text-left items-start scroll-smooth relative mb-4 bg-secondary-white mr-4 lg:mr-[21.5px] ${id % 2 === 0 ? " rounded-tl-cards rounded-br-cards" : "rounded-cards"}`}
     >
       <div className="flex flex-col justify-center w-full h-full">
@@ -46,15 +47,15 @@ export default function FeaturedMintsHome({
         className={`absolute inset-0 flex opacity-0 cursor-pointer hover:opacity-85 transition duration-700 bg-fifth-purple ${id % 2 === 0 ? " rounded-tl-cards rounded-br-cards" : "rounded-cards"} object-cover`}
       >
         <div className="flex flex-col justify-end w-full p-4">
-          <p className="pragmatica-text text-fourth-green uppercase lg:text-xl max-w-fit">{name}</p>
-          <div className="flex w-full justify-between">
-          <p>Artist</p>
-<p>{totalSupply}</p>
-
+          <p className="pragmatica-text text-fourth-green uppercase lg:text-xl max-w-fit overflow-hidden text-ellipsis whitespace-nowrap">
+            {name}
+          </p>
+          <div className="flex w-full justify-between text-xs">
+            <p>Artist</p>
+            <p>{totalSupply}</p>
           </div>
-
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

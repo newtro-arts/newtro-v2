@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import {
-  MdOutlineKeyboardArrowRight,
-  MdOutlineKeyboardArrowLeft,
-} from "react-icons/md";
+  HiOutlineChevronDoubleRight,
+  HiOutlineChevronDoubleLeft,
+} from "react-icons/hi";
 import { hidden_filter } from "../hidden_filter";
 import { trending_filter } from "../trending_filter";
 import vuelapelucas from "../vuelapelucas";
@@ -39,7 +39,7 @@ const FeaturedMints: React.FC = () => {
 
         setShowLeftArrow(scrollLeft > 0);
         setShowRightArrow(
-          scrollLeft < scrollWidth - clientWidth && isScrollable,
+          scrollLeft < scrollWidth - clientWidth && isScrollable
         );
       }
     };
@@ -123,13 +123,13 @@ const FeaturedMints: React.FC = () => {
         <div>
           <Link
             href="/drops/all"
-            className=" align-middle leading-3 mr-8 text-xs lg:text-lg cursor-pointer rounded-tl-cards rounded-br-cards p-buttons bg-fifth-purple text-fourth-green hover:bg-fourth-green hover:text-primary-dark"
+            className=" align-middle leading-3 mr-8 text-sm lg:text-base cursor-pointer rounded-tl-cards rounded-br-cards p-buttons bg-fifth-purple text-fourth-green hover:bg-fourth-green hover:text-primary-dark"
           >
             Explorer{" "}
           </Link>
         </div>{" "}
       </div>
-      <div className="relative px-8">
+      <div className="flex flex-col px-8">
         <div
           className="flex justify-between overflow-x-auto horizontal-list whitespace-nowrap gap-x-0"
           ref={carouselRef}
@@ -145,22 +145,28 @@ const FeaturedMints: React.FC = () => {
               />
             </div>
           ))}
-          {showLeftArrow && (
+        </div>
+        <div className="hidden lg:flex justify-between w-full text-xs mb-4">
+          <div className="w-1/2 flex justify-start">
             <button
-              className="hidden lg:block absolute top-1/2 left-2 transform -translate-y-1/2 border bg-primary-dark border-fourth-green px-2 py-1 "
               onClick={scrollLeft}
+              className={showLeftArrow ? "visible" : "invisible"}
             >
-              <MdOutlineKeyboardArrowLeft className="active:hover:fill-white" />
+              <p className="text-fourth-green animate-pulse items-center gap-x-2 flex">
+                <HiOutlineChevronDoubleLeft /> Scroll left
+              </p>
             </button>
-          )}
-          {showRightArrow && (
+          </div>
+          <div className="w-1/2 flex justify-end">
             <button
-              className="hidden lg:block absolute top-1/2 right-2 transform -translate-y-1/2 border bg-primary-dark border-fourth-green px-2 py-1 "
               onClick={scrollRight}
+              className={showRightArrow ? "visible" : "invisible"}
             >
-              <MdOutlineKeyboardArrowRight className="active:hover:fill-white" />
+              <p className="text-fourth-green animate-pulse items-center gap-x-2 flex">
+                Scroll right <HiOutlineChevronDoubleRight />
+              </p>
             </button>
-          )}
+          </div>
         </div>
       </div>
       <div className="flex flex-col  px-8 w-full items-center justify-between text-base lg:flex-row py-4 border-y border-fourth-green">
