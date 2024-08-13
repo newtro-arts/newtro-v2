@@ -7,19 +7,24 @@ import setupContractLogsToStack from '@/lib/setupContractLogsToStack';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
-        const logs = await getSetupNewContractLogs()
         // 1. get points
+        const points = await getEvents()
+        console.log("SWEETS points", points)
         // 2. get events
-        const events = await getEvents()
+        const latestIndexedBlock = BigInt(points[0].metadata.blockNumber) + BigInt(1)
+        console.log("SWEETS latestIndexedBlock", latestIndexedBlock)
+
+        const logs = await getSetupNewContractLogs(latestIndexedBlock)
+        console.log("SWEETS logs", logs)
+
         const formattedLogs = formatLogs(logs);
+
         // 3. format logs to points 
-        // 4. save new points from logs
-        console.log("SWEETS formattedLogs", formattedLogs)
         const pointsLogs = setupContractLogsToStack(formattedLogs)
-        console.log("SWEETS POINTS LOGS", pointsLogs)
+        // 4. save new points from logs
         await bulkTrack(pointsLogs)
         // 5. return all logs
-        res.status(200).json({data: formattedLogs, pointsLogs});     
+        res.status(200).json({data: [...points,...pointsLogs ], });     
     } catch (error) {
         console.error(error);
         res.status(500).json({error});

@@ -7,7 +7,11 @@ const getEvents = async () => {
     address: NEWTRO_ARTS_ADDRESS,
   });
 
-  return events;
+  const sortedEvents = events.sort((a: any, b: any) => {
+    return parseInt(b.metadata.blockNumber) - parseInt(a.metadata.blockNumber);
+  });
+
+  return sortedEvents;
 };
 
 export default getEvents;

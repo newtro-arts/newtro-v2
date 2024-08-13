@@ -2,9 +2,7 @@ const API_URL = "https://track.stack.so/event";
 const API_KEY = process.env.STACK_KEY as string;
 
 export async function bulkTrack(events: any[]) {
-  if (!Array.isArray(events) || events.length === 0) {
-    throw new Error("Events array is required and must not be empty.");
-  }
+  if (!Array.isArray(events) || events.length === 0) return;
 
   const headers = new Headers();
   headers.append("Content-Type", "application/json");
