@@ -15,6 +15,7 @@
     "@rainbow-me/rainbowkit": "2",
     "@react-three/drei": "^9.85.2",
     "@react-three/fiber": "^8.14.3",
+    "@stackso/js-core": "^0.4.4",
     "@tanstack/react-query": "^5.51.15",
     "@zoralabs/nft-hooks": "^1.2.1",
     "@zoralabs/protocol-sdk": "^0.7.4",
