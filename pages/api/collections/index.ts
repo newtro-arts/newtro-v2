@@ -7,7 +7,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
         const logs = await getSetupNewContractLogs()
         const events = await getEvents()
-        console.log("SWEETS", events)
         const formattedLogs = formatLogs(logs);
         res.status(200).json({data: formattedLogs});     
     } catch (error) {
