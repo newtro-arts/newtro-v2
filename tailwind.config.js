@@ -33,6 +33,9 @@ module.exports = {
       padding: {
         buttons: "5px 10px",
       },
+      borderRadius: {
+        cards: "15px",
+      },
     },
   },
 };

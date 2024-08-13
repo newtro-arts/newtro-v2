@@ -30,7 +30,7 @@ const AboutAccordion: React.FC<AccordionItem> = ({ title, content }) => {
           </div>
         </div>
         <div
-          className={`transition-max-height duration-500 ease-in-out overflow-hidden ${accordionOpen ? "max-h-[400px]" : "max-h-0"}`}
+          className={`transition-max-height duration-200 ease-in-out overflow-hidden ${accordionOpen ? "max-h-[400px]" : "max-h-0"}`}
           style={{ transition: "max-height 0.5s ease" }}
         >
           <p className="text-lg py-1">{content}</p>

@@ -115,28 +115,29 @@ const FeaturedMints: React.FC = () => {
   }
 
   return (
-    <div className="max-w-full px-8 pb-2  pt-8">
+    <div className="max-w-full pb-2 pt-8">
       <div className="flex justify-between">
-        <h5 className="mb-4 text-xl lg:text-2xl pragmatica-text uppercase">
+        <h5 className="mb-4 text-xl lg:text-2xl pragmatica-text uppercase px-8">
           Featured Mints
         </h5>
         <div>
           <Link
             href="/drops/all"
-            className=" align-middle leading-3 text-xs lg:text-lg cursor-pointer p-buttons border hover:border-fourth-green bg-fourth-green text-primary-dark hover:bg-primary-dark hover:text-fourth-green"
+            className=" align-middle leading-3 mr-8 text-xs lg:text-lg cursor-pointer rounded-tl-cards rounded-br-cards p-buttons bg-fifth-purple text-fourth-green hover:bg-fourth-green hover:text-primary-dark"
           >
-            Explore all{" "}
+            Explorer{" "}
           </Link>
         </div>{" "}
       </div>
-      <div className="relative">
+      <div className="relative px-8">
         <div
-          className="flex justify-between overflow-x-auto horizontal-list whitespace-nowrap"
+          className="flex justify-between overflow-x-auto horizontal-list whitespace-nowrap gap-x-0"
           ref={carouselRef}
         >
           {displayedData.map((mint: any, key: number) => (
             <div key={key}>
               <FeaturedMintsHome
+                id={key}
                 name={mint.name}
                 image={mint.webAssets.previewAsset.previewImage}
                 contract={mint.address}
@@ -162,7 +163,7 @@ const FeaturedMints: React.FC = () => {
           )}
         </div>
       </div>
-      <div className="flex flex-col w-full items-center justify-between text-base lg:flex-row mb-8">
+      <div className="flex flex-col  px-8 w-full items-center justify-between text-base lg:flex-row py-4 border-y border-fourth-green">
         <p className="font-semibold mr-2">FILTER:</p>
         {filterList.map((title, key) => (
           <p

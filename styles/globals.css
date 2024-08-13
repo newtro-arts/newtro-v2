@@ -37,6 +37,7 @@ a {
 .pragmatica-text {
   font-family: "pragmatica-extended", sans-serif;
   font-weight: 300;
+  font-style: normal;
 }
 
 .ibm-text {
@@ -59,7 +60,7 @@ a {
 
 .media-hero {
   font-family: "pragmatica-extended", sans-serif;
-  font-weight: 300;
+  font-weight: normal;
   font-style: normal;
   color: #d1f121;
 }
@@ -122,7 +123,6 @@ a {
 }
 
 .hover-underlined-filter {
-  text-transform: uppercase;
   cursor: pointer;
   margin-right: 0.75rem;
 }
