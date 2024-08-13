@@ -6,8 +6,6 @@ import getIpfsLink from "@/lib/ipfs/getIpfsLink";
 const CollaborativeCollections = () => {
   const { collections } = useCollections();
 
-  console.log("SWEETS COLLECTIONS", collections);
-
   return (
     <div>
       {collections.map((collection: any) => (
