@@ -4,7 +4,7 @@ import {
   NEWTRO_ARTS_ADDRESS,
 } from "@/lib/consts";
 
-const setupContractLogsToStack = (logs: any[]) => {
+const formatSetupNewContractEventsPoints = (logs: any[]) => {
   const trackingEvents = logs.map((log: any) => [
     {
       name: EVENT_SETUP_NEW_CONTRACT,
@@ -25,4 +25,4 @@ const setupContractLogsToStack = (logs: any[]) => {
   return flatTrackingEvents;
 };
 
-export default setupContractLogsToStack;
+export default formatSetupNewContractEventsPoints;

@@ -1,7 +1,7 @@
 import getStackClient from "./getStackClient";
 import { NEWTRO_ARTS_ADDRESS } from "../consts";
 
-const getEvents = async () => {
+const getPoints = async () => {
   const stackClient = getStackClient();
   const events = await stackClient.getEvents({
     address: NEWTRO_ARTS_ADDRESS,
@@ -14,4 +14,4 @@ const getEvents = async () => {
   return sortedEvents;
 };
 
-export default getEvents;
+export default getPoints;
