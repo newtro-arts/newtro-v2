@@ -6,11 +6,11 @@ import Link from "next/link";
 
 const Community = () => {
   return (
-    <div className="max-w-full h-screen">
+    <div className="max-w-full">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:bg-tertiary-purple">
         <div className="flex">
-          <div className="flex flex-col lg:bg-fifth-purple lg:rounded-tl-[150px] lg:rounded-br-[150px] lg:px-24 mx-8 lg:mx-0 my-4 lg:my-0">
-            <h5 className="text-xl text-center lg:text-left lg:text-2xl lg:py-4 pragmatica-text uppercase">
+          <div className="flex flex-col lg:bg-fifth-purple lg:rounded-tl-[150px] lg:rounded-br-[150px] lg:px-24 lg:py-4 mx-8 lg:mx-0 my-4 lg:my-0">
+            <h5 className="text-xl text-center lg:text-left lg:text-2xl lg:pb-4 pragmatica-text uppercase">
               Meet Newtro Arts
             </h5>
             <p className="text-sm lg:text-base">
@@ -42,7 +42,7 @@ const Community = () => {
         </div>
         <VideoComponent />
       </div>
-      <h5 className="w-full pragmatica-text uppercase text-left text-xl lg:text-2xl px-8 mt-8 mb-4">
+      <h5 className="w-full pragmatica-text uppercase text-center lg:text-left text-xl lg:text-2xl px-8 mt-8 mb-4">
         Artists Are Saying
       </h5>
       <CommunitySlider />

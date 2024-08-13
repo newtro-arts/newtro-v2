@@ -169,7 +169,7 @@ const FeaturedMints: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col  px-8 w-full items-center justify-between text-base lg:flex-row py-4 border-y border-fourth-green">
+      <div className="flex px-8 max-w-full overflow-x-auto horizontal-list items-center justify-between text-base py-4 border-y border-fourth-green">
         <p className="font-semibold mr-2">FILTER:</p>
         {filterList.map((title, key) => (
           <p

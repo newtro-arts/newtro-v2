@@ -39,7 +39,7 @@ const QuoteItem = ({
 
 export const QuoteGrid = ({ quotes }: { quotes: QuoteItemProps[] }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0  mb-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
       {quotes.map((quote, index) => (
         <div key={index} className="w-full h-[300px] sm:h-[300px] lg:h-[350px]">
           <QuoteItem {...quote} />
