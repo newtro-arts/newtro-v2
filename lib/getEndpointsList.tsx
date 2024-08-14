@@ -1,4 +1,5 @@
 export const endpoints = [
+  { apiType: "GET", route: "/api/creators" },
   { apiType: "GET", route: "/api/collections" },
   {
     apiType: "GET",
