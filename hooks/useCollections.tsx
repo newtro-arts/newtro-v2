@@ -8,7 +8,7 @@ const useCollections = () => {
     const fetchCollections = async () => {
       const collectionsWithMetadata = await fetchCollectionsWithMetadata();
       if (!collectionsWithMetadata) return;
-      setCollections(collectionsWithMetadata.reverse());
+      setCollections(collectionsWithMetadata);
     };
 
     fetchCollections();
