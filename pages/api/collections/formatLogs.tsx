@@ -1,5 +1,5 @@
 export const formatLogs = (logs: any[]) =>
-  logs.map((log) => ({
+  logs?.map?.((log) => ({
     ...log,
     blockNumber: log.blockNumber.toString(),
     transactionIndex: log.transactionIndex.toString(),
