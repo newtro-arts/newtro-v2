@@ -10,11 +10,11 @@ const CollaborativeCollections = () => {
     <div>
       {collections.map((collection: any) => (
         <PastDropItem
-          link={`/collect/zora:${collection.args.newContract}`}
-          title={collection.args.name}
-          image={getIpfsLink(collection.metadata.image)}
-          key={collection.args.newContract}
-          description={collection.metadata.description}
+          link={`/collect/zora:${collection.metadata.newContract}`}
+          title={collection.metadata.name}
+          image={getIpfsLink(collection.contractMetadata.image)}
+          key={collection.metadata.newContract}
+          description={collection.contractMetadata.description}
         />
       ))}
     </div>
