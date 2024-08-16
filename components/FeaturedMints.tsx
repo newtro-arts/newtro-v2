@@ -1,18 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
-import {
-  MdOutlineKeyboardArrowRight,
-  MdOutlineKeyboardArrowLeft,
-} from "react-icons/md";
-import { hidden_filter } from "../hidden_filter";
-import vuelapelucas from "../vuelapelucas";
-import { drop3Mirrorscape } from "../drop3-mirrorscape";
-import { drop2HashedThreads } from "../drop2-hashed-threads";
-import { drop1MyceliumMiscellany } from "../mycelium-miscellany";
-import FeaturedMintsHome from "./FeaturedMintsHome";
-import nextwave from "../nextwave";
-import { allDrops } from "../allDrops";
-import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
+import Link from "next/link";
+import React, { useEffect, useRef, useState } from "react";
+import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
+import FeaturedMintsHome from "./FeaturedMintsHome";
 
 const filterList = [
   "All",
