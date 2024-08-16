@@ -1,17 +1,9 @@
-import React, { useState } from "react";
-import FilterItem from "../Commons/FilterItem";
-import Carousel from "../Commons/Carousel";
-import { hidden_filter } from "../../sources/hidden_filter";
-import { trending_filter } from "../../sources/trending_filter";
-import vuelapelucas from "../../sources/vuelapelucas";
-import { drop3Mirrorscape } from "../../sources/drop3-mirrorscape";
-import { drop2HashedThreads } from "../../sources/drop2-hashed-threads";
-import { drop1MyceliumMiscellany } from "../../sources/mycelium-miscellany";
-import FeaturedMintsHome from "../FeaturedMintsHome";
-import nextwave from "../../sources/nextwave";
-import { allDrops } from "../../sources/allDrops";
-import Link from "next/link";
-import Button from "../Commons/Button";
+import React from 'react';
+import FilterItem from '../Commons/FilterItem';
+import Carousel from '../Commons/Carousel';
+import FeaturedMintsHome from '../FeaturedMintsHome';
+import Button from '../Commons/Button';
+import useFilterData from '../../hooks/useFilterData';
 
 const filterList = [
   "All",
@@ -25,34 +17,8 @@ const filterList = [
 ];
 
 const FeaturedMintsSection: React.FC = () => {
-  const [selectedFilter, setSelectedFilter] = useState<string>("all");
-
-  let displayedData = [];
-  switch (selectedFilter) {
-    case "hidden gems":
-      displayedData = hidden_filter;
-      break;
-    case "trending":
-      displayedData = trending_filter;
-      break;
-    case "vuelapelucas":
-      displayedData = vuelapelucas;
-      break;
-    case "bridge n3xtwave x newtro":
-      displayedData = nextwave;
-      break;
-    case "mirrorscape":
-      displayedData = drop3Mirrorscape;
-      break;
-    case "hashed threads":
-      displayedData = drop2HashedThreads;
-      break;
-    case "mycelium miscellany":
-      displayedData = drop1MyceliumMiscellany;
-      break;
-    default:
-      displayedData = allDrops;
-  }
+  const { selectedFilter, setSelectedFilter, filterData } = useFilterData();
+  const displayedData = filterData();
 
   return (
     <div className="max-w-full pb-2 pt-8">
@@ -61,11 +27,7 @@ const FeaturedMintsSection: React.FC = () => {
           Featured Mints
         </h5>
         <div className="hidden lg:block">
-          <Button
-            href="/drops/all"
-            className="mr-8 text-sm lg:text-base"
-            isLink
-          >
+          <Button href="/drops/all" variant="primary" className="mr-8 text-sm lg:text-base">
             Explorer
           </Button>
         </div>
@@ -83,9 +45,9 @@ const FeaturedMintsSection: React.FC = () => {
           </div>
         ))}
       </Carousel>
-      <div className="flex px-8 max-w-full overflow-x-auto horizontal-list items-center justify-between text-base py-4 border-y border-fourth-green">
+      <div className="flex px-8 max-w-full overflow-x-auto horizontal-list items-center gap-x-2 justify-start text-base py-4 border-y border-fourth-green">
         <p className="font-semibold mr-2">FILTER:</p>
-        <div className="flex overflow-x-auto space-x-4">
+        <div className="flex overflow-x-auto">
           {filterList.map((title, key) => (
             <FilterItem
               key={key}
@@ -97,11 +59,7 @@ const FeaturedMintsSection: React.FC = () => {
         </div>
       </div>
       <div className="flex lg:hidden w-full px-8">
-        <Button
-          href="/drops/all"
-          className="text-center mx-2 my-4 p-3 border border-fourth-green text-sm w-full"
-          isLink
-        >
+        <Button href="/drops/all" variant="secondary" className="text-center mx-2 my-4 p-3 w-full">
           Explorer
         </Button>
       </div>

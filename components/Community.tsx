@@ -33,7 +33,6 @@ const Community = () => {
             <Button
               href="/about"
               variant="secondary"
-              isLink
               className="w-fit self-center lg:self-start mr-4 lg:mt-2 lg:mb-20"
             >
               More

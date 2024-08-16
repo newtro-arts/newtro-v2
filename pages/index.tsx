@@ -9,7 +9,6 @@ import AboutHome from "../components/AboutHome";
 import MediaHero from "../components/MediaHero";
 import Community from "../components/Community";
 import Link from "next/link";
-import FeaturedMints from "../components/FeaturedMints";
 import Sponsors from "../components/Sponsors";
 import Membership from "../components/Membership";
 import FeaturedMintsSection from "@/components/Sections/FeaturedMintsSection";
@@ -22,7 +21,6 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <MediaHero />
-      {/* TODO: CTA??? */}
       <Link href="https://linktr.ee/newtroarts" target="_blank">
         <Marquee className="marquee max-w-full my-4 border-y-[1px]">
           ANOTATE AL TALLER ARTE Y W3B • ANOTATE AL TALLER ARTE Y W3B • ANOTATE
