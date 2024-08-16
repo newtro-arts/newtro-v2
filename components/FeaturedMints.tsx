@@ -4,7 +4,6 @@ import {
   MdOutlineKeyboardArrowLeft,
 } from "react-icons/md";
 import { hidden_filter } from "../hidden_filter";
-import { trending_filter } from "../trending_filter";
 import vuelapelucas from "../vuelapelucas";
 import { drop3Mirrorscape } from "../drop3-mirrorscape";
 import { drop2HashedThreads } from "../drop2-hashed-threads";
@@ -13,6 +12,7 @@ import FeaturedMintsHome from "./FeaturedMintsHome";
 import nextwave from "../nextwave";
 import { allDrops } from "../allDrops";
 import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
 
 const filterList = [
   "All",
@@ -30,6 +30,11 @@ const FeaturedMints: React.FC = () => {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
+
+  const { data: popularTokens, isPending } = useQuery<{ tokens: any[] }>({
+    queryKey: ['popularTokens'],
+    queryFn: () => fetch('/api/tokens').then(res => res.json())
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,7 +98,7 @@ const FeaturedMints: React.FC = () => {
       displayedData = hidden_filter;
       break;
     case "trending":
-      displayedData = trending_filter;
+      displayedData = isPending || !popularTokens ? [] : popularTokens.tokens;
       break;
     case "vuelapelucas":
       displayedData = vuelapelucas;
@@ -166,11 +171,10 @@ const FeaturedMints: React.FC = () => {
           <p
             key={key}
             onClick={() => setSelectedFilter(title.toLowerCase())}
-            className={`cursor-pointer hover-underline-animation hover-underlined-filter ${
-              selectedFilter.toLowerCase() === title.toLowerCase()
-                ? "font-bold"
-                : ""
-            }`}
+            className={`cursor-pointer hover-underline-animation hover-underlined-filter ${selectedFilter.toLowerCase() === title.toLowerCase()
+              ? "font-bold"
+              : ""
+              }`}
           >
             {title}
           </p>

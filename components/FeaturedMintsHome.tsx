@@ -4,6 +4,7 @@ import useGetContractInfo from "./gql/getContractInfo";
 import Link from "next/link";
 import getTokenLink from "@/lib/getTokenLink";
 import { Address } from "viem";
+import getValidImage from "@/lib/getValidImage";
 
 export interface Drop {
   name: string;
@@ -32,7 +33,7 @@ export default function FeaturedMintsHome({
       <div className="flex flex-col justify-center w-full h-full">
         <Image
           className="transition-opacity opacity-0 duration-[2s] max-w-[299px] md:max-w-[350px] mb-0 aspect-square object-cover"
-          src={`https://storage.newtro.xyz/${image}`}
+          src={getValidImage(image)}
           width={600}
           height={400}
           alt="Preview"
