@@ -17,10 +17,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const allTokens = formatCollectionTokens(collectionTokens);
     const count = allTokens.length;
 
-    const { limit, offset } = arrayPagination(req.query);
-    const tokens = allTokens.splice(offset, limit);
-
-    res.status(200).json({ count, tokens });
+    res.status(200).json({ count, tokens: allTokens });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error });
