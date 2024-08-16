@@ -16,13 +16,13 @@ const useCollectionPage = () => {
   useEffect(() => {
     const initCollaborative = async () => {
       const response = await fetchTokensWithMetadata(
-        (contractAddress as string).split(":")[1] as Address
+        (contractAddress as string).split(":")[1] as Address,
       );
       if (!response) return;
       setName(response.contract.name);
       setDescription(response.contract.description);
       const formattedTokens = response.tokens.map((token) =>
-        getFormattedNewtroToken(response.contract, token.metadata, token.token)
+        getFormattedNewtroToken(response.contract, token.metadata, token.token),
       );
       setTokens(formattedTokens);
     };

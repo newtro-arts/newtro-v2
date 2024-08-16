@@ -39,7 +39,7 @@ const FeaturedMints: React.FC = () => {
 
         setShowLeftArrow(scrollLeft > 0);
         setShowRightArrow(
-          scrollLeft < scrollWidth - clientWidth && isScrollable
+          scrollLeft < scrollWidth - clientWidth && isScrollable,
         );
       }
     };
@@ -117,7 +117,9 @@ const FeaturedMints: React.FC = () => {
   return (
     <div className="max-w-full px-8 pb-2  pt-8">
       <div className="flex justify-between">
-        <h5 className="mb-4 text-xl lg:text-2xl pragmatica-text uppercase">Featured Mints</h5>
+        <h5 className="mb-4 text-xl lg:text-2xl pragmatica-text uppercase">
+          Featured Mints
+        </h5>
         <div>
           <Link
             href="/drops/all"

@@ -14,23 +14,25 @@ const QuoteItem = ({
   artistPfp,
   quote,
   bg,
-  textColor
+  textColor,
 }: QuoteItemProps) => {
   return (
-    <div className={`h-full flex flex-col justify-between p-4 lg:p-8  ${bg} ${textColor}`}>
-        <p className="text-sm">"{quote}"</p>
-        <div className="text-xs flex items-end">
-          <Image
-            src={artistPfp}
-            width={36}
-            height={36}
-            alt={artistName}
-            className="mr-2 object-cover"
-          />
-          <div>
-            <p className="font-bold">{artistName}</p>
-          </div>
+    <div
+      className={`h-full flex flex-col justify-between p-4 lg:p-8  ${bg} ${textColor}`}
+    >
+      <p className="text-sm">"{quote}"</p>
+      <div className="text-xs flex items-end">
+        <Image
+          src={artistPfp}
+          width={36}
+          height={36}
+          alt={artistName}
+          className="mr-2 object-cover"
+        />
+        <div>
+          <p className="font-bold">{artistName}</p>
         </div>
+      </div>
     </div>
   );
 };

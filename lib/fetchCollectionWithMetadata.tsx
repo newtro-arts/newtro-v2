@@ -4,7 +4,7 @@ import getIpfsLink from "./ipfs/getIpfsLink";
 const fetchCollectionWithMetadata = async (collectionAddress: Address) => {
   try {
     const response = await fetch(
-      `/api/collection?collectionAddress=${collectionAddress}`
+      `/api/collection?collectionAddress=${collectionAddress}`,
     );
     if (!response.ok) {
       throw new Error("Failed to fetch collections");
@@ -14,7 +14,7 @@ const fetchCollectionWithMetadata = async (collectionAddress: Address) => {
       data.data.tokens.map(async (token: any) => {
         try {
           const metadataResponse = await fetch(
-            getIpfsLink(token.token.tokenURI)
+            getIpfsLink(token.token.tokenURI),
           );
           if (!metadataResponse.ok) {
             throw new Error("Failed to fetch metadata");
@@ -25,7 +25,7 @@ const fetchCollectionWithMetadata = async (collectionAddress: Address) => {
           console.error("Error fetching metadata:", metadataError);
           return { ...token, metadata: null };
         }
-      })
+      }),
     );
 
     return { tokens: tokensWithMetadata, contract: data.data.contract };

@@ -9,7 +9,7 @@ const useToken = (address: Address, tokenId: number) => {
     const init = async () => {
       const newSelectedDrop = await getSelectedDrop(
         address as Address,
-        tokenId
+        tokenId,
       );
       setSelectedDrop(newSelectedDrop);
     };

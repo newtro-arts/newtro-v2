@@ -11,7 +11,7 @@ const Token = () => {
   const { address } = getAddressParts(contractAddress as string);
   const { selectedDrop } = useToken(
     address as Address,
-    parseInt(tokenId as string, 10)
+    parseInt(tokenId as string, 10),
   );
   return <div>{selectedDrop && <TokenPage selectedDrop={selectedDrop} />}</div>;
 };

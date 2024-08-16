@@ -40,12 +40,7 @@ const VideoComponent: React.FC = () => {
           style={{ backdropFilter: "blur(10px)" }}
         >
           <div className="relative shadow-lg max-w-3xl w-full">
-            <video
-              ref={videoRef}
-              controls
-              autoPlay
-              className="w-full h-auto"
-            >
+            <video ref={videoRef} controls autoPlay className="w-full h-auto">
               <source src="https://pub-45a4182a1c2b41f3a18151a5e2a4ce29.r2.dev/community%2FNEWTRO%20RECAP%20c%20musica.mp4 " />
               Your browser does not support the video tag.
             </video>
