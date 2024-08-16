@@ -30,13 +30,13 @@ export default function FeaturedMintsHome({
   return (
     <Link
       href={getTokenLink(contract, token_id)}
-      className={`flex h-fit text-left items-start scroll-smooth relative mb-4 bg-secondary-white mr-4 lg:mr-[21.5px] ${id % 2 === 0 ? " rounded-tl-cards rounded-br-cards" : "rounded-cards"}`}
+      className={`flex h-fit mx-8 text-left items-start scroll-smooth gap-x-0 relative mb-4 bg-secondary-white mr-4 ${id % 2 === 0 ? " rounded-tl-cards rounded-br-cards" : "rounded-cards"}`}
     >
       <div className="flex flex-col justify-center w-full h-full">
         <Image
-          className={`transition-opacity opacity-0 duration-[2s] max-w-[355px] md:max-w-[450px] mb-0 aspect-square ${id % 2 === 0 ? " rounded-tl-cards rounded-br-cards" : "rounded-cards"} object-cover`}
+          className={`transition-opacity opacity-0 duration-[2s] max-w-[350px] lg:max-w-[600px] mb-0 aspect-square ${id % 2 === 0 ? " rounded-tl-cards rounded-br-cards" : "rounded-cards"} object-cover`}
           src={`https://storage.newtro.xyz/${image}`}
-          width={450}
+          width={460}
           height={400}
           alt="Preview"
           loading="lazy"

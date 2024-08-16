@@ -1,7 +1,7 @@
-import bridgeTokens from "@/nextwave";
-import { drop3Mirrorscape as mirrorscapeTokens } from "@/drop3-mirrorscape";
-import { drop2HashedThreads as hashedThreadsTokens } from "@/drop2-hashed-threads";
-import { drop1MyceliumMiscellany as myceliumTokens } from "@/mycelium-miscellany";
+import bridgeTokens from "@/sources/nextwave";
+import { drop3Mirrorscape as mirrorscapeTokens } from "@/sources/drop3-mirrorscape";
+import { drop2HashedThreads as hashedThreadsTokens } from "@/sources/drop2-hashed-threads";
+import { drop1MyceliumMiscellany as myceliumTokens } from "@/sources/mycelium-miscellany";
 
 const getLegacyCollectionPageInfo = (collectionName: string) => {
   const bridgeInfo = {

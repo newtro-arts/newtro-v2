@@ -12,6 +12,7 @@ import Link from "next/link";
 import FeaturedMints from "../components/FeaturedMints";
 import Sponsors from "../components/Sponsors";
 import Membership from "../components/Membership";
+import FeaturedMintsSection from "@/components/Sections/FeaturedMintsSection";
 
 const Home: NextPage = () => {
   return (
@@ -29,7 +30,7 @@ const Home: NextPage = () => {
         </Marquee>
       </Link>
       <AboutHome />
-      <FeaturedMints />
+      <FeaturedMintsSection />
       {/*       <Membership/>
        */}
       <Community />

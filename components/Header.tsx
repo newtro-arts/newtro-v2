@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import CustomButton from "./CustomButton";
-import ConnectButtonMobile from "./ConnectButtonMobile";
+import CustomButton from "./Commons/CustomButton";
+import ConnectButtonMobile from "./Commons/ConnectButtonMobile";
 import logo from "../public/logo-nav-black.svg";
 import logoGreen from "../public/logo-nav.svg";
 

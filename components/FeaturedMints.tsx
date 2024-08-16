@@ -3,15 +3,15 @@ import {
   HiOutlineChevronDoubleRight,
   HiOutlineChevronDoubleLeft,
 } from "react-icons/hi";
-import { hidden_filter } from "../hidden_filter";
-import { trending_filter } from "../trending_filter";
-import vuelapelucas from "../vuelapelucas";
-import { drop3Mirrorscape } from "../drop3-mirrorscape";
-import { drop2HashedThreads } from "../drop2-hashed-threads";
-import { drop1MyceliumMiscellany } from "../mycelium-miscellany";
+import { hidden_filter } from "../sources/hidden_filter";
+import { trending_filter } from "../sources/trending_filter";
+import vuelapelucas from "../sources/vuelapelucas";
+import { drop3Mirrorscape } from "../sources/drop3-mirrorscape";
+import { drop2HashedThreads } from "../sources/drop2-hashed-threads";
+import { drop1MyceliumMiscellany } from "../sources/mycelium-miscellany";
 import FeaturedMintsHome from "./FeaturedMintsHome";
-import nextwave from "../nextwave";
-import { allDrops } from "../allDrops";
+import nextwave from "../sources/nextwave";
+import { allDrops } from "../sources/allDrops";
 import Link from "next/link";
 
 const filterList = [
@@ -120,7 +120,7 @@ const FeaturedMints: React.FC = () => {
         <h5 className="mb-4 text-xl lg:text-2xl pragmatica-text uppercase px-8">
           Featured Mints
         </h5>
-        <div>
+        <div className="hidden lg:block">
           <Link
             href="/drops/all"
             className=" align-middle leading-3 mr-8 text-sm lg:text-base cursor-pointer rounded-tl-cards rounded-br-cards p-buttons bg-fifth-purple text-fourth-green hover:bg-fourth-green hover:text-primary-dark"
@@ -171,20 +171,30 @@ const FeaturedMints: React.FC = () => {
       </div>
       <div className="flex px-8 max-w-full overflow-x-auto horizontal-list items-center justify-between text-base py-4 border-y border-fourth-green">
         <p className="font-semibold mr-2">FILTER:</p>
-        {filterList.map((title, key) => (
-          <p
-            key={key}
-            onClick={() => setSelectedFilter(title.toLowerCase())}
-            className={`cursor-pointer hover-underline-animation hover-underlined-filter ${
-              selectedFilter.toLowerCase() === title.toLowerCase()
-                ? "font-bold"
-                : ""
-            }`}
-          >
-            {title}
-          </p>
-        ))}
+        <div className="flex overflow-x-auto space-x-4">
+          {filterList.map((title, key) => (
+            <p
+              key={key}
+              onClick={() => setSelectedFilter(title.toLowerCase())}
+              className={`whitespace-nowrap cursor-pointer hover-underline-animation hover-underlined-filter ${
+                selectedFilter.toLowerCase() === title.toLowerCase()
+                  ? "font-bold"
+                  : ""
+              }`}
+            >
+              {title}
+            </p>
+          ))}
+        </div>
       </div>
+      <div className="flex lg:hidden w-full">
+        <Link
+          href="/drops/all"
+          className=" align-middle leading-3 text-center m-4 p-3 border border-fourth-green text-sm w-full cursor-pointer rounded-tl-cards rounded-br-cards bg-fifth-purple text-fourth-green hover:bg-fourth-green hover:text-primary-dark"
+        >
+          Explorer{" "}
+        </Link>
+      </div>{" "}
     </div>
   );
 };
