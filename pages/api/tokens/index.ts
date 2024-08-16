@@ -1,4 +1,3 @@
-import arrayPagination from '@/lib/arrayPagination';
 import getCollectorClient from '@/lib/zora/getCollectorClient';
 import getSetupNewContractLogs from '@/lib/zora/getSetupNewContractLogs';
 import type { NextApiRequest, NextApiResponse } from 'next';
