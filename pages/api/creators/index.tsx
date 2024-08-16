@@ -1,10 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { NEWTRO_CREATORS } from "./creators";
 import { ZORA_PROFILE_API } from "@/lib/consts";
+import { Address } from "viem";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const fetchPromises = NEWTRO_CREATORS.map((address) =>
+    const NEWTRO_CREATORS = JSON.parse(process.env.NEWTRO_CREATORS || "[]");
+    const fetchPromises = NEWTRO_CREATORS.map((address: Address) =>
       fetch(`${ZORA_PROFILE_API}${address}`).then((response) => response.json())
     );
     const results = await Promise.all(fetchPromises);
