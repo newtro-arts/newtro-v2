@@ -7,12 +7,12 @@ const fetchCollectionsWithMetadata = async () => {
       throw new Error("Failed to fetch collections");
     }
     const data = await response.json();
+    console.log("SWEETS fetchCollectionsWithMetadata data", data);
     const collectionsWithMetadata = await Promise.all(
       data.data.map(async (collection: any) => {
         try {
-          const metadataResponse = await fetch(
-            getIpfsLink(collection.args.contractURI)
-          );
+          const args = collection.metadata || collection.args;
+          const metadataResponse = await fetch(getIpfsLink(args.contractURI));
           if (!metadataResponse.ok) {
             throw new Error("Failed to fetch metadata");
           }
@@ -22,7 +22,7 @@ const fetchCollectionsWithMetadata = async () => {
           console.error("Error fetching metadata:", metadataError);
           return { ...collection, metadata: null };
         }
-      }),
+      })
     );
 
     return collectionsWithMetadata;
