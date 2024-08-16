@@ -31,8 +31,8 @@ const FeaturedMints: React.FC = () => {
   const [showRightArrow, setShowRightArrow] = useState(true);
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
 
-  const { data: popularTokens, isPending } = useQuery<{ tokens: any[] }>({
-    queryKey: ['popularTokens'],
+  const { data: allTokens, isPending } = useQuery<{ tokens: any[] }>({
+    queryKey: ['allTokens'],
     queryFn: () => fetch('/api/tokens').then(res => res.json())
   });
 
@@ -92,32 +92,7 @@ const FeaturedMints: React.FC = () => {
     }
   };
 
-  let displayedData = [];
-  switch (selectedFilter) {
-    case "hidden gems":
-      displayedData = hidden_filter;
-      break;
-    case "trending":
-      displayedData = isPending || !popularTokens ? [] : popularTokens.tokens;
-      break;
-    case "vuelapelucas":
-      displayedData = vuelapelucas;
-      break;
-    case "bridge n3xtwave x newtro":
-      displayedData = nextwave;
-      break;
-    case "mirrorscape":
-      displayedData = drop3Mirrorscape;
-      break;
-    case "hashed threads":
-      displayedData = drop2HashedThreads;
-      break;
-    case "mycelium miscellany":
-      displayedData = drop1MyceliumMiscellany;
-      break;
-    default:
-      displayedData = allDrops;
-  }
+  let displayedData = isPending || !allTokens ? [] : allTokens.tokens;
 
   return (
     <div className="max-w-full px-8 pb-2  pt-8">
@@ -134,16 +109,16 @@ const FeaturedMints: React.FC = () => {
       </div>
       <div className="relative">
         <div
-          className="flex justify-between overflow-x-auto horizontal-list whitespace-nowrap"
+          className="min-h-10 flex justify-between overflow-x-auto horizontal-list whitespace-nowrap"
           ref={carouselRef}
         >
           {displayedData.map((mint: any, key: number) => (
             <div key={key}>
               <FeaturedMintsHome
-                name={mint.name}
-                image={mint.webAssets.previewAsset.previewImage}
-                contract={mint.address}
-                token_id={mint.tokenId}
+                tokenURI={mint.tokenURI}
+                contract={mint.contract.address}
+                tokenId={mint.tokenId}
+                totalSupply={mint.totalMinted}
               />
             </div>
           ))}

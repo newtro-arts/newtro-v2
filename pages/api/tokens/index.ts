@@ -3,7 +3,6 @@ import getCollectorClient from '@/lib/zora/getCollectorClient';
 import getSetupNewContractLogs from '@/lib/zora/getSetupNewContractLogs';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import formatCollectionTokens from './formatCollectionTokens';
-import getTokenMetdata from './getTokenMetadata';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
@@ -19,7 +18,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const count = allTokens.length;
 
     const { limit, offset } = arrayPagination(req.query);
-    const tokens = await getTokenMetdata(allTokens.splice(offset, limit));
+    const tokens = allTokens.splice(offset, limit);
 
     res.status(200).json({ count, tokens });
   } catch (error) {
