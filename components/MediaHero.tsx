@@ -23,7 +23,7 @@ const MediaHero = () => {
                   BOSQUEGRACIAS
                 </h5>
                 <Link
-                  href="/log"
+                  href="/log/articles/bosque-gracias"
                   className="ml-2 mb-2 lg:mb-4 ibm-text text-xs h-fit leading-none md:text-md xl:text-lg cursor-pointer rounded-tl-[15px] rounded-br-[15px] bg-fourth-green text-primary-dark hover:border hover:border-fourth-green hover:bg-primary-dark hover:text-fourth-green p-buttons flex items-center"
                 >
                   Enter
@@ -46,7 +46,7 @@ const MediaHero = () => {
           <h5 className="text-xl lg:text-3xl media-hero text-white">
             BOSQUEGRACIAS
             <Link
-              href="/log"
+              href="/log/articles/bosque-gracias"
               className="ibm-text align-middle leading-3 text-xs md:text-md xl:text-lg cursor-pointer rounded-tl-[15px] rounded-br-[15px] bg-fourth-green text-primary-dark hover:border hover:border-fourth-green hover:bg-primary-dark hover:text-fourth-green p-buttons font-semibold mx-4"
             >
               Enter
