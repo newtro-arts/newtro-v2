@@ -3,16 +3,15 @@ import verifySameDomain from "@/middleware/verifySameDomain";
 import bulkFetchProfile from "@/lib/zora/bulkFetchProfile";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const handleAuthorized = async () => {
+  verifySameDomain(req, res, async () => {
     try {
-      const creators = bulkFetchProfile();
+      const creators = await bulkFetchProfile();
       res.status(200).json({ data: creators });
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: "Failed to fetch data from Zora API" });
     }
-  };
-  verifySameDomain(req, res, handleAuthorized);
+  });
 };
 
 export default handler;
