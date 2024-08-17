@@ -1,17 +1,21 @@
+"use client";
+
 import useCreators from "@/hooks/useCreators";
 import React from "react";
 import Avatar from "./Avatar";
 import ConnectWalletButton from "../CustomButton";
 import { useAccount } from "wagmi";
+import { useIsMounted } from "@/hooks/useIsMounted";
 
 const CreatorsPage = () => {
   const { creators } = useCreators();
-  const { isConnected } = useAccount();
+  const { address } = useAccount();
+  const isMounted = useIsMounted();
 
   return (
     <div className="text-white flex flex-col justify-center items-center min-h-screen">
       <h1>Creators</h1>
-      {isConnected ? (
+      {isMounted && address ? (
         <div className="grid grid-cols-3 gap-4 mt-4">
           {creators.map((creator: any) => (
             <Avatar key={creator.address} creator={creator} />
