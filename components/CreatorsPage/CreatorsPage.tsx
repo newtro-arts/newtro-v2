@@ -7,7 +7,7 @@ import ConnectWalletButton from "../CustomButton";
 
 const CreatorsPage = () => {
   const { isWhitelisted, creators } = useCreators();
-  console.log("SWEETS CREATORS", creators);
+
   return (
     <div className="text-white flex flex-col justify-center items-center min-h-screen">
       <h1>Creators</h1>

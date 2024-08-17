@@ -19,7 +19,6 @@ const useCreators = () => {
           (creator: any) =>
             creator.address.toLowerCase() === address?.toLowerCase()
         );
-        console.log("SWEETS isAddressWhitelisted", isAddressWhitelisted);
         setIsWhitelisted(isAddressWhitelisted);
       } catch (err) {
         console.error(err);
