@@ -1,3 +1,5 @@
+"use client";
+
 import CreatorsPage from "@/components/CreatorsPage";
 import React from "react";
 

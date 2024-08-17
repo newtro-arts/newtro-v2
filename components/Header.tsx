@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CustomButton from "./CustomButton";
 import ConnectButtonMobile from "./ConnectButtonMobile";
 import logo from "../public/logo-nav-black.svg";
-import logoGreen from "../public/logo-nav.svg";
-
 import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineClose } from "react-icons/ai";
