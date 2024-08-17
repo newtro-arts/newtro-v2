@@ -4,18 +4,14 @@ import useCreators from "@/hooks/useCreators";
 import React from "react";
 import Avatar from "./Avatar";
 import ConnectWalletButton from "../CustomButton";
-import { useAccount } from "wagmi";
-import { useIsMounted } from "@/hooks/useIsMounted";
 
 const CreatorsPage = () => {
-  const { creators } = useCreators();
-  const { address } = useAccount();
-  const isMounted = useIsMounted();
-
+  const { isWhitelisted, creators } = useCreators();
+  console.log("SWEETS CREATORS", creators);
   return (
     <div className="text-white flex flex-col justify-center items-center min-h-screen">
       <h1>Creators</h1>
-      {isMounted && address ? (
+      {isWhitelisted ? (
         <div className="grid grid-cols-3 gap-4 mt-4">
           {creators.map((creator: any) => (
             <Avatar key={creator.address} creator={creator} />
