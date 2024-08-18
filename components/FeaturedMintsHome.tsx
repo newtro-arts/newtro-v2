@@ -16,10 +16,6 @@ export default function FeaturedMintsHome({
   contract,
   tokenId,
 }: Drop) {
-  // const { data: metadata } = useQuery({
-  //   queryKey: [`${contract}/${tokenId}`],
-  //   queryFn: () => getTokenMetdata(tokenURI)
-  // });
 
   const { data } = useGetContractInfo({
     collectionAddress: contract,

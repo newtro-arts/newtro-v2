@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Address } from "viem";
-import format from "@/lib/format";
+import { format } from "../collection/format";
 import getToken from "@/lib/zora/getToken";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
