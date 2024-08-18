@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Address } from "viem";
-import { format } from "./format";
+import format from "@/lib/format";
 import getCollectorClient from "@/lib/zora/getCollectorClient";
 import { DEFAULT_COLLECTION } from "@/lib/consts";
 
