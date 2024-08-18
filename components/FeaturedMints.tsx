@@ -13,6 +13,8 @@ import FeaturedMintsHome from "./FeaturedMintsHome";
 import nextwave from "../nextwave";
 import { allDrops } from "../allDrops";
 import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
+import FeaturedMintTokenURI from "./FeaturedMintTokenURI";
 
 const filterList = [
   "All",
@@ -30,6 +32,11 @@ const FeaturedMints: React.FC = () => {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
+
+  const { data: allTokens, isSuccess } = useQuery<{ tokens: any[] }>({
+    queryKey: ['allTokens'],
+    queryFn: () => fetch('/api/tokens').then(res => res.json()),
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,13 +94,14 @@ const FeaturedMints: React.FC = () => {
     }
   };
 
+  const tokens = isSuccess ? allTokens.tokens : [];
   let displayedData = [];
   switch (selectedFilter) {
     case "hidden gems":
       displayedData = hidden_filter;
       break;
     case "trending":
-      displayedData = trending_filter;
+      displayedData = tokens.concat(trending_filter);
       break;
     case "vuelapelucas":
       displayedData = vuelapelucas;
@@ -111,7 +119,7 @@ const FeaturedMints: React.FC = () => {
       displayedData = drop1MyceliumMiscellany;
       break;
     default:
-      displayedData = allDrops;
+      displayedData = allDrops.concat(tokens);
   }
 
   return (
@@ -130,16 +138,17 @@ const FeaturedMints: React.FC = () => {
       <div className="relative">
         <div
           className="flex justify-between overflow-x-auto horizontal-list whitespace-nowrap"
-          ref={carouselRef}
-        >
+          ref={carouselRef}>
           {displayedData.map((mint: any, key: number) => (
             <div key={key}>
-              <FeaturedMintsHome
-                name={mint.name}
-                image={mint.webAssets.previewAsset.previewImage}
-                contract={mint.address}
-                token_id={mint.tokenId}
-              />
+              {mint?.tokenURI ? <FeaturedMintTokenURI mint={mint} /> : (
+                <FeaturedMintsHome
+                  name={mint.name}
+                  image={mint.webAssets.previewAsset.previewImage}
+                  contract={mint.address}
+                  tokenId={mint.tokenId}
+                />
+              )}
             </div>
           ))}
           {showLeftArrow && (
@@ -166,11 +175,10 @@ const FeaturedMints: React.FC = () => {
           <p
             key={key}
             onClick={() => setSelectedFilter(title.toLowerCase())}
-            className={`cursor-pointer hover-underline-animation hover-underlined-filter ${
-              selectedFilter.toLowerCase() === title.toLowerCase()
-                ? "font-bold"
-                : ""
-            }`}
+            className={`cursor-pointer hover-underline-animation hover-underlined-filter ${selectedFilter.toLowerCase() === title.toLowerCase()
+              ? "font-bold"
+              : ""
+              }`}
           >
             {title}
           </p>
