@@ -40,7 +40,7 @@ const TokenPage = ({ selectedDrop }: any) => {
             </h1>
 
             <TextSplitter description={selectedDrop?.description} />
-            <div className="flex pt-2">
+            <div className="flex pt-2 items-center">
               {selectedDrop?.name && (
                 <MintButton
                   isMintLoading={isMintLoading}

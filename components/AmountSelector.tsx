@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface AmountSelectorProps {
   amount: number;
@@ -6,7 +6,11 @@ interface AmountSelectorProps {
   decrementAmount: () => void;
 }
 
-const AmountSelector: React.FC<AmountSelectorProps> = ({ amount, incrementAmount, decrementAmount }) => (
+const AmountSelector: React.FC<AmountSelectorProps> = ({
+  amount,
+  incrementAmount,
+  decrementAmount,
+}) => (
   <div className="flex items-center">
     <button
       onClick={incrementAmount}
@@ -16,7 +20,7 @@ const AmountSelector: React.FC<AmountSelectorProps> = ({ amount, incrementAmount
     </button>
     <input
       className="w-10 h-10 text-center text-xl focus:outline-none border bg-fourth-green text-primary-dark hover:bg-primary-dark hover:border hover:border-fourth-green hover:text-fourth-green"
-      placeholder={amount.toString()}      
+      placeholder={amount.toString()}
     />
     <button
       onClick={decrementAmount}

@@ -17,14 +17,14 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ url, title }) => {
         .catch((error) => console.error("Error sharing", error));
     } else {
       alert(
-        "Web Share API no está disponible en tu navegador. Por favor, copia el enlace manualmente."
+        "Web Share API no está disponible en tu navegador. Por favor, copia el enlace manualmente.",
       );
     }
   };
 
   const shareOnTwitter = () => {
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-      title
+      title,
     )}&url=${encodeURIComponent(url)}`;
     window.open(twitterUrl, "_blank");
   };
@@ -41,7 +41,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ url, title }) => {
     } else {
       navigator.clipboard.writeText(url).then(() => {
         alert(
-          "Link copied to clipboard. You can now share it on Instagram Direct :)"
+          "Link copied to clipboard. You can now share it on Instagram Direct :)",
         );
       });
     }

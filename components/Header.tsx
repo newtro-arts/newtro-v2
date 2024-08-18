@@ -86,12 +86,18 @@ export default function Header() {
             </Link>
           </li>
           <li className="text-fourth-green p-4 pl-0 text-2xl hover:text-gray-500 border-b border-b-fourth-green">
-            <Link onClick={handleNav} href="https://www.instagram.com/newtroarts/">
+            <Link
+              onClick={handleNav}
+              href="https://www.instagram.com/newtroarts/"
+            >
               Instagram
             </Link>
           </li>
           <li className="text-fourth-green p-4 pl-0 text-2xl hover:text-gray-500 border-b border-b-fourth-green">
-            <Link onClick={handleNav} href="https://www.youtube.com/channel/UCnr-Jd3qkb0N_e0Dvzhig7Q">
+            <Link
+              onClick={handleNav}
+              href="https://www.youtube.com/channel/UCnr-Jd3qkb0N_e0Dvzhig7Q"
+            >
               Youtube
             </Link>
           </li>

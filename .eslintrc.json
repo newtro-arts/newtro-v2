@@ -1,6 +1,4 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:react/recommended"],
-  "rules": { "react/no-unescaped-entities": 0,
-  "react/prop-types": "off"
-}
+  "extends": ["next/core-web-vitals", "plugin:react/recommended", "prettier"],
+  "rules": { "react/no-unescaped-entities": 0, "react/prop-types": "off" }
 }

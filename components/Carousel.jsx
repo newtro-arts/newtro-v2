@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState, useEffect } from "react";
 
 const Carousel = ({ children, size }) => {
@@ -31,9 +31,7 @@ const Carousel = ({ children, size }) => {
 
   return (
     <div className="w-full flex justify-center text-white">
-      <div
-        className={size}
-      >
+      <div className={size}>
         {content.map((item, index) => (
           <div
             className={counter - 1 === index ? "show" : "not-show"}
