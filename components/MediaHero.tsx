@@ -23,13 +23,12 @@ const MediaHero = () => {
                 <h5 className="text-xl md:text-4xl xl:text-6xl leading-none media-hero text-white pragmatica-text font-light">
                   BOSQUEGRACIAS
                 </h5>
-                <Button
-                  href="/log"
-                  variant="secondary"
-                  className="ml-2 lg:mb-6 ibm-text text-xs h-fit leading-none md:text-md xl:text-base cursor-pointer rounded-tl-[15px] rounded-br-[15px] bg-fourth-green text-primary-dark hover:border hover:border-fourth-green hover:bg-primary-dark hover:text-fourth-green p-buttons flex items-center"
+                <Link
+                  href="/log/articles/bosque-gracias"
+                  className="ml-2 mb-2 lg:mb-4 ibm-text text-xs h-fit leading-none md:text-md xl:text-lg cursor-pointer rounded-tl-[15px] rounded-br-[15px] bg-fourth-green text-primary-dark hover:border hover:border-fourth-green hover:bg-primary-dark hover:text-fourth-green p-buttons flex items-center"
                 >
                   Enter
-                </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -48,9 +47,8 @@ const MediaHero = () => {
             Artist Residency
           </h5>
           <h5 className="text-2xl media-hero text-white pragmatica-text">
-            BOSQUEGRACIAS
             <Button
-              href="/log"
+              href="/log/articles/bosque-gracias"
               variant="secondary"
               className="ibm-text mb-6 text-xs font-semibold mx-4 rounded-tl-[15px] rounded-br-[15px]"
             >

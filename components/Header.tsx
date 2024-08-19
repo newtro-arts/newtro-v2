@@ -34,7 +34,7 @@ export default function Header() {
           </Link>
           <Link
             className="h-fit text-sm mr-10 hover-underline-animation-nav"
-            href="/log"
+            href="/log/articles/bosque-gracias"
           >
             Log
           </Link>
