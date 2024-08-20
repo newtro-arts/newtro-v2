@@ -3,13 +3,13 @@
 import React from "react";
 import Header from "../../components/Header";
 import TextSplitter from "../../components/TextSplitter";
-import MintButton from "../../components/MintButton";
+import MintButton from "../../components/Commons/MintButton";
 import AmountSelector from "../../components/AmountSelector";
 import { useIsMounted } from "../../hooks/useIsMounted";
 import { useAccount } from "wagmi";
 import Head from "next/head";
 import DropContent from "@/components/DropContent";
-import MintInformation from "../../components/ZoraInformation";
+import MintInformation from "../Commons/ZoraInformation";
 import useZoraMint from "@/hooks/useZoraMint";
 
 const TokenPage = ({ selectedDrop }: any) => {

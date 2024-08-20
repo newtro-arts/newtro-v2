@@ -1,13 +1,13 @@
 import React from "react";
 
-interface MintInformationProps {
+interface ZoraInformationProps {
   mounted: boolean;
   isConnected: boolean;
   isMinted: boolean;
   mintData: { hash?: string } | undefined;
 }
 
-const MintInformation: React.FC<MintInformationProps> = ({
+const ZoraInformation: React.FC<ZoraInformationProps> = ({
   mounted,
   isConnected,
   isMinted,
@@ -44,4 +44,4 @@ const MintInformation: React.FC<MintInformationProps> = ({
   </>
 );
 
-export default MintInformation;
+export default ZoraInformation;
