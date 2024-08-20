@@ -21,7 +21,7 @@ const FeaturedMintsSection: React.FC = () => {
   const displayedData = filterData();
 
   return (
-    <div className="max-w-full pb-2 pt-8">
+    <div className="max-w-full pb-2 pt-4">
       <div className="flex justify-between">
         <h5 className="mb-4 text-xl lg:text-2xl pragmatica-text uppercase mx-8">
           Featured Mints
@@ -45,7 +45,7 @@ const FeaturedMintsSection: React.FC = () => {
           </div>
         ))}
       </Carousel>
-      <div className="flex px-8 max-w-full overflow-x-auto horizontal-list items-center gap-x-2 justify-start text-base py-4 border-y border-fourth-green">
+      <div className="flex px-8 max-w-full overflow-x-auto horizontal-list items-center gap-x-2 my-4 justify-start text-base py-4 border-y border-fourth-green">
         <p className="font-semibold mr-2">FILTER:</p>
         <div className="flex overflow-x-auto">
           {filterList.map((title, key) => (
