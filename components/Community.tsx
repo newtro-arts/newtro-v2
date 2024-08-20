@@ -48,7 +48,7 @@ const Community = () => {
           </div>
         </div>
       </div>
-      <h5 className="w-full pragmatica-text uppercase text-center lg:text-left text-xl lg:text-2xl px-8 mt-8 mb-4">
+      <h5 className="w-full pragmatica-text uppercase text-center lg:text-left text-xl lg:text-2xl px-8 my-4">
         Artists Are Saying
       </h5>
       <CommunitySlider />

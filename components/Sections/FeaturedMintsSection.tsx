@@ -22,7 +22,7 @@ const FeaturedMintsSection: React.FC = () => {
   const displayedData = filterData();
 
   return (
-    <div className="max-w-full pb-2 pt-8">
+    <div className="max-w-full">
       <div className="flex justify-between">
         <h5 className="mb-4 text-xl lg:text-2xl pragmatica-text uppercase mx-8">
           Featured Mints
@@ -64,7 +64,7 @@ const FeaturedMintsSection: React.FC = () => {
         </div>
       </div>
       <div className="flex lg:hidden w-full px-8">
-        <Button href="/drops/all" variant="secondary" className="text-center mx-2 my-4 p-3 w-full">
+        <Button href="/drops/all" variant="primary" className="text-center mx-2 my-4 p-3 w-full">
           Explorer
         </Button>
       </div>

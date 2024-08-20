@@ -18,7 +18,6 @@ export default function Header() {
 
   return (
     <div className="fixed left-0 top-0 w-full z-20 ease-in duration-300">
-      {/* Header with logo and menu button */}
       <div className="fixed flex justify-between w-full h-fit items-center pl-6 pr-8 text-black bg-fourth-green z-10">
         <div className="logo text-2xl font-bold z-10 pt-1">
           <Link href="/">
@@ -27,19 +26,19 @@ export default function Header() {
         </div>
         <div className="hidden md:flex flex-row items-center">
           <Link
-            className="h-fit text-sm mr-10 hover-underline-animation-nav"
+            className="h-fit mr-10 hover-underline-animation-nav"
             href="/about"
           >
             About
           </Link>
           <Link
-            className="h-fit text-sm mr-10 hover-underline-animation-nav"
+            className="h-fit mr-10 hover-underline-animation-nav"
             href="/log/articles/bosque-gracias"
           >
             Log
           </Link>
           <Link
-            className="h-fit text-sm mr-10 hover-underline-animation-nav"
+            className="h-fit mr-10 hover-underline-animation-nav"
             href="/archive"
           >
             Archive
@@ -56,7 +55,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={
           nav
