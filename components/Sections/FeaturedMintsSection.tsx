@@ -4,6 +4,7 @@ import Carousel from '../Commons/Carousel';
 import FeaturedMintsHome from '../FeaturedMintsHome';
 import Button from '../Commons/Button';
 import useFilterData from '../../hooks/useFilterData';
+import FeaturedMintTokenURI from '../FeaturedMintTokenURI';
 
 const filterList = [
   "All",
@@ -35,13 +36,17 @@ const FeaturedMintsSection: React.FC = () => {
       <Carousel>
         {displayedData.map((mint: any, key: number) => (
           <div key={key}>
-            <FeaturedMintsHome
-              id={key}
-              name={mint.name}
-              image={mint.webAssets.previewAsset.previewImage}
-              contract={mint.address}
-              token_id={mint.tokenId}
-            />
+            {mint?.tokenURI ? (
+              <FeaturedMintTokenURI mint={{ id: key, ...mint }} />
+            ) : (
+              <FeaturedMintsHome
+                id={key}
+                name={mint.name}
+                image={mint.webAssets.previewAsset.previewImage}
+                contract={mint.address}
+                token_id={mint.tokenId}
+              />
+            )}
           </div>
         ))}
       </Carousel>

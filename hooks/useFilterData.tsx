@@ -7,16 +7,23 @@ import { drop2HashedThreads } from "../sources/drop2-hashed-threads";
 import { drop1MyceliumMiscellany } from "../sources/mycelium-miscellany";
 import nextwave from "../sources/nextwave";
 import { allDrops } from "../sources/allDrops";
+import { useQuery } from '@tanstack/react-query';
 
 const useFilterData = () => {
   const [selectedFilter, setSelectedFilter] = useState<string>('all');
 
+  const { data: allTokens, isSuccess } = useQuery<{ tokens: any[] }>({
+    queryKey: ['allTokens'],
+    queryFn: () => fetch('/api/tokens').then(res => res.json()),
+  });
+
+  const tokens = isSuccess ? allTokens.tokens : [];
   const filterData = () => {
     switch (selectedFilter) {
       case 'hidden gems':
         return hidden_filter;
       case 'trending':
-        return trending_filter;
+        return tokens.concat(trending_filter);
       case 'vuelapelucas':
         return vuelapelucas;
       case 'bridge n3xtwave x newtro':
@@ -28,7 +35,7 @@ const useFilterData = () => {
       case 'mycelium miscellany':
         return drop1MyceliumMiscellany;
       default:
-        return allDrops;
+        return allDrops.concat(tokens);
     }
   };
 
