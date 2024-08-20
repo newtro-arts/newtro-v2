@@ -6,6 +6,7 @@ import FeaturedMintCard from "./FeaturedMintCard";
 
 export interface Mint {
   mint: {
+    id: number;
     contract: { address: Address };
     tokenURI: string;
     tokenId: string;
@@ -20,6 +21,7 @@ export default function FeaturedMintTokenURI({ mint }: Mint) {
   });
 
   const mintCard = {
+    id: mint.id,
     name: isSuccess ? data.name : '',
     image: isSuccess ? data.image : '',
     contract: mint.contract.address,

@@ -32,6 +32,7 @@ const VideoComponent: React.FC = () => {
           width={1600}
           height={400}
           onClick={handlePlay}
+          className=" object-cover"
         />
       )}
       {isModalOpen && (

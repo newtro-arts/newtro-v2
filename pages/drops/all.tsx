@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../../components/Header";
 import NewDrop from "../../components/NewDrop";
-import { allDrops } from "../../allDrops";
+import { allDrops } from "../../sources/allDrops";
 import { Address } from "viem";
 
 const Mirrorscape: NextPage = () => {
