@@ -5,6 +5,7 @@ import FilterItem from "../Commons/FilterItem";
 import { filterList } from "@/sources/filterList";
 import useFilterData from "@/hooks/useFilterData";
 import MintTemplate from "./MintTemplate";
+import Carousel from "../Commons/Carousel";
 
 const GalleryPage = () => {
   const { selectedFilter, setSelectedFilter, filterData } = useFilterData();
@@ -33,6 +34,7 @@ const GalleryPage = () => {
             ))}
           </div>
         </div>
+        <Carousel itemsPerView={1}>
           {displayedData.map((mint: any, key: number) => (
             <div key={key}>
               <MintTemplate
@@ -44,6 +46,8 @@ const GalleryPage = () => {
               />
             </div>
           ))}
+                      </Carousel>
+
       </main>
     </div>
   );

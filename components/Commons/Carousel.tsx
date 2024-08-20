@@ -6,9 +6,10 @@ import {
 
 interface CarouselProps {
   children: React.ReactNode;
+  itemsPerView?: number; 
 }
 
-const Carousel: React.FC<CarouselProps> = ({ children }) => {
+const Carousel: React.FC<CarouselProps> = ({ children, itemsPerView = 2 }) => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
@@ -40,11 +41,9 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
   const scrollRight = () => {
     if (carouselRef.current) {
       const containerWidth = carouselRef.current.clientWidth;
-      const scrollWidth = carouselRef.current.scrollWidth;
-      const maxScroll = scrollWidth - containerWidth;
+      const itemWidth = containerWidth / itemsPerView; 
       const currentScroll = carouselRef.current.scrollLeft;
-
-      const itemWidth = containerWidth / 2;
+      const maxScroll = carouselRef.current.scrollWidth - containerWidth;
       const nextScroll = Math.min(currentScroll + itemWidth, maxScroll);
 
       carouselRef.current.scrollTo({
@@ -57,9 +56,8 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
   const scrollLeft = () => {
     if (carouselRef.current) {
       const containerWidth = carouselRef.current.clientWidth;
+      const itemWidth = containerWidth / itemsPerView; 
       const currentScroll = carouselRef.current.scrollLeft;
-
-      const itemWidth = containerWidth / 2;
       const nextScroll = Math.max(currentScroll - itemWidth, 0);
 
       carouselRef.current.scrollTo({
@@ -72,12 +70,14 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
   return (
     <div className="relative">
       <div
-        className="flex justify-between overflow-x-auto horizontal-list whitespace-nowrap gap-x-0"
+        className="flex overflow-x-auto whitespace-nowrap scroll-smooth"
         ref={carouselRef}
       >
-        {children}
+        {React.Children.map(children, (child) => (
+          <div className={`max-w-full h-fit flex-shrink-0`}>{child}</div>
+        ))}
       </div>
-      <div className="hidden lg:flex justify-between w-full text-xs mb-4 lg:px-8">
+      <div className="hidden lg:flex justify-between w-full text-xs my-4 lg:px-8">
         <button
           onClick={scrollLeft}
           className={showLeftArrow ? "visible" : "invisible"}

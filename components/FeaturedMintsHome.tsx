@@ -30,7 +30,7 @@ export default function FeaturedMintsHome({
   return (
     <Link
       href={getTokenLink(contract, token_id)}
-      className={`flex h-fit mx-8 text-left items-start scroll-smooth gap-x-0 relative mb-4 bg-secondary-white mr-4 ${id % 2 === 0 ? " rounded-tl-cards rounded-br-cards" : "rounded-cards"}`}
+      className={`flex h-fit mx-8 text-left items-start scroll-smooth gap-x-0 relative mb-4 lg:mb-0 bg-secondary-white mr-4 ${id % 2 === 0 ? " rounded-tl-cards rounded-br-cards" : "rounded-cards"}`}
     >
       <div className="flex flex-col justify-center w-full h-full">
         <Image

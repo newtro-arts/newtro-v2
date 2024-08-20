@@ -2,8 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
-import check from "../public/check.svg";
-import CustomButton from "./Commons/CustomButton";
+import check from "../../public/check.svg";
+import CustomButton from "../Commons/CustomButton";
 
 interface MintButtonProps {
   config?: any;

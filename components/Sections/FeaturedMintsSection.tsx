@@ -22,7 +22,7 @@ const FeaturedMintsSection: React.FC = () => {
           </Button>
         </div>
       </div>
-      <Carousel>
+      <Carousel itemsPerView={3}>
         {displayedData.map((mint: any, key: number) => (
           <div key={key}>
             <FeaturedMintsHome
