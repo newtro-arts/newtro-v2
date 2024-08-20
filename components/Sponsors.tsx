@@ -4,7 +4,7 @@ import React from "react";
 
 const Sponsors = () => {
   return (
-    <div className="w-full lg:bg-fifth-purple flex flex-col lg:flex-row items-center justify-between py-5 px-0 lg:*:px-8">
+    <div className="w-full lg:bg-fifth-purple flex flex-col lg:flex-row items-center justify-between pb-5 pt-0 lg:pt-5 px-0 lg:px-8">
       <h3 className="text-xl lg:text-2xl pragmatica-text uppercase w-full text-center lg:text-left mb-4 lg:mb-0">
         Newtro's supporters
       </h3>
