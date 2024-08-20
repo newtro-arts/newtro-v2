@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import check from "../public/check.svg";
-import CustomButton from "./CustomButton";
+import CustomButton from "./Commons/CustomButton";
 
 interface MintButtonProps {
   config?: any;

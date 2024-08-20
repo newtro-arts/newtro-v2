@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import CustomButton from "./CustomButton";
-import ConnectButtonMobile from "./ConnectButtonMobile";
+import CustomButton from "./Commons/CustomButton";
+import ConnectButtonMobile from "./Commons/ConnectButtonMobile";
 import logo from "../public/logo-nav-black.svg";
 import logoGreen from "../public/logo-nav.svg";
 
@@ -60,7 +60,7 @@ export default function Header() {
       <div
         className={
           nav
-            ? "sm:hidden fixed -top-4 left-0 right-0 bottom-0 flex items-center w-full h-screen bg-primary-dark ease-in duration-300"
+            ? "sm:hidden fixed top-4 left-0 right-0 bottom-0 flex items-center w-full h-screen bg-primary-dark ease-in duration-300"
             : "sm:hidden fixed top-0 left-[-100%] right-0 bottom-0 flex items-center w-full h-screen bg-primary-dark ease-in duration-300"
         }
       >
