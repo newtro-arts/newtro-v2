@@ -28,7 +28,7 @@ const Sponsors = () => {
           />
         </Link>
         <Link href="https://warpcast.com/~/channel/energy" target="_blank">
-          <p className="text-2xl lg:text-4xl text-fourth-green pragmatica-text">
+          <p className="text-2xl lg:text-4xl text-white pragmatica-text">
             ENERGY
           </p>
         </Link>

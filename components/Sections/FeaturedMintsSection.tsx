@@ -59,7 +59,7 @@ const FeaturedMintsSection: React.FC = () => {
         </div>
       </div>
       <div className="flex lg:hidden w-full px-8">
-        <Button href="/drops/all" variant="secondary" className="text-center mx-2 my-4 p-3 w-full">
+        <Button href="/drops/all" variant="primary" className="text-center mx-2 my-4 p-3 w-full">
           Explorer
         </Button>
       </div>
