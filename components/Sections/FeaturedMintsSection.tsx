@@ -4,17 +4,7 @@ import Carousel from '../Commons/Carousel';
 import FeaturedMintsHome from '../FeaturedMintsHome';
 import Button from '../Commons/Button';
 import useFilterData from '../../hooks/useFilterData';
-
-const filterList = [
-  "All",
-  "Hidden Gems",
-  "Trending",
-  "Vuelapelucas",
-  "Bridge N3xtwave x Newtro",
-  "Hashed Threads",
-  "Mirrorscape",
-  "Mycelium Miscellany",
-];
+import { filterList } from '@/sources/filterList';
 
 const FeaturedMintsSection: React.FC = () => {
   const { selectedFilter, setSelectedFilter, filterData } = useFilterData();
