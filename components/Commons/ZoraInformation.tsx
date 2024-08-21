@@ -20,12 +20,12 @@ const ZoraInformation: React.FC<ZoraInformationProps> = ({
       </p>
     ) : null}
 
-    <p className="text-[14px] pt-2 font-light">
+    {/* <p className="text-[14px] pt-2 font-light">
       We're minting on Zora Network.
       <a href="https://bridge.zora.energy/" className="underline pl-2">
         Bridge Here
       </a>
-    </p>
+    </p> */}
 
     {mounted && isMinted ? (
       <p className="text-[14px] pt-2 font-light">

@@ -25,16 +25,16 @@ const DropContent: React.FC<WebAsset> = ({
   const isIframe = mime === "application/zip";
   const isDefaultContent = !isVideo && !isIframe;
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full border border-fourth-green rounded-tl-[15px] rounded-br-[15px]">
       {isVideo && (
-        <div className="w-full md:w-[50%]">
-          <video autoPlay muted loop>
+        <div className="w-full object-cover h-full">
+          <video autoPlay muted loop  className=" rounded-tl-[15px] rounded-br-[15px]">
             <source type={mime} src={getIpfsLink(originalAsset)} />
           </video>
         </div>
       )}
       {isIframe && (
-        <iframe src={getIpfsLink(originalAsset)} className="w-full h-full" />
+        <iframe src={getIpfsLink(originalAsset)} className="w-full h-full rounded-tl-[15px] rounded-br-[15px]" />
       )}
       {isDefaultContent && (
         <Image
@@ -44,7 +44,7 @@ const DropContent: React.FC<WebAsset> = ({
           height={isOther ? 400 : 200}
           className={`w-full ${
             isPhoto && "h-[100%]"
-          } object-cover aspect-square`}
+          } object-cover aspect-square rounded-tl-[15px] rounded-br-[15px]`}
         />
       )}
     </div>
