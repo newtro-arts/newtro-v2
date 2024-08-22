@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import CustomButton from "./CustomButton";
-import ConnectButtonMobile from "./ConnectButtonMobile";
+import React, { useState, useEffect } from "react";
+import CustomButton from "./Commons/CustomButton";
+import ConnectButtonMobile from "./Commons/ConnectButtonMobile";
 import logo from "../public/logo-nav-black.svg";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,7 +16,6 @@ export default function Header() {
 
   return (
     <div className="fixed left-0 top-0 w-full z-20 ease-in duration-300">
-      {/* Header with logo and menu button */}
       <div className="fixed flex justify-between w-full h-fit items-center pl-6 pr-8 text-black bg-fourth-green z-10">
         <div className="logo text-2xl font-bold z-10 pt-1">
           <Link href="/">
@@ -25,19 +24,19 @@ export default function Header() {
         </div>
         <div className="hidden md:flex flex-row items-center">
           <Link
-            className="h-fit text-sm mr-10 hover-underline-animation-nav"
+            className="h-fit mr-10 hover-underline-animation-nav"
             href="/about"
           >
             About
           </Link>
           <Link
-            className="h-fit text-sm mr-10 hover-underline-animation-nav"
-            href="/log"
+            className="h-fit mr-10 hover-underline-animation-nav"
+            href="/log/articles/bosque-gracias"
           >
             Log
           </Link>
           <Link
-            className="h-fit text-sm mr-10 hover-underline-animation-nav"
+            className="h-fit mr-10 hover-underline-animation-nav"
             href="/archive"
           >
             Archive
@@ -54,11 +53,10 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={
           nav
-            ? "sm:hidden fixed -top-4 left-0 right-0 bottom-0 flex items-center w-full h-screen bg-primary-dark ease-in duration-300"
+            ? "sm:hidden fixed top-4 left-0 right-0 bottom-0 flex items-center w-full h-screen bg-primary-dark ease-in duration-300"
             : "sm:hidden fixed top-0 left-[-100%] right-0 bottom-0 flex items-center w-full h-screen bg-primary-dark ease-in duration-300"
         }
       >

@@ -39,7 +39,7 @@ const About: NextPage = () => {
       {/* ABOUT */}
       <main className="flex flex-col lg:flex-row mt-2 w-full">
         <div className="text-xl leading-10 w-full">
-          <h1 className="mx-8 text-xl tracking-wide text-center lg:text-left md:text-3xl xl:text-6xl uppercase pragmatica-text md:mt-0 pb-4 border-b">
+          <h1 className="mx-8 text-xl tracking-wide text-center lg:text-left md:text-3xl xl:text-5xl uppercase pragmatica-text md:mt-0 pb-4 border-b">
             About Newtro Arts
           </h1>
           {about.map((item, index) => (

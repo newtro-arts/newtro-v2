@@ -37,7 +37,7 @@ const testimonialList = [
 ];
 function CommunitySlider() {
   return (
-    <div className="flex flex-col md:flex-row w-full pb-8">
+    <div className="flex flex-col md:flex-row w-full lg:pb-4">
       <div>
         <QuoteGrid quotes={testimonialList} />
       </div>

@@ -1,18 +1,24 @@
-import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 
 const AboutHome = () => {
   return (
-    <p className="px-8 text-2xl lg:text-3xl pt-0 pb-4 lg:pt-4 lg:pb-8  cursor-default">
-      Newtro Arts aims to promote, educate and introduce latin american artists
-      and cultural agents to blockchain technology.
-      <Link
-        href="/about"
-        className=" align-middle leading-3 text-xs lg:text-lg cursor-pointer p-buttons mx-4 border hover:border-fourth-green bg-fourth-green text-primary-dark hover:bg-primary-dark hover:text-fourth-green"
-      >
-        More
-      </Link>
-    </p>
+    <div className="flex flex-col lg:flex-row px-8 py-8 lg:py-12 items-center cursor-default pragmatica-text bg-tertiary-purple uppercase gap-x-4">
+      <div className="relative w-full h-48 lg:h-80">
+        <Image
+          src="/Logo_VerdeTransparente.svg"
+          alt="Newtro Arts"
+          layout="fill"
+          objectFit="fill"
+          className="rounded-lg"
+          priority
+        />
+      </div>
+      <p className="text-2xl lg:text-4xl leading-tight	">
+        Newtro Arts aims to promote, educate and introduce latin american
+        artists and cultural agents to blockchain technology.
+      </p>
+    </div>
   );
 };
 
