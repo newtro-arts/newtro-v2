@@ -34,7 +34,7 @@ export default function Button() {
               if (!connected) {
                 return (
                   <button
-                    className="text-sm border p-2 mr-2 lg:text-fourth-green lg:bg-primary-dark lg:hover:bg-fourth-green lg:hover:text-primary-dark"
+                    className="border p-2 mr-2 lg:text-fourth-green lg:bg-primary-dark lg:hover:bg-fourth-green lg:hover:text-primary-dark"
                     onClick={openConnectModal}
                     type="button"
                   >

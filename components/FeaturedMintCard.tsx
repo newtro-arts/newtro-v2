@@ -1,43 +1,33 @@
 import React from "react";
-import useGetContractInfo from "./gql/getContractInfo";
-import { Address } from "viem";
-import FeaturedMintCard from "./FeaturedMintCard";
-import Link from "next/link";
-import Image from "next/image";
 import getTokenLink from "@/lib/getTokenLink";
+import getValidImage from "@/lib/getValidImage";
+import Image from "next/image";
+import Link from "next/link";
+import { Address } from "viem";
 
 export interface Drop {
-  id: number;
-  name: string;
-  image: string;
-  contract: Address;
-  token_id: string;
+  mint: {
+    id: number;
+    name: string;
+    image: string;
+    contract: Address;
+    tokenId: string;
+    totalSupply: string | number;
+  }
 }
 
-export default function FeaturedMintsHome({
-  id,
-  name,
-  image,
-  contract,
-  token_id,
-}: Drop) {
+export default function FeaturedMintCard({ mint }: Drop) {
+  const id = mint.id;
+  const totalSupply = mint.totalSupply;
 
-  const { data } = useGetContractInfo({
-    collectionAddress: contract,
-    tokenId: parseInt(token_id),
-  });
-  const totalSupply: string =
-    data?.zoraCreateTokens[0]?.totalSupply.toString() + " Minted" ??
-    "No mints yet";
   return (
     <Link
-      href={getTokenLink(contract, token_id)}
-      className={`flex h-fit mx-8 text-left items-start scroll-smooth gap-x-0 relative mb-4 lg:mb-0 bg-secondary-white mr-4 ${id % 2 === 0 ? " rounded-tl-cards rounded-br-cards" : "rounded-cards"}`}
-    >
+      className={`flex h-fit mx-8 text-left items-start scroll-smooth gap-x-0 relative mb-4 bg-secondary-white mr-4 ${id % 2 === 0 ? " rounded-tl-cards rounded-br-cards" : "rounded-cards"}`}
+      href={getTokenLink(mint.contract, mint.tokenId)}>
       <div className="flex flex-col justify-center w-full h-full">
         <Image
           className={`transition-opacity opacity-0 duration-[2s] max-w-[350px] lg:max-w-[600px] mb-0 aspect-square ${id % 2 === 0 ? " rounded-tl-cards rounded-br-cards" : "rounded-cards"} object-cover`}
-          src={`https://storage.newtro.xyz/${image}`}
+          src={getValidImage(mint.image)}
           width={460}
           height={400}
           alt="Preview"
@@ -50,11 +40,11 @@ export default function FeaturedMintsHome({
       >
         <div className="flex flex-col justify-end w-full p-4">
           <p className="pragmatica-text text-fourth-green uppercase lg:text-xl max-w-fit overflow-hidden text-ellipsis whitespace-nowrap">
-            {name}
+            {mint.name}
           </p>
           <div className="flex w-full justify-between text-xs">
             <p>Artist</p>
-            <p>{totalSupply}</p>
+            <p>{totalSupply ? `${totalSupply} Minted` : 'No mints'}</p>
           </div>
         </div>
       </div>

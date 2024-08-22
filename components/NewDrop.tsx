@@ -4,7 +4,7 @@ import useGetContractInfo from "./gql/getContractInfo";
 import Link from "next/link";
 import getTokenLink from "@/lib/getTokenLink";
 import { Address } from "viem";
-import getIpfsLink from "@/lib/ipfs/getIpfsLink";
+import getValidImage from "@/lib/getValidImage";
 
 export interface Drop {
   name: string;
@@ -29,11 +29,7 @@ export default function NewDrop({ name, image, contract, token_id }: Drop) {
       <div className="flex flex-col justify-center w-full h-full">
         <Image
           className="transition-opacity opacity-0 duration-[2s] mb-0 aspect-square object-cover"
-          src={
-            image.includes("ipfs")
-              ? getIpfsLink(image)
-              : `https://storage.newtro.xyz/${image}`
-          }
+          src={getValidImage(image)}
           width={500}
           height={400}
           alt="Preview"

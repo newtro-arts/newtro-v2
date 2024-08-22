@@ -14,7 +14,7 @@ const AboutHome = () => {
           priority
         />
       </div>
-      <p className="text-2xl lg:text-4xl">
+      <p className="text-2xl lg:text-4xl leading-tight	">
         Newtro Arts aims to promote, educate and introduce latin american
         artists and cultural agents to blockchain technology.
       </p>

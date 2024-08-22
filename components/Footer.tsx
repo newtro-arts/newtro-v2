@@ -39,7 +39,7 @@ const FooterLink: React.FC<FooterLinkProps> = ({ href, label }) => {
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col lg:flex-row justify-between lg:pl-5 py-4 lg:py-1 max-w-full bg-primary-dark text-fourth-green border-y border-fourth-green lg:border-none">
+    <footer className="flex flex-col lg:flex-row justify-between lg:pl-5 py-4 lg:py-1 lg:pt-8 max-w-full bg-primary-dark text-fourth-green border-y border-fourth-green lg:border-none">
       <Link href="/" aria-label="Home" className="hidden lg:flex">
         <Image alt="Newtro Logo" width={49} height={49} src={logo} />
       </Link>
