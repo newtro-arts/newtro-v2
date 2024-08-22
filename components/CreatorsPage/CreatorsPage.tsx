@@ -3,7 +3,7 @@
 import useCreators from "@/hooks/useCreators";
 import React from "react";
 import Avatar from "./Avatar";
-import ConnectWalletButton from "../CustomButton";
+import ConnectWalletButton from "@/components/Commons/CustomButton";
 
 const CreatorsPage = () => {
   const { isWhitelisted, creators } = useCreators();
