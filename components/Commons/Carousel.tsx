@@ -68,7 +68,7 @@ const Carousel: React.FC<CarouselProps> = ({ children, itemsPerView = 2 }) => {
   };
 
   return (
-    <div className="relative">
+    <div>
       <div
         className="flex overflow-x-auto whitespace-nowrap scroll-smooth"
         ref={carouselRef}

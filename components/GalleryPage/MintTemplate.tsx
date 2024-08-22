@@ -36,15 +36,15 @@ const MintTemplate = ({ id, name, image, contract, token_id }: Drop) => {
   const { isConnected } = useAccount();
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 my-4 mx-4 lg:mx-8 gap-x-4 gap-y-4 lg:gap-y-0 h-[calc(100vh-4rem)]">
-      <div className="flex items-center justify-center">
+    <div className="grid grid-cols-1 lg:grid-cols-3 my-4 mx-4 lg:mx-8 gap-x-4 gap-y-4 lg:gap-y-0">
+      <div className="flex items-center justify-center lg:col-span-2">
         <DropContent
           mime={selectedDrop?.webAssets.originalAsset.mime}
           originalAsset={selectedDrop?.webAssets.originalAsset.originalAsset}
           previewAsset={selectedDrop?.webAssets.previewAsset.previewImage}
         />
       </div>
-      <div className="flex flex-col justify-between border border-fourth-green rounded-tl-[15px] rounded-br-[15px] p-4 h-full">
+      <div className="flex flex-col justify-between border border-fourth-green rounded-tl-[15px] rounded-br-[15px] p-4 max-h-fit">
         <div>
           <p className="text-xs">Creator</p>
           <div className="flex justify-between items-baseline">
