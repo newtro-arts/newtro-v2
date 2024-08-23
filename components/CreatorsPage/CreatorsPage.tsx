@@ -7,13 +7,16 @@ import ConnectWalletButton from "@/components/Commons/CustomButton";
 
 const CreatorsPage = () => {
   const { isWhitelisted, creators } = useCreators();
+
   return (
     <div className="px-4 md:px-9 mb-5">
-      <h1 className="mt-24 mb-14 text-center text-fourth-green pragmatica-text uppercase font-semibold text-3xl/8 md:text-5xl/10 md:text-left">CREATORS</h1>
+      <h1 className="mt-24 mb-14 text-center text-fourth-green pragmatica-text uppercase font-semibold text-3xl/8 md:text-5xl/10 md:text-left">
+        CREATORS
+      </h1>
       {isWhitelisted ? (
-        <div className="mx-auto flex flex-wrap gap-4">
-          {creators.map((creator: any) => (
-            <Avatar key={creator.address} creator={creator} />
+        <div className="mx-auto grid grid-cols-2 gap-5 md:grid-cols-4 xl:grid-cols-6">
+          {[...creators, ...creators].map((creator: any, i) => (
+            <Avatar key={i} creator={creator} />
           ))}
         </div>
       ) : (
