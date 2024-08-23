@@ -15,9 +15,7 @@ const CreatorsPage = () => {
       </h1>
       {isWhitelisted ? (
         <div className="mx-auto grid grid-cols-2 auto-rows-[1fr] gap-5 md:grid-cols-4 xl:grid-cols-6">
-          {creators.map((creator: any, i) => (
-            <Avatar key={i} creator={creator} />
-          ))}
+          {creators.map((creator: any, i) => <Avatar key={i} creator={creator} />)}
         </div>
       ) : (
         <div className="text-white min-w-max absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
