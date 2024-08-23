@@ -7,14 +7,16 @@ import {
 interface CarouselProps {
   children: React.ReactNode;
   itemsPerView?: number; 
+  showReverse?: boolean;
 }
 
-const Carousel: React.FC<CarouselProps> = ({ children, itemsPerView = 2 }) => {
+const Carousel: React.FC<CarouselProps> = ({ children, itemsPerView = 2, showReverse = false }) => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
 
   useEffect(() => {
+    console.log(showReverse)
     const handleScroll = () => {
       if (carouselRef.current) {
         const { scrollLeft, clientWidth, scrollWidth } = carouselRef.current;
@@ -68,22 +70,18 @@ const Carousel: React.FC<CarouselProps> = ({ children, itemsPerView = 2 }) => {
   };
 
   return (
-    <div>
-      <div
-        className="flex overflow-x-auto whitespace-nowrap scroll-smooth"
-        ref={carouselRef}
-      >
-        {React.Children.map(children, (child) => (
-          <div className={`max-w-full h-fit flex-shrink-0`}>{child}</div>
-        ))}
-      </div>
-      <div className="hidden lg:flex justify-between w-full text-xs my-4 lg:px-8">
+    <div style={showReverse ? {
+      display: "flex", flexDirection: "column"
+    } : { 
+      display: "flex", flexDirection: "column-reverse"
+    }}>
+      <div className="flex px-4 lg:px-8 justify-between w-full text-xs mt-4">
         <button
           onClick={scrollLeft}
           className={showLeftArrow ? "visible" : "invisible"}
         >
           <p className="text-fourth-green animate-pulse items-center gap-x-2 flex">
-            <HiOutlineChevronDoubleLeft /> Scroll left
+            <HiOutlineChevronDoubleLeft /> Previous
           </p>
         </button>
         <button
@@ -91,9 +89,18 @@ const Carousel: React.FC<CarouselProps> = ({ children, itemsPerView = 2 }) => {
           className={showRightArrow ? "visible" : "invisible"}
         >
           <p className="text-fourth-green animate-pulse items-center gap-x-2 flex">
-            Scroll right <HiOutlineChevronDoubleRight />
+            Next <HiOutlineChevronDoubleRight />
           </p>
         </button>
+      </div>
+
+      <div
+        className="flex overflow-x-auto whitespace-nowrap scroll-smooth"
+        ref={carouselRef}
+      >
+        {React.Children.map(children, (child) => (
+          <div className={`max-w-full h-fit flex-shrink-0`}>{child}</div>
+        ))}
       </div>
     </div>
   );

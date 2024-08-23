@@ -26,7 +26,7 @@ export default function Header() {
         </div>
         <div className="hidden md:flex flex-row items-center">
         <Link
-            className="h-fit text-sm mr-10 hover-underline-animation-nav"
+            className="h-fit mr-10 hover-underline-animation-nav"
             href="/gallery"
           >
             Gallery

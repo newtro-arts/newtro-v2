@@ -9,7 +9,7 @@ import getTokenLink from "@/lib/getTokenLink";
 export interface Drop {
   id: number;
   name: string;
-  image: string;
+  image?: string;
   contract: Address;
   token_id: string;
 }
