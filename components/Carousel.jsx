@@ -1,78 +1,106 @@
-"use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import {
+  HiOutlineChevronDoubleRight,
+  HiOutlineChevronDoubleLeft,
+} from "react-icons/hi";
 
-const Carousel = ({ children, itemsPerView = 1, showReverse = false }) => {
-  const [counter, setCounter] = useState(0);
-  const [pause, setPause] = useState(false);
-  const carouselRef = useRef(null);
-  const itemRefs = useRef([]);
+interface CarouselProps {
+  children: React.ReactNode;
+  itemsPerView?: number; 
+  showReverse?: boolean;
+}
 
-  const handleNext = () => {
-    if (counter < children.length - 1) {
-      setCounter(counter + 1);
-    } else {
-      setCounter(0);
-    }
-  };
-
-  const handlePrevious = () => {
-    if (counter > 0) {
-      setCounter(counter - 1);
-    } else {
-      setCounter(children.length - 1);
-    }
-  };
+const Carousel: React.FC<CarouselProps> = ({ children, itemsPerView = 2, showReverse = false }) => {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(true);
 
   useEffect(() => {
-    if (itemRefs.current[counter] && carouselRef.current) {
-      const selectedElement = itemRefs.current[counter];
+    console.log(showReverse)
+    const handleScroll = () => {
+      if (carouselRef.current) {
+        const { scrollLeft, clientWidth, scrollWidth } = carouselRef.current;
+        const isScrollable = scrollWidth > clientWidth;
+
+        setShowLeftArrow(scrollLeft > 0);
+        setShowRightArrow(
+          scrollLeft < scrollWidth - clientWidth && isScrollable
+        );
+      }
+    };
+
+    if (carouselRef.current) {
+      carouselRef.current.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      if (carouselRef.current) {
+        carouselRef.current.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, []);
+
+  const scrollRight = () => {
+    if (carouselRef.current) {
+      const containerWidth = carouselRef.current.clientWidth;
+      const itemWidth = containerWidth / itemsPerView; 
+      const currentScroll = carouselRef.current.scrollLeft;
+      const maxScroll = carouselRef.current.scrollWidth - containerWidth;
+      const nextScroll = Math.min(currentScroll + itemWidth, maxScroll);
+
       carouselRef.current.scrollTo({
-        left: selectedElement.offsetLeft,
+        left: nextScroll,
         behavior: "smooth",
       });
     }
-  }, [counter]);
-
-  const handleMouse = () => {
-    setPause(!pause);
   };
 
-  useEffect(() => {
-    let interval = setInterval(() => {
-      if (!pause) {
-        handleNext();
-      }
-    }, 5000);
+  const scrollLeft = () => {
+    if (carouselRef.current) {
+      const containerWidth = carouselRef.current.clientWidth;
+      const itemWidth = containerWidth / itemsPerView; 
+      const currentScroll = carouselRef.current.scrollLeft;
+      const nextScroll = Math.max(currentScroll - itemWidth, 0);
 
-    return () => clearInterval(interval);
-  }, [pause]);
-
-  useEffect(() => {
-    itemRefs.current = itemRefs.current.slice(0, children.length);
-  }, [children]);
+      carouselRef.current.scrollTo({
+        left: nextScroll,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
-    <div className="w-full flex flex-col justify-center text-white">
-      <div className="overflow-x-auto no-scrollbar" ref={carouselRef}>
-        <div className="flex">
-          {children.map((item, index) => (
-            <div
-              key={index}
-              ref={(el) => (itemRefs.current[index] = el)}
-              className={`min-w-full flex-shrink-0`}
-            >
-              {item}
-            </div>
-          ))}
-        </div>
+    <div style={showReverse ? {
+      display: "flex", flexDirection: "column"
+    } : { 
+      display: "flex", flexDirection: "column-reverse"
+    }}>
+      <div className="flex px-4 lg:px-8 justify-between w-full text-xs mt-4">
+        <button
+          onClick={scrollLeft}
+          className={showLeftArrow ? "visible" : "invisible"}
+        >
+          <p className="text-fourth-green animate-pulse items-center gap-x-2 flex">
+            <HiOutlineChevronDoubleLeft /> Previous
+          </p>
+        </button>
+        <button
+          onClick={scrollRight}
+          className={showRightArrow ? "visible" : "invisible"}
+        >
+          <p className="text-fourth-green animate-pulse items-center gap-x-2 flex">
+            Next <HiOutlineChevronDoubleRight />
+          </p>
+        </button>
       </div>
-      <div className="flex justify-center mt-4">
-        {showReverse && (
-          <button onClick={handlePrevious} className="mr-2">
-            Previous
-          </button>
-        )}
-        <button onClick={handleNext}>Next</button>
+
+      <div
+        className="flex overflow-x-auto whitespace-nowrap scroll-smooth"
+        ref={carouselRef}
+      >
+        {React.Children.map(children, (child) => (
+          <div className={`max-w-full h-fit flex-shrink-0`}>{child}</div>
+        ))}
       </div>
     </div>
   );
