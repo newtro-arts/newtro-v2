@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import Header from "../../../components/Header";
 import Image from "next/image";
-import Carousel from "../../../components/Carousel.jtsx";
+import Carousel from "../../../components/Carousel";
 import ShareButtons from "../../../components/ShareButtons";
 
 const Log: NextPage = () => {
