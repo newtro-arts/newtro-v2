@@ -53,14 +53,14 @@ const TokenPage = ({ selectedDrop, tokenId, contract}: TokenPageProps) => {
 
   return (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-4 lg:gap-y-0 max-h-screen h-full my-4 mx-4 lg:mx-8 pt-20 text-fourth-green">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-4 lg:gap-y-0 min-h-screen h-full my-4 mx-4 lg:mx-8 pt-20 text-fourth-green">
         <Head>
           <title>{selectedDrop?.name}</title>
         </Head>
         <Header />
 
       <div className="lg:col-span-2 h-full overflow-hidden">
-        <div className="sticky top-0 max-h-screen">
+        <div className="sticky top-0 min-h-screen">
           <DropContent
             mime={selectedDrop?.webAssets.originalAsset.mime}
             originalAsset={selectedDrop?.webAssets.originalAsset.originalAsset}
