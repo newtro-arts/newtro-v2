@@ -10,9 +10,17 @@ import useZoraMint from "@/hooks/useZoraMint";
 import { useIsMounted } from "@/hooks/useIsMounted";
 import { useAccount } from "wagmi";
 import MintInformation from "../Commons/ZoraInformation";
+import { RxShare2 } from "react-icons/rx";
+import ShareModal from "./ShareModal";
+import { AnimatePresence } from "framer-motion";
 
 const MintTemplate = ({ id, name, contract, token_id }: Drop) => {
   const [loading, setLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
 
   const { data } = useGetContractInfo({
     collectionAddress: contract,
@@ -43,53 +51,58 @@ const MintTemplate = ({ id, name, contract, token_id }: Drop) => {
   const { isConnected } = useAccount();
 
   return (
-        <div
-   className={`${loading ? "hidden" : "grid"} grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-4 lg:gap-y-0 min-h-screen max-h-screen h-full my-4 mx-4 lg:mx-8`}>
-          <div className="flex items-center justify-center lg:col-span-2 min-h-full max-h-full">
-            <DropContent
-              mime={selectedDrop?.webAssets.originalAsset.mime}
-              originalAsset={
-                selectedDrop?.webAssets.originalAsset.originalAsset
-              }
-              previewAsset={selectedDrop?.webAssets.previewAsset.previewImage}
-            />
+    <div
+      className={`${loading ? "hidden" : "grid"} grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-4 lg:gap-y-0 max-h-screen h-full my-4 mx-4 lg:mx-8`}
+    >
+      <div className="flex items-center justify-center lg:col-span-2 max-h-full">
+        <DropContent
+          mime={selectedDrop?.webAssets.originalAsset.mime}
+          originalAsset={selectedDrop?.webAssets.originalAsset.originalAsset}
+          previewAsset={selectedDrop?.webAssets.previewAsset.previewImage}
+        />
+      </div>
+      <div className="flex flex-col justify-between border border-fourth-green rounded-tl-[15px] rounded-br-[15px] p-4 min-h-full max-h-full">
+        <div>
+          <p className="text-xs">Creator</p>
+          <div className="flex justify-between items-baseline">
+            <h1 className="font-semibold text-xl uppercase pragmatica-text my-2 overflow-wrap break-words whitespace-normal">
+              {selectedDrop?.name}
+            </h1>
+            <p className="hidden lg:block text-xs">{totalSupply}</p>
           </div>
-          <div className="flex flex-col justify-between border border-fourth-green rounded-tl-[15px] rounded-br-[15px] p-4 min-h-full max-h-full">
-            <div>
-              <p className="text-xs">Creator</p>
-              <div className="flex justify-between items-baseline">
-                <h1 className="font-semibold text-xl uppercase pragmatica-text my-2 overflow-wrap break-words whitespace-normal">
-                  {selectedDrop?.name}
-                </h1>
-                <p className="hidden lg:block text-xs">{totalSupply}</p>
-              </div>
-              <TextSplitter description={selectedDrop?.description} />
-              <div className="flex pt-2 items-center">
-                {selectedDrop?.name && (
-                  <MintButton
-                    isMintLoading={isMintLoading}
-                    isMintStarted={isMinted}
-                    isMinted={isMinted}
-                    mint={mint}
-                    isConnected={isConnected}
-                  />
-                )}
-
-                <AmountSelector
-                  amount={amount}
-                  incrementAmount={incrementAmount}
-                  decrementAmount={decrementAmount}
+          <TextSplitter description={selectedDrop?.description} />
+          <div className="flex justify-between items-end">
+            <div className="flex pt-2 items-center">
+              {selectedDrop?.name && (
+                <MintButton
+                  isMintLoading={isMintLoading}
+                  isMintStarted={isMinted}
+                  isMinted={isMinted}
+                  mint={mint}
+                  isConnected={isConnected}
                 />
-              </div>
-              <MintInformation
-                mounted={mounted}
-                isConnected={isConnected}
-                isMinted={isMinted}
-                mintData={{ hash: mintData }}
+              )}
+
+              <AmountSelector
+                amount={amount}
+                incrementAmount={incrementAmount}
+                decrementAmount={decrementAmount}
               />
             </div>
+            <MintInformation
+              mounted={mounted}
+              isConnected={isConnected}
+              isMinted={isMinted}
+              mintData={{ hash: mintData }}
+            />
+            <RxShare2 size={33} onClick={openModal} className="cursor-pointer"/>
+            <AnimatePresence>
+              {isModalOpen && <ShareModal onClose={closeModal} />}
+            </AnimatePresence>
           </div>
         </div>
+      </div>
+    </div>
   );
 };
 

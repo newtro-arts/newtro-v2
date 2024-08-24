@@ -13,12 +13,12 @@ const ZoraInformation: React.FC<ZoraInformationProps> = ({
   isMinted,
   mintData,
 }) => (
-  <>
-    {mounted && !isConnected ? (
-      <p className="text-[14px] pt-2 font-light">
-        Connect your wallet to mint.
-      </p>
-    ) : null}
+    <>
+      {/* {mounted && !isConnected ? (
+        <p className="text-[14px] pt-2 font-light">
+          Connect your wallet to mint.
+        </p>
+      ) : null} */}
 
     {/* <p className="text-[14px] pt-2 font-light">
       We're minting on Zora Network.
