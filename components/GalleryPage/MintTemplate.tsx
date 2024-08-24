@@ -21,7 +21,6 @@ const MintTemplate = ({ id, name, contract, token_id }: Drop) => {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-
   const { data } = useGetContractInfo({
     collectionAddress: contract,
     tokenId: parseInt(token_id),
@@ -51,18 +50,19 @@ const MintTemplate = ({ id, name, contract, token_id }: Drop) => {
   const { isConnected } = useAccount();
 
   return (
-    <div
-      className={`${loading ? "hidden" : "grid"} grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-4 lg:gap-y-0 max-h-screen h-full my-4 mx-4 lg:mx-8`}
-    >
-      <div className="flex items-center justify-center lg:col-span-2 max-h-full">
-        <DropContent
-          mime={selectedDrop?.webAssets.originalAsset.mime}
-          originalAsset={selectedDrop?.webAssets.originalAsset.originalAsset}
-          previewAsset={selectedDrop?.webAssets.previewAsset.previewImage}
-        />
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-4 lg:gap-y-0 max-h-screen h-full my-4 mx-4 lg:mx-8">
+      <div className="lg:col-span-2 h-full overflow-hidden">
+        <div className="sticky top-0 max-h-screen">
+          <DropContent
+            mime={selectedDrop?.webAssets.originalAsset.mime}
+            originalAsset={selectedDrop?.webAssets.originalAsset.originalAsset}
+            previewAsset={selectedDrop?.webAssets.previewAsset.previewImage}
+          />
+        </div>
       </div>
-      <div className="flex flex-col justify-between border border-fourth-green rounded-tl-[15px] rounded-br-[15px] p-4 min-h-full max-h-full">
-        <div>
+
+      <div className="flex flex-col justify-between border border-fourth-green rounded-tl-[15px] rounded-br-[15px] p-4 max-h-screen sticky top-0">
+        <div className="overflow-y-auto max-h-full">
           <p className="text-xs">Creator</p>
           <div className="flex justify-between items-baseline">
             <h1 className="font-semibold text-xl uppercase pragmatica-text my-2 overflow-wrap break-words whitespace-normal">
@@ -95,7 +95,7 @@ const MintTemplate = ({ id, name, contract, token_id }: Drop) => {
               isMinted={isMinted}
               mintData={{ hash: mintData }}
             />
-            <RxShare2 size={33} onClick={openModal} className="cursor-pointer"/>
+            <RxShare2 size={33} onClick={openModal} className="cursor-pointer" />
             <AnimatePresence>
               {isModalOpen && <ShareModal onClose={closeModal} />}
             </AnimatePresence>

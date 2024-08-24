@@ -81,24 +81,24 @@ const GalleryPage = () => {
           </div>
         ) : (
           <div className="flex-1 overflow-hidden">
-            <Carousel itemsPerView={1} showReverse={true}>
-              {displayedData.map((mint: any, key: number) => (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                  key={key}
-                >
-                  <MintTemplate
-                    id={key}
-                    name={mint.name}
-                    contract={mint.address}
-                    token_id={mint.tokenId}
-                  />
-                </motion.div>
-              ))}
-            </Carousel>
+<Carousel itemsPerView={1} showReverse={true}>
+  {displayedData.map((mint, key) => (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      key={key}
+    >
+      <MintTemplate
+        id={key}
+        name={mint.name}
+        contract={mint.address}
+        token_id={mint.tokenId}
+      />
+    </motion.div>
+  ))}
+</Carousel>
           </div>
         )}
       </main>
