@@ -25,15 +25,14 @@ const ShareLinks: React.FC<ShareLinkProps> = ({ href, label, image }) => {
   );
 };
 
-const LINK_SHARE = "https://www.newtro.xyz/collect";
-
 const modalVariants = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: { opacity: 1, scale: 1 },
   exit: { opacity: 0, scale: 0.8 },
 };
 
-const ShareModal = ({ onClose }: { onClose: () => void }) => {
+const ShareModal = ({ onClose, link }: { onClose: () => void, link: string; }) => {
+  const shareLink = `https://newtro.xyz/collect/zora:${link}` 
   const handleClickOutside = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -63,12 +62,12 @@ const ShareModal = ({ onClose }: { onClose: () => void }) => {
         </div>
         <div className="flex justify-between gap-x-2">
           <input
-            value={LINK_SHARE}
+            value={shareLink}
             className="border focus:outline-none rounded-tl-[15px] rounded-br-[15px] bg-transparent px-2 border-fourth-green w-full"
           />
           <button
             onClick={() => {
-              navigator.clipboard.writeText(LINK_SHARE);
+              navigator.clipboard.writeText(shareLink);
             }}
             className="bg-fourth-green border border-fourth-green text-primary-dark p-2 hover:bg-primary-dark hover:text-fourth-green"
           >

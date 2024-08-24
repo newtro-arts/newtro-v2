@@ -101,7 +101,7 @@ const MintTemplate = ({ id, name, contract, token_id }: Drop) => {
               className="cursor-pointer"
             />
             <AnimatePresence>
-              {isModalOpen && <ShareModal onClose={closeModal} />}
+              {isModalOpen && <ShareModal onClose={closeModal} link={`${contract}/${token_id}`} />}
             </AnimatePresence>
           </div>
         </div>
