@@ -18,6 +18,8 @@ const nextConfig = {
       "https://pub-45a4182a1c2b41f3a18151a5e2a4ce29.r2.dev",
       "storage.newtro.xyz",
       "ipfs.decentralized-content.com",
+      "euc.li",
+      "rainbow.mypinata.cloud",
     ],
   },
 };
