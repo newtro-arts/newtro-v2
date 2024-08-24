@@ -95,7 +95,11 @@ const MintTemplate = ({ id, name, contract, token_id }: Drop) => {
               isMinted={isMinted}
               mintData={{ hash: mintData }}
             />
-            <RxShare2 size={33} onClick={openModal} className="cursor-pointer" />
+            <RxShare2
+              size={33}
+              onClick={openModal}
+              className="cursor-pointer"
+            />
             <AnimatePresence>
               {isModalOpen && <ShareModal onClose={closeModal} />}
             </AnimatePresence>

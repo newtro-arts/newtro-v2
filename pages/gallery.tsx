@@ -1,6 +1,6 @@
-import GalleryPage from '@/components/GalleryPage/GalleryPage'
-import React from 'react'
+import GalleryPage from "@/components/GalleryPage/GalleryPage";
+import React from "react";
 
-const Gallery = () => <GalleryPage/>;
+const Gallery = () => <GalleryPage />;
 
-export default Gallery
+export default Gallery;

@@ -28,13 +28,21 @@ const DropContent: React.FC<WebAsset> = ({
     <div className="w-full">
       {isVideo && (
         <div className="w-full object-contain">
-          <video autoPlay muted loop  className=" rounded-tl-[15px] rounded-br-[15px]">
+          <video
+            autoPlay
+            muted
+            loop
+            className=" rounded-tl-[15px] rounded-br-[15px]"
+          >
             <source type={mime} src={getIpfsLink(originalAsset)} />
           </video>
         </div>
       )}
       {isIframe && (
-        <iframe src={getIpfsLink(originalAsset)} className="w-full h-full rounded-tl-[15px] rounded-br-[15px]" />
+        <iframe
+          src={getIpfsLink(originalAsset)}
+          className="w-full h-full rounded-tl-[15px] rounded-br-[15px]"
+        />
       )}
       {isDefaultContent && (
         <Image

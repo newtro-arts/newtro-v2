@@ -21,7 +21,6 @@ export default function FeaturedMintsHome({
   contract,
   token_id,
 }: Drop) {
-
   const { data } = useGetContractInfo({
     collectionAddress: contract,
     tokenId: parseInt(token_id),

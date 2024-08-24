@@ -46,9 +46,9 @@ const MediaHero = () => {
           <h5 className="text-fourth-green text-xs pragmatica-text uppercase">
             Artist Residency
           </h5>
-          
+
           <h5 className="text-2xl media-hero text-white pragmatica-text">
-          BOSQUEGRACIAS
+            BOSQUEGRACIAS
             <Button
               href="/log/articles/bosque-gracias"
               variant="secondary"

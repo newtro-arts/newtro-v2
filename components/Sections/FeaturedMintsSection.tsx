@@ -1,11 +1,11 @@
-import React from 'react';
-import FilterItem from '../Commons/FilterItem';
-import Carousel from '../Commons/Carousel';
-import FeaturedMintsHome from '../FeaturedMintsHome';
-import Button from '../Commons/Button';
-import useFilterData from '../../hooks/useFilterData';
-import { filterList } from '@/sources/filterList';
-import FeaturedMintTokenURI from '../FeaturedMintTokenURI';
+import React from "react";
+import FilterItem from "../Commons/FilterItem";
+import Carousel from "../Commons/Carousel";
+import FeaturedMintsHome from "../FeaturedMintsHome";
+import Button from "../Commons/Button";
+import useFilterData from "../../hooks/useFilterData";
+import { filterList } from "@/sources/filterList";
+import FeaturedMintTokenURI from "../FeaturedMintTokenURI";
 
 const FeaturedMintsSection: React.FC = () => {
   const { selectedFilter, setSelectedFilter, filterData } = useFilterData();
@@ -18,7 +18,11 @@ const FeaturedMintsSection: React.FC = () => {
           Featured Mints
         </h5>
         <div className="hidden lg:block">
-          <Button href="/drops/all" variant="primary" className="mr-8 text-sm lg:text-base">
+          <Button
+            href="/drops/all"
+            variant="primary"
+            className="mr-8 text-sm lg:text-base"
+          >
             Explorer
           </Button>
         </div>
@@ -54,7 +58,11 @@ const FeaturedMintsSection: React.FC = () => {
         </div>
       </div>
       <div className="flex lg:hidden w-full px-8">
-        <Button href="/drops/all" variant="primary" className="text-center mx-2 my-4 p-3 w-full">
+        <Button
+          href="/drops/all"
+          variant="primary"
+          className="text-center mx-2 my-4 p-3 w-full"
+        >
           Explorer
         </Button>
       </div>

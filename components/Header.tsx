@@ -25,7 +25,7 @@ export default function Header() {
           </Link>
         </div>
         <div className="hidden md:flex flex-row items-center">
-        <Link
+          <Link
             className="h-fit mr-10 hover-underline-animation-nav"
             href="/gallery"
           >
@@ -69,7 +69,7 @@ export default function Header() {
         }
       >
         <ul className="w-full px-8">
-        <li className="text-fourth-green p-4 pl-0 text-2xl hover:text-gray-500 border-y border-y-fourth-green">
+          <li className="text-fourth-green p-4 pl-0 text-2xl hover:text-gray-500 border-y border-y-fourth-green">
             <Link onClick={handleNav} href="/gallery">
               Gallery
             </Link>

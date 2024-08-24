@@ -16,11 +16,19 @@ const FooterLink: React.FC<FooterLinkProps> = ({ href, label }) => {
       case "x":
         return <FaXTwitter className="block lg:hidden" size={22} />;
       case "instagram":
-        return <FaInstagram className="block lg:hidden" size={22}/>;
+        return <FaInstagram className="block lg:hidden" size={22} />;
       case "youtube":
         return <FaYoutube className="block lg:hidden" size={22} />;
       case "warpcast":
-        return <Image src="/warpcast.svg" width={22} height={22} alt="Warpcast" className=" block lg:hidden object-cover" />;  
+        return (
+          <Image
+            src="/warpcast.svg"
+            width={22}
+            height={22}
+            alt="Warpcast"
+            className=" block lg:hidden object-cover"
+          />
+        );
       default:
         return null;
     }
@@ -45,11 +53,19 @@ export default function Footer() {
       </Link>
       <div className="flex lg:items-center justify-between lg:justify-end w-full py-4">
         <FooterLink href="https://x.com/NewtroArts" label="X" />
-        <FooterLink href="https://www.instagram.com/newtroarts/" label="Instagram" />
-        <FooterLink href="https://www.youtube.com/channel/UCnr-Jd3qkb0N_e0Dvzhig7Q" label="Youtube" />
+        <FooterLink
+          href="https://www.instagram.com/newtroarts/"
+          label="Instagram"
+        />
+        <FooterLink
+          href="https://www.youtube.com/channel/UCnr-Jd3qkb0N_e0Dvzhig7Q"
+          label="Youtube"
+        />
         <FooterLink href="https://warpcast.com/newtroarts" label="Warpcast" />
       </div>
-      <p className="pragmatica-text uppercase pt-4 text-xs block lg:hidden text-center border-t border-fourth-green">Newtro Arts 2024</p>
+      <p className="pragmatica-text uppercase pt-4 text-xs block lg:hidden text-center border-t border-fourth-green">
+        Newtro Arts 2024
+      </p>
     </footer>
   );
 }

@@ -21,7 +21,7 @@ const fetchCollectionsWithMetadata = async () => {
           console.error("Error fetching metadata:", metadataError);
           return { ...collection, metadata: null };
         }
-      })
+      }),
     );
 
     return collectionsWithMetadata;

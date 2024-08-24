@@ -20,7 +20,7 @@ const GalleryPage = () => {
   const [loading, setLoading] = useState(false);
 
   const loadMoreItems = useCallback(() => {
-    if (loading) return; 
+    if (loading) return;
 
     setLoading(true);
 
@@ -41,7 +41,8 @@ const GalleryPage = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 &&
+        window.innerHeight + window.scrollY >=
+          document.body.offsetHeight - 100 &&
         !loading
       ) {
         loadMoreItems();
@@ -50,7 +51,7 @@ const GalleryPage = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [loadMoreItems]); 
+  }, [loadMoreItems]);
 
   return (
     <div className="w-full min-h-screen text-fourth-green pt-16 flex flex-col">
@@ -77,28 +78,30 @@ const GalleryPage = () => {
         </div>
         {loading ? (
           <div className="flex justify-center py-4">
-            <div className="pragmatica-text text-2xl animate-pulse">Loading...</div>
+            <div className="pragmatica-text text-2xl animate-pulse">
+              Loading...
+            </div>
           </div>
         ) : (
           <div className="flex-1 overflow-hidden">
-<Carousel itemsPerView={1} showReverse={true}>
-  {displayedData.map((mint, key) => (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 20 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
-      key={key}
-    >
-      <MintTemplate
-        id={key}
-        name={mint.name}
-        contract={mint.address}
-        token_id={mint.tokenId}
-      />
-    </motion.div>
-  ))}
-</Carousel>
+            <Carousel itemsPerView={1} showReverse={true}>
+              {displayedData.map((mint, key) => (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  key={key}
+                >
+                  <MintTemplate
+                    id={key}
+                    name={mint.name}
+                    contract={mint.address}
+                    token_id={mint.tokenId}
+                  />
+                </motion.div>
+              ))}
+            </Carousel>
           </div>
         )}
       </main>

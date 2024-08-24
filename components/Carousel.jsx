@@ -53,16 +53,13 @@ const Carousel = ({ children, itemsPerView = 1, showReverse = false }) => {
 
   return (
     <div className="w-full flex flex-col justify-center text-white">
-      <div
-        className="overflow-x-auto no-scrollbar"
-        ref={carouselRef}
-      >
+      <div className="overflow-x-auto no-scrollbar" ref={carouselRef}>
         <div className="flex">
           {children.map((item, index) => (
             <div
               key={index}
               ref={(el) => (itemRefs.current[index] = el)}
-              className={`min-w-full flex-shrink-0`}  
+              className={`min-w-full flex-shrink-0`}
             >
               {item}
             </div>
