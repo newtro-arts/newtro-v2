@@ -17,7 +17,6 @@ const Carousel: React.FC<CarouselProps> = ({ children, itemsPerView = 2, showRev
   const [showRightArrow, setShowRightArrow] = useState(true);
 
   useEffect(() => {
-    console.log(showReverse)
     const handleScroll = () => {
       if (carouselRef.current) {
         const { scrollLeft, clientWidth, scrollWidth } = carouselRef.current;
