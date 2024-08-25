@@ -6,8 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineClose } from "react-icons/ai";
 import { TbMenu } from "react-icons/tb";
+import useCreators from "@/hooks/useCreators";
+import DropdownButton from "./DropdownButton";
 
 export default function Header() {
+  const {isWhitelisted, creators } = useCreators();
   const [nav, setNav] = useState(false);
 
   const handleNav = () => {
@@ -23,6 +26,9 @@ export default function Header() {
           </Link>
         </div>
         <div className="hidden md:flex flex-row items-center">
+          {isWhitelisted &&  
+          <DropdownButton/>
+          }
           <Link
             className="h-fit mr-10 hover-underline-animation-nav"
             href="/gallery"
@@ -67,11 +73,13 @@ export default function Header() {
         }
       >
         <ul className="w-full px-8">
+        {isWhitelisted &&  
+
           <li className="text-fourth-green p-4 pl-0 text-2xl hover:text-gray-500 border-y border-y-fourth-green">
-            <Link onClick={handleNav} href="/gallery">
-              Gallery
-            </Link>
+          <DropdownButton/>
           </li>
+                    }
+
 
           <li className="text-fourth-green p-4 pl-0 text-2xl hover:text-gray-500 border-y border-y-fourth-green">
             <Link onClick={handleNav} href="/about">

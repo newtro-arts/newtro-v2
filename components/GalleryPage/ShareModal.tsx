@@ -54,11 +54,7 @@ const ShareModal = ({ onClose, link }: { onClose: () => void, link: string; }) =
       >
         <p className="pragmatica-text uppercase text-xl">Share</p>
         <div className="flex gap-x-4">
-          <ShareLinks href="" image="/embed.svg" label="Embed" />
-          <ShareLinks href="" image="/x.png" label="X" />
           <ShareLinks href="" image="/farcaster.png" label="Farcaster" />
-          <ShareLinks href="" image="/telegram.png" label="Telegram" />
-          <ShareLinks href="" image="/social-1.png" label="Social" />
         </div>
         <div className="flex justify-between gap-x-2">
           <input
