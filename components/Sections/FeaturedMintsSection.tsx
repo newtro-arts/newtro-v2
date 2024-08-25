@@ -10,7 +10,7 @@ import FeaturedMintTokenURI from "../FeaturedMintTokenURI";
 const FeaturedMintsSection: React.FC = () => {
   const { selectedFilter, setSelectedFilter, filterData } = useFilterData();
   const displayedData = filterData();
-  console.log("SWEETS DISPLAYED DATA", displayedData);
+
   return (
     <div className="max-w-full">
       <div className="flex justify-between">

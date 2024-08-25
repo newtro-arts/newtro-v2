@@ -7,7 +7,6 @@ const useCollections = () => {
   useEffect(() => {
     const fetchCollections = async () => {
       const collectionsWithMetadata = await fetchCollectionsWithMetadata();
-      console.log("SWEETS COLLECTIONS", collectionsWithMetadata);
       if (!collectionsWithMetadata) return;
       setCollections(collectionsWithMetadata);
     };
