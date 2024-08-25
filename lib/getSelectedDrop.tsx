@@ -2,10 +2,14 @@ import { Address } from "viem";
 import fetchIpfsUri from "./ipfs/fetchIpfsUri";
 import getFormattedNewtroToken from "./getFormattedNewtroToken";
 
-const getSelectedDrop = async (collectionAddress: Address, tokenId: number) => {
+const getSelectedDrop = async (
+  chainId: number,
+  collectionAddress: Address,
+  tokenId: number
+) => {
   try {
     const response = await fetch(
-      `/api/token?collectionAddress=${collectionAddress}&tokenId=${tokenId}`,
+      `/api/token?collectionAddress=${collectionAddress}&tokenId=${tokenId}&chainId=${chainId}`
     );
     if (!response.ok) {
       return {};
@@ -16,7 +20,7 @@ const getSelectedDrop = async (collectionAddress: Address, tokenId: number) => {
     const selectedDrop = getFormattedNewtroToken(
       data.data.token.contract,
       metadata,
-      data.data.token,
+      data.data.token
     );
     return selectedDrop;
   } catch (error) {

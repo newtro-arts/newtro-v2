@@ -2,10 +2,10 @@ import { createCollectorClient } from "@zoralabs/protocol-sdk";
 import { CHAIN_ID } from "../consts";
 import { getPublicClient } from "../viem";
 
-const getCollectorClient = () => {
-  const publicClient = getPublicClient(CHAIN_ID);
+const getCollectorClient = (chainId: number = CHAIN_ID) => {
+  const publicClient = getPublicClient(chainId);
   const collectorClient = createCollectorClient({
-    chainId: CHAIN_ID,
+    chainId,
     publicClient,
   });
   return collectorClient;

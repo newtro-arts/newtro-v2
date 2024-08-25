@@ -27,7 +27,7 @@ const Carousel: React.FC<CarouselProps> = ({
 
         setShowLeftArrow(scrollLeft > 0);
         setShowRightArrow(
-          scrollLeft < scrollWidth - clientWidth && isScrollable,
+          scrollLeft < scrollWidth - clientWidth && isScrollable
         );
       }
     };
