@@ -41,7 +41,7 @@ export default function FeaturedMintCard({ mint }: Drop) {
       >
         <div className="flex flex-col justify-end w-full p-4">
           <p className="pragmatica-text text-fourth-green uppercase lg:text-xl max-w-fit overflow-hidden text-ellipsis whitespace-nowrap">
-            {mint.name}
+            {mint?.name}
           </p>
           <div className="flex w-full justify-between text-xs">
             <p>Artist</p>
