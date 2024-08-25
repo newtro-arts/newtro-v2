@@ -35,7 +35,8 @@ const DropdownButton: React.FC = () => {
         <div className="origin-top-right absolute right-0 mt-2 w-56 bg-fourth-green text-primary-dark">
           <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
             <Link
-              href="/minter"
+              href="https://newtro-minter-site.vercel.app/"
+              target="_blank"
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
             >
               Minter
