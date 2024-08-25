@@ -9,7 +9,6 @@ const useCollections = () => {
       const collectionsWithMetadata = await fetchCollectionsWithMetadata();
       if (!collectionsWithMetadata) return;
       setCollections(collectionsWithMetadata);
-      console.log(`Collections ${collectionsWithMetadata}`);
     };
 
     fetchCollections();

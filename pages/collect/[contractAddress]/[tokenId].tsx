@@ -11,15 +11,12 @@ const Token = () => {
   const router = useRouter();
   const { contractAddress, tokenId } = router.query;
   const { network, address } = getAddressParts(contractAddress as string);
-  console.log(network, address, tokenId);
   const chainId = networkToChainId(network as string);
   const { selectedDrop } = useToken(
     chainId as number,
     address as Address,
     parseInt(tokenId as string, 10)
   );
-  console.log("sweets selectedDrop", selectedDrop);
-
   return (
     <div>
       {selectedDrop && (
