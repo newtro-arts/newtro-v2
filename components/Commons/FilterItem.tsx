@@ -15,9 +15,7 @@ const FilterItem: React.FC<FilterItemProps> = ({
     <p
       onClick={() => onSelect(title.toLowerCase())}
       className={`whitespace-nowrap lg:mx-8 cursor-pointer hover-underline-animation hover-underlined-filter ${
-        selectedFilter.toLowerCase() === title.toLowerCase()
-          ? "font-bold"
-          : ""
+        selectedFilter.toLowerCase() === title.toLowerCase() ? "font-bold" : ""
       }`}
     >
       {title}

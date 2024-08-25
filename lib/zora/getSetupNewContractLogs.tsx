@@ -11,7 +11,7 @@ import {
 import { getPublicClient } from "../viem";
 
 const getSetupNewContractLogs = async (
-  fromBlock: bigint = NEWTRO_FIRST_ZORA_BLOCK
+  fromBlock: bigint = NEWTRO_FIRST_ZORA_BLOCK,
 ) => {
   const publicClient = getPublicClient(CHAIN_ID);
   const contractEvents = await publicClient.getContractEvents({
