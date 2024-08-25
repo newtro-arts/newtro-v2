@@ -59,10 +59,9 @@ const MintButton: React.FC<MintButtonProps> = ({
             <span>Processing...</span>
           </div>
         )}
-        {!isMintLoading && !isMintStarted && "Free mint"}
+        {!isMintLoading && !isMintStarted && "Mint"}
         {isMinted && (
           <div className="flex flex-row">
-            <Image width={20} height={20} alt="" src={check} />
             <span className="ml-2">Purchased!</span>
           </div>
         )}

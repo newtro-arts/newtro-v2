@@ -92,7 +92,7 @@ const TokenPage = ({ selectedDrop, tokenId, contract }: TokenPageProps) => {
                 mintData={{ hash: mintData }}
               />
               <RxShare2
-                size={33}
+                size={38}
                 onClick={openModal}
                 className="cursor-pointer"
               />
