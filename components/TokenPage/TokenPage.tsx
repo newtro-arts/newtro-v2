@@ -49,9 +49,9 @@ const TokenPage = ({ selectedDrop, tokenId, contract }: TokenPageProps) => {
         <div className="lg:col-span-2 h-full overflow-hidden">
           <div className="sticky top-0 min-h-screen">
             <DropContent
-              mime={selectedDrop?.webAssets.originalAsset.mime}
+              mime={selectedDrop?.webAssets?.originalAsset?.mime}
               originalAsset={
-                selectedDrop?.webAssets.originalAsset.originalAsset
+                selectedDrop?.webAssets?.originalAsset?.originalAsset
               }
               previewAsset={selectedDrop?.webAssets.previewAsset.previewImage}
             />
