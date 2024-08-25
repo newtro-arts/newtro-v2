@@ -15,7 +15,7 @@ import ShareModal from "./ShareModal";
 import { AnimatePresence } from "framer-motion";
 import { CHAIN_ID } from "@/lib/consts";
 
-const MintTemplate = ({ id, name, contract, token_id }: Drop) => {
+const MintTemplate = ({ contract, token_id }: Drop) => {
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
 

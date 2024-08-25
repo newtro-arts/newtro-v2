@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import getAddressParts from "@/lib/zora/getAddressParts";
 import { Address } from "viem";
 import useToken from "@/hooks/useToken";
-import { CHAIN_ID } from "@/lib/consts";
 import networkToChainId from "@/lib/zora/networkToChainId";
 
 const Token = () => {
