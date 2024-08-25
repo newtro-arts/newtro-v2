@@ -31,8 +31,14 @@ const modalVariants = {
   exit: { opacity: 0, scale: 0.8 },
 };
 
-const ShareModal = ({ onClose, link }: { onClose: () => void, link: string; }) => {
-  const shareLink = `https://newtro.xyz/collect/zora:${link}` 
+const ShareModal = ({
+  onClose,
+  link,
+}: {
+  onClose: () => void;
+  link: string;
+}) => {
+  const shareLink = `https://newtro.xyz/collect/zora:${link}`;
   const handleClickOutside = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -56,7 +62,11 @@ const ShareModal = ({ onClose, link }: { onClose: () => void, link: string; }) =
         <div className="flex gap-x-4">
           <ShareLinks href="" image="/embed.svg" label="Embed" />
           <ShareLinks href="" image="/x.png" label="X" />
-          <ShareLinks href="" image="/farcaster.png" label="Farcaster" />
+          <ShareLinks
+            href="https://warpcast.com/~/compose?text=Bienvenidos%20a%20Newtro!&embeds[]=https://newtro-frame-collection.vercel.app/api"
+            image="/farcaster.png"
+            label="Farcaster"
+          />
           <ShareLinks href="" image="/telegram.png" label="Telegram" />
           <ShareLinks href="" image="/social-1.png" label="Social" />
         </div>
