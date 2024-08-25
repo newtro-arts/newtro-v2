@@ -13,6 +13,7 @@ import MintInformation from "../Commons/ZoraInformation";
 import { RxShare2 } from "react-icons/rx";
 import ShareModal from "./ShareModal";
 import { AnimatePresence } from "framer-motion";
+import { CHAIN_ID } from "@/lib/consts";
 
 const MintTemplate = ({ id, name, contract, token_id }: Drop) => {
   const [loading, setLoading] = useState(true);
@@ -35,7 +36,11 @@ const MintTemplate = ({ id, name, contract, token_id }: Drop) => {
   const totalSupply: string =
     data?.zoraCreateTokens[0]?.totalSupply.toString() + " Minted" ??
     "No mints yet";
-  const { selectedDrop } = useToken(contract, parseInt(token_id as string, 10));
+  const { selectedDrop } = useToken(
+    CHAIN_ID,
+    contract,
+    parseInt(token_id as string, 10)
+  );
 
   const {
     quantity: amount,
@@ -101,7 +106,12 @@ const MintTemplate = ({ id, name, contract, token_id }: Drop) => {
               className="cursor-pointer"
             />
             <AnimatePresence>
-              {isModalOpen && <ShareModal onClose={closeModal} link={`${contract}/${token_id}`} />}
+              {isModalOpen && (
+                <ShareModal
+                  onClose={closeModal}
+                  link={`${contract}/${token_id}`}
+                />
+              )}
             </AnimatePresence>
           </div>
         </div>

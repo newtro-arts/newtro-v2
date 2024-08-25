@@ -7,7 +7,7 @@ export const getPublicClient = (chainId: number) => {
   let publicClient = createPublicClient({
     chain,
     transport: http(
-      chainId === zora.id ? "https://rpc.zora.energy" : undefined,
+      chainId === zora.id ? "https://rpc.zora.energy" : undefined
     ),
   }) as any;
   return publicClient as PublicClient;

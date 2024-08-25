@@ -35,7 +35,9 @@ const useFilterData = () => {
       case "mycelium miscellany":
         return drop1MyceliumMiscellany;
       default:
-        return drop1MyceliumMiscellany.concat(tokens); 
+        return drop1MyceliumMiscellany
+          .concat(tokens)
+          .filter((item) => item !== undefined);
     }
   };
 
