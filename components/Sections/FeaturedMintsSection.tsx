@@ -35,7 +35,7 @@ const FeaturedMintsSection: React.FC = () => {
             ) : (
               <FeaturedMintsHome
                 id={key}
-                name={mint.name}
+                name={mint?.name}
                 image={mint.webAssets.previewAsset.previewImage}
                 contract={mint.address}
                 token_id={mint.tokenId}
