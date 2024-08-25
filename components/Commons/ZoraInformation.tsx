@@ -14,19 +14,6 @@ const ZoraInformation: React.FC<ZoraInformationProps> = ({
   mintData,
 }) => (
   <>
-    {/* {mounted && !isConnected ? (
-        <p className="text-[14px] pt-2 font-light">
-          Connect your wallet to mint.
-        </p>
-      ) : null} */}
-
-    {/* <p className="text-[14px] pt-2 font-light">
-      We're minting on Zora Network.
-      <a href="https://bridge.zora.energy/" className="underline pl-2">
-        Bridge Here
-      </a>
-    </p> */}
-
     {mounted && isMinted ? (
       <p className="text-[14px] pt-2 font-light">
         Your transaction has been submitted. Check on
