@@ -10,6 +10,7 @@ import { http } from "viem";
 import { theme } from "@/lib/theme";
 import { CHAIN, CHAIN_ID } from "@/lib/consts";
 import { Analytics } from "@vercel/analytics/react";
+import { arbitrum } from "viem/chains";
 
 const client = new ApolloClient({
   uri: "https://api.goldsky.com/api/public/project_clhk16b61ay9t49vm6ntn4mkz/subgraphs/zora-create-zora-mainnet/stable/gn",
@@ -21,9 +22,10 @@ const queryClient = new QueryClient();
 const config = getDefaultConfig({
   appName: "newtro",
   projectId: "ee656e02d549f1ce6f5ab87d3a47c743",
-  chains: [CHAIN],
+  chains: [CHAIN, arbitrum],
   transports: {
     [CHAIN_ID]: http(),
+    [arbitrum.id]: http(),
   },
 });
 
