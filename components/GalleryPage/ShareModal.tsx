@@ -56,7 +56,7 @@ const ShareModal = ({
         animate="visible"
         exit="exit"
         transition={{ duration: 0.1 }}
-        className="w-full lg:w-fit p-4 self-center h-fit flex flex-col bg-primary-dark gap-y-2 text-fourth-green border border-fourth-green rounded-tl-[15px] rounded-br-[15px]"
+        className="w-full lg:w-fit p-4 self-center h-fit flex flex-col bg-primary-dark gap-y-4 text-fourth-green border border-fourth-green rounded-tl-[15px] rounded-br-[15px]"
       >
         <p className="pragmatica-text uppercase text-xl">Share</p>
         <div className="flex gap-x-4">

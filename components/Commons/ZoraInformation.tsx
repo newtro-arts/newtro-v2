@@ -15,7 +15,7 @@ const ZoraInformation: React.FC<ZoraInformationProps> = ({
 }) => (
   <>
     {mounted && isMinted ? (
-      <p className="text-[14px] pt-2 font-light">
+      <p className="text-xs pt-2 font-light inline-flex">
         Your transaction has been submitted. Check on
         <a
           href={`https://explorer.zora.energy/tx/${mintData?.hash}`}
