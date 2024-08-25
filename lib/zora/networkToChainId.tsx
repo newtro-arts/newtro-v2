@@ -3,7 +3,7 @@ import { arbitrum, baseSepolia, zora } from "viem/chains";
 const networkToChainId = (network: string): number | undefined => {
   const networkMapping: Record<string, number> = {
     bsep: baseSepolia.id,
-    arbitrum: arbitrum.id,
+    arb: arbitrum.id,
     zora: zora.id,
   };
 
