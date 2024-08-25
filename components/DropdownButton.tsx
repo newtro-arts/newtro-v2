@@ -38,13 +38,13 @@ const DropdownButton: React.FC = () => {
               href="/minter"
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
             >
-              Opción 1
+              Minter
             </Link>
             <Link
-              href="/gallery"
+              href="/creators"
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
             >
-              Gallery
+              Creators
             </Link>
           </div>
         </div>
