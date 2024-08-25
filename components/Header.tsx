@@ -10,7 +10,7 @@ import useCreators from "@/hooks/useCreators";
 import DropdownButton from "./DropdownButton";
 
 export default function Header() {
-  const {isWhitelisted, creators } = useCreators();
+  const { isWhitelisted } = useCreators();
   const [nav, setNav] = useState(false);
 
   const handleNav = () => {
