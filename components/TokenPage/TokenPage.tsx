@@ -53,7 +53,7 @@ const TokenPage = ({ selectedDrop, tokenId, contract }: TokenPageProps) => {
               originalAsset={
                 selectedDrop?.webAssets?.originalAsset?.originalAsset
               }
-              previewAsset={selectedDrop?.webAssets.previewAsset.previewImage}
+              previewAsset={selectedDrop?.webAssets?.previewAsset?.previewImage}
             />
           </div>
         </div>
