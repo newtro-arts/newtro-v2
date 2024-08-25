@@ -15,7 +15,7 @@ import networkToChainId from "@/lib/zora/networkToChainId";
 
 const useZoraMint = (selectedDrop: any) => {
   const router = useRouter();
-  const { contractAddress, tokenId } = router.query;
+  const { contractAddress } = router.query;
   const { network } = getAddressParts(contractAddress as string);
   const chainId = networkToChainId(network as string) as number;
   const { writeContract, data: mintData, status } = useWriteContract();
