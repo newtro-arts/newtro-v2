@@ -61,7 +61,7 @@ const ShareModal = ({
         <p className="pragmatica-text uppercase text-xl">Share</p>
         <div className="flex gap-x-4">
           <ShareLinks
-            href="https://warpcast.com/~/compose?text=Bienvenidos%20a%20Newtro!&embeds[]=https://newtro-frame-collection.vercel.app/api"
+            href="https://warpcast.com/~/compose?embeds[]=https://newtro-frame-collection.vercel.app/api"
             image="/farcaster.png"
             label="Farcaster"
           />
