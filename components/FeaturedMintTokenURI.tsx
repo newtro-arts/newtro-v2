@@ -22,7 +22,7 @@ export default function FeaturedMintTokenURI({ mint }: Mint) {
 
   const mintCard = {
     id: mint.id,
-    name: isSuccess ? data.name : "",
+    name: isSuccess ? data?.name : "",
     image: isSuccess ? data.image : "",
     contract: mint.contract.address,
     tokenId: mint.tokenId,
