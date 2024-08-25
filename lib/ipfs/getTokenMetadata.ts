@@ -1,11 +1,11 @@
 import getIpfsLink from "@/lib/ipfs/getIpfsLink";
 
 interface URIReturn {
-  name: string,
-  description: string,
-  image: `ipfs://${string}`,
-  content: { mime: string, uri: `ipfs://${string}` }
-};
+  name: string;
+  description: string;
+  image: `ipfs://${string}`;
+  content: { mime: string; uri: `ipfs://${string}` };
+}
 
 async function getTokenMetdata(tokenURI: string) {
   const res = await fetch(getIpfsLink(tokenURI));

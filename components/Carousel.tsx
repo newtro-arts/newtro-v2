@@ -6,15 +6,12 @@ import {
 
 interface CarouselProps {
   children: React.ReactNode;
-  itemsPerView?: number;
+  itemsPerView?: number; 
   showReverse?: boolean;
+  size?: string;
 }
 
-const Carousel: React.FC<CarouselProps> = ({
-  children,
-  itemsPerView = 2,
-  showReverse = false,
-}) => {
+const Carousel: React.FC<CarouselProps> = ({ children, itemsPerView = 2, showReverse = false }) => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
@@ -27,7 +24,7 @@ const Carousel: React.FC<CarouselProps> = ({
 
         setShowLeftArrow(scrollLeft > 0);
         setShowRightArrow(
-          scrollLeft < scrollWidth - clientWidth && isScrollable,
+          scrollLeft < scrollWidth - clientWidth && isScrollable
         );
       }
     };
@@ -46,7 +43,7 @@ const Carousel: React.FC<CarouselProps> = ({
   const scrollRight = () => {
     if (carouselRef.current) {
       const containerWidth = carouselRef.current.clientWidth;
-      const itemWidth = containerWidth / itemsPerView;
+      const itemWidth = containerWidth / itemsPerView; 
       const currentScroll = carouselRef.current.scrollLeft;
       const maxScroll = carouselRef.current.scrollWidth - containerWidth;
       const nextScroll = Math.min(currentScroll + itemWidth, maxScroll);
@@ -61,7 +58,7 @@ const Carousel: React.FC<CarouselProps> = ({
   const scrollLeft = () => {
     if (carouselRef.current) {
       const containerWidth = carouselRef.current.clientWidth;
-      const itemWidth = containerWidth / itemsPerView;
+      const itemWidth = containerWidth / itemsPerView; 
       const currentScroll = carouselRef.current.scrollLeft;
       const nextScroll = Math.max(currentScroll - itemWidth, 0);
 
@@ -73,19 +70,11 @@ const Carousel: React.FC<CarouselProps> = ({
   };
 
   return (
-    <div
-      style={
-        showReverse
-          ? {
-              display: "flex",
-              flexDirection: "column",
-            }
-          : {
-              display: "flex",
-              flexDirection: "column-reverse",
-            }
-      }
-    >
+    <div style={showReverse ? {
+      display: "flex", flexDirection: "column"
+    } : { 
+      display: "flex", flexDirection: "column-reverse"
+    }}>
       <div className="flex px-4 lg:px-8 justify-between w-full text-xs mt-4">
         <button
           onClick={scrollLeft}

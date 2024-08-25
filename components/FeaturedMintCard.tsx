@@ -13,7 +13,7 @@ export interface Drop {
     contract: Address;
     tokenId: string;
     totalSupply: string | number;
-  }
+  };
 }
 
 export default function FeaturedMintCard({ mint }: Drop) {
@@ -23,7 +23,8 @@ export default function FeaturedMintCard({ mint }: Drop) {
   return (
     <Link
       className={`flex h-fit mx-8 text-left items-start scroll-smooth gap-x-0 relative mb-4 bg-secondary-white mr-4 ${id % 2 === 0 ? " rounded-tl-cards rounded-br-cards" : "rounded-cards"}`}
-      href={getTokenLink(mint.contract, mint.tokenId)}>
+      href={getTokenLink(mint.contract, mint.tokenId)}
+    >
       <div className="flex flex-col justify-center w-full h-full">
         <Image
           className={`transition-opacity opacity-0 duration-[2s] max-w-[350px] lg:max-w-[600px] mb-0 aspect-square ${id % 2 === 0 ? " rounded-tl-cards rounded-br-cards" : "rounded-cards"} object-cover`}
@@ -44,7 +45,7 @@ export default function FeaturedMintCard({ mint }: Drop) {
           </p>
           <div className="flex w-full justify-between text-xs">
             <p>Artist</p>
-            <p>{totalSupply ? `${totalSupply} Minted` : 'No mints'}</p>
+            <p>{totalSupply ? `${totalSupply} Minted` : "No mints"}</p>
           </div>
         </div>
       </div>

@@ -11,19 +11,19 @@ export interface Mint {
     tokenURI: string;
     tokenId: string;
     totalMinted: string;
-  }
-};
+  };
+}
 
 export default function FeaturedMintTokenURI({ mint }: Mint) {
   const { data, isSuccess } = useQuery({
     queryKey: [`${mint.contract.address}/${mint.tokenId}`],
-    queryFn: () => getTokenMetdata(mint.tokenURI)
+    queryFn: () => getTokenMetdata(mint.tokenURI),
   });
 
   const mintCard = {
     id: mint.id,
-    name: isSuccess ? data.name : '',
-    image: isSuccess ? data.image : '',
+    name: isSuccess ? data.name : "",
+    image: isSuccess ? data.image : "",
     contract: mint.contract.address,
     tokenId: mint.tokenId,
     totalSupply: mint.totalMinted,
