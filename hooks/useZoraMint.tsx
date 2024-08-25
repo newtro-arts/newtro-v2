@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useAccount, useWriteContract } from "wagmi";
+import { useAccount, useSwitchChain, useWriteContract } from "wagmi";
 import padAddress from "@/components/utils/padAddress";
 import { Address, parseEther } from "viem";
 import {
@@ -14,6 +14,7 @@ import getAddressParts from "@/lib/zora/getAddressParts";
 import networkToChainId from "@/lib/zora/networkToChainId";
 
 const useZoraMint = (selectedDrop: any) => {
+  const { switchChain } = useSwitchChain();
   const router = useRouter();
   const { contractAddress } = router.query;
   const { network } = getAddressParts(contractAddress as string);
@@ -27,6 +28,7 @@ const useZoraMint = (selectedDrop: any) => {
 
   const mint = async () => {
     try {
+      await switchChain({ chainId });
       const isUniswapMinter =
         selectedDrop.minter === ZORA_TIMED_SALE_STRATEGY_IMPLEMENTATION;
       const pricePerToken = isUniswapMinter ? 0.000111 : 0.000777;
