@@ -6,10 +6,7 @@ const Avatar = ({ creator }: any) => {
   const avatar = creator.user_profile.avatar;
 
   return (
-    <Link
-      className='relative aspect-square bg-secondary-white border border-fourth-green rounded-tl-cards rounded-br-cards overflow-hidden'
-      href={`https://zora.co/@${creator.user_profile.username}`}
-      target="_blank">
+    <Link href={`/creator/${creator.address}`} className='relative aspect-square bg-secondary-white border border-fourth-green rounded-tl-cards rounded-br-cards overflow-hidden'>
       <img
         alt='pfp'
         src={avatar ? getIpfsLink(avatar) : '/default-avatar.png'}
