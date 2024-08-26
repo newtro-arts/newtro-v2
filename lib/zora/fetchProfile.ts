@@ -1,5 +1,3 @@
-import { Address } from "viem";
-
 async function fetchProfile(address: string) {
   if (!address) return;
 
