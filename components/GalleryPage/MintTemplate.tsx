@@ -1,43 +1,46 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
-import Header from "../../components/Header";
-import TextSplitter from "../../components/TextSplitter";
-import MintButton from "../../components/Commons/MintButton";
-import AmountSelector from "../../components/AmountSelector";
-import { useIsMounted } from "../../hooks/useIsMounted";
-import { useAccount } from "wagmi";
-import Head from "next/head";
-import DropContent from "@/components/DropContent";
-import MintInformation from "../Commons/ZoraInformation";
-import useZoraMint from "@/hooks/useZoraMint";
+import React, { useState, useEffect } from "react";
+import { Drop } from "../FeaturedMintsHome";
 import useGetContractInfo from "../gql/getContractInfo";
+import DropContent from "../DropContent";
+import AmountSelector from "../AmountSelector";
+import MintButton from "../Commons/MintButton";
+import TextSplitter from "../TextSplitter";
+import useToken from "@/hooks/useToken";
+import useZoraMint from "@/hooks/useZoraMint";
+import { useIsMounted } from "@/hooks/useIsMounted";
+import { useAccount } from "wagmi";
+import MintInformation from "../Commons/ZoraInformation";
 import { RxShare2 } from "react-icons/rx";
+import ShareModal from "./ShareModal";
 import { AnimatePresence } from "framer-motion";
-import ShareModal from "../GalleryPage/ShareModal";
+import { CHAIN_ID } from "@/lib/consts";
 
-
-interface TokenPageProps {
-  selectedDrop: any;
-  tokenId?: string;
-  contract?: string;
-}
-const TokenPage = ({ selectedDrop, tokenId, contract}: TokenPageProps) => {
-  const { data } = useGetContractInfo({
-    collectionAddress: contract,
-    tokenId: parseInt(tokenId!!),
-  });
-
-  const totalSupply: string =
-  data?.zoraCreateTokens[0]?.totalSupply.toString() + " Minted" ??
-  "No mints yet";
-
-    const [isModalOpen, setIsModalOpen] = useState(false);
+const MintTemplate = ({ id, name, contract, token_id }: Drop) => {
+  const [loading, setLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  const { data } = useGetContractInfo({
+    collectionAddress: contract,
+    tokenId: parseInt(token_id),
+  });
 
+  useEffect(() => {
+    if (data) {
+      setLoading(false);
+    }
+  }, [data]);
+
+  const totalSupply: string =
+    data?.zoraCreateTokens[0]?.totalSupply.toString() + " Minted" ??
+    "No mints yet";
+  const { selectedDrop } = useToken(
+    CHAIN_ID,
+    contract,
+    parseInt(token_id as string, 10)
+  );
 
   const {
     quantity: amount,
@@ -48,19 +51,13 @@ const TokenPage = ({ selectedDrop, tokenId, contract}: TokenPageProps) => {
     mint,
     mintData,
   } = useZoraMint(selectedDrop);
-  const mounted = useIsMounted();
+  const mounted = useIsMounted() || false;
   const { isConnected } = useAccount();
 
   return (
-    <>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-4 lg:gap-y-0 min-h-screen h-full my-4 mx-4 lg:mx-8 pt-20 text-fourth-green">
-        <Head>
-          <title>{selectedDrop?.name}</title>
-        </Head>
-        <Header />
-
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-4 lg:gap-y-0 max-h-screen h-full my-4 mx-4 lg:mx-8">
       <div className="lg:col-span-2 h-full overflow-hidden">
-        <div className="sticky top-0 min-h-screen">
+        <div className="sticky top-0 max-h-screen">
           <DropContent
             mime={selectedDrop?.webAssets.originalAsset.mime}
             originalAsset={selectedDrop?.webAssets.originalAsset.originalAsset}
@@ -76,6 +73,7 @@ const TokenPage = ({ selectedDrop, tokenId, contract}: TokenPageProps) => {
             <h1 className="font-semibold text-xl uppercase pragmatica-text my-2 overflow-wrap break-words whitespace-normal">
               {selectedDrop?.name}
             </h1>
+            <p className="hidden lg:block text-xs">{totalSupply}</p>
           </div>
           <TextSplitter description={selectedDrop?.description} />
           <div className="flex justify-between items-end">
@@ -108,14 +106,18 @@ const TokenPage = ({ selectedDrop, tokenId, contract}: TokenPageProps) => {
               className="cursor-pointer"
             />
             <AnimatePresence>
-              {isModalOpen && <ShareModal onClose={closeModal} link={`${contract}/${tokenId!!}`} />}
+              {isModalOpen && (
+                <ShareModal
+                  onClose={closeModal}
+                  link={`${contract}/${token_id}`}
+                />
+              )}
             </AnimatePresence>
           </div>
         </div>
       </div>
     </div>
-    </>
   );
 };
 
-export default TokenPage;
+export default MintTemplate;

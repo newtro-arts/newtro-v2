@@ -1,4 +1,5 @@
 import React from "react";
+
 export default function TextDisplay({ description }: any) {
   const paragraphs = description?.split("\n");
 
@@ -7,7 +8,7 @@ export default function TextDisplay({ description }: any) {
       {paragraphs?.map((x: any, index: any) => (
         <p
           key={index}
-          className=" mb-2 font-light text-md tracking-wide leading-5"
+          className="mb-2 text-sm tracking-wide leading-5 overflow-wrap break-words whitespace-normal"
         >
           {x}
         </p>

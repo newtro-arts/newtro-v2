@@ -8,6 +8,7 @@ interface CarouselProps {
   children: React.ReactNode;
   itemsPerView?: number;
   showReverse?: boolean;
+  size?: string;
 }
 
 const Carousel: React.FC<CarouselProps> = ({
