@@ -30,7 +30,7 @@ const ArticleSideContent = ({ title, subtitle, date, author, image }: ArticleSid
         </Button>
         <Button
           href="/share"
-          variant="primary"
+          variant="tertiary"
           className="w-fit bg-fifth-purple self-center lg:self-start mr-4" >
           Copy URL
         </Button>

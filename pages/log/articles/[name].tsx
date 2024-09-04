@@ -1,5 +1,6 @@
 import ArticlePage from "@/components/ArticlePage";
 import Header from "@/components/Header";
+import { bosqueGracias } from "@/sources/articles/bosque-gracias";
 import Head from "next/head";
 import React from "react";
 
@@ -10,7 +11,7 @@ const Article = () => {
         <title>Newtro Arts</title>
       </Head>
       <Header />
-      <ArticlePage />
+      <ArticlePage article={bosqueGracias}/>
     </div>
   );
 };

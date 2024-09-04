@@ -17,7 +17,7 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
   }
 
   return (
-    <div className='mx-8 max-w-full'>
+    <div className='max-w-full'>
       {formatContent(content)}
     </div>
   )

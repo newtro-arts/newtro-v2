@@ -1,21 +1,29 @@
 import React from 'react'
 import ArticleHeader from './ArticleHeader'
 import ArticleContent from './ArticleContent'
-import { bosqueGracias } from '@/sources/articles/bosque-gracias'
 import ArticleSideContent from './ArticleSideContent'
 import ArticleMarquee from './Marquee'
+import ArticleGallery from './ArticleGallery'
+import { ArticlePageProps } from '@/types/article'
 
-const ArticlePage = () => {
+const ArticlePage = ({ article }: ArticlePageProps) => {
   return (
     <div className='w-full min-h-screen'>
-      <ArticleHeader title={bosqueGracias.title} subtitle={bosqueGracias.subtitle} image='/blog-entry.png' date='2021-01-01' />
-      <div className='grid grid-cols-1 lg:grid-cols-12'>
+      <ArticleHeader title={article.title} subtitle={article.subtitle} image={article.image} date={article.date} />
+      <ArticleGallery images={article.images} />
+      <div className='grid grid-cols-1 lg:grid-cols-12 my-4 border-b border-fourth-green pb-4 mx-8'>
         <div className='lg:col-span-8'>
-          <ArticleContent content={bosqueGracias.content}/>
+          <ArticleContent content={article.content}/>
         </div>
         <div className='lg:col-span-4'>
           <div className='sticky top-16'>
-            <ArticleSideContent title={bosqueGracias.title} subtitle={bosqueGracias.subtitle} date={bosqueGracias.date} author={bosqueGracias.author} image={bosqueGracias.image} />  
+            <ArticleSideContent 
+              title={article.title} 
+              subtitle={article.subtitle} 
+              date={article.date} 
+              author={article.author} 
+              image={article.image} 
+            />  
           </div>
         </div>
       </div>
