@@ -51,7 +51,7 @@ export default function Footer() {
       <Link href="/" aria-label="Home" className="hidden lg:flex">
         <Image alt="Newtro Logo" width={49} height={49} src={logo} />
       </Link>
-      <div className="flex lg:items-center justify-between lg:justify-end w-full py-4">
+      <div className="flex lg:items-center justify-between lg:justify-end w-full pb-4">
         <FooterLink href="https://x.com/NewtroArts" label="X" />
         <FooterLink
           href="https://www.instagram.com/newtroarts/"
