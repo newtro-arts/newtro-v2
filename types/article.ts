@@ -1,8 +1,12 @@
+import { Author } from "@/pages/log";
 
 export interface Article {
-    staticHtml: string;
-    json: string;
-    markdown: string;
+  title: string;
+  staticHtml: string;
+  json: string;
+  markdown: string;
+  createdAt: string;
+  authors: Author[];
 }
 
 export interface ArticlePageProps {

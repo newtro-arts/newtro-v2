@@ -4,24 +4,21 @@ import Button from '@/components/Commons/Button'
 
 interface ArticleSideContentProps {
   title: string;
-  subtitle: string;
   date: string;
   author: string;
   image: string;
 }
 
-const ArticleSideContent = ({ title, subtitle, date, author, image }: ArticleSideContentProps) => {
+const ArticleSideContent = ({ title, date, author, image }: ArticleSideContentProps) => {
   return (
-    <div className="p-8 lg:p-4">
+    <div className="py-8 lg:py-0 px-4">
     <p className='text-lg pragmatica-text text-xl lg:text-2xl uppercase'>{title}</p>
-    <p className='text-sm'>{subtitle}</p>
     <p className='text-sm'>{date}</p>
-    <div className='flex justify-between'>
-      <div className='flex flex-col text-sm'>
+      <div className='flex flex-col text-sm gap-y-2'>
       <p>Written by</p>
-      <Image src="" alt={author} width={100} height={100}/>
+      <Image src={image} alt={author} width={100} height={100}/>
       </div>
-      <div className='flex flex-col align-top text-sm gap-y-4'>
+      <div className='flex flex-col align-top text-sm gap-y-4 my-4'>
       <Button
           href="/share"
           variant="primary"
@@ -34,8 +31,6 @@ const ArticleSideContent = ({ title, subtitle, date, author, image }: ArticleSid
           className="w-fit bg-fifth-purple self-center lg:self-start mr-4" >
           Copy URL
         </Button>
-
-      </div>
     </div>
   </div>
 

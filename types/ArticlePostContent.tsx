@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Paragraph: React.FC<{ content: any[], attrs?: any }> = ({ content, attrs }) => (
-  <p style={{ textAlign: attrs?.textAlign || 'left' }}>
+  <p style={{ textAlign: attrs?.textAlign || 'left' }} className='pb-2'>
     {content.map((item, index) => <ContentRenderer key={index} item={item} />)}
   </p>
 );
@@ -13,20 +13,19 @@ const Figure: React.FC<{ content: any[], attrs?: any }> = ({ content, attrs }) =
 );
 
 const Image: React.FC<{ attrs: any }> = ({ attrs }) => (
-  <img 
+  <img className='max-w-full'
     src={attrs.src} 
-    alt={attrs.alt || ''} 
     title={attrs.title || ''} 
     width={attrs.nextwidth} 
     height={attrs.nextheight}
   />
 );
 
-// const Figcaption: React.FC<{ content: any[] }> = ({ content }) => (
-//   <figcaption>
-//     {content.map((item, index) => <ContentRenderer key={index} item={item} />)}
-//   </figcaption>
-// );
+const Figcaption: React.FC<{ content: any[] }> = ({ content }) => (
+  <figcaption>
+    {content.map((item, index) => <ContentRenderer key={index} item={item} />)}
+  </figcaption>
+);
 
 const Youtube: React.FC<{ attrs: any }> = ({ attrs }) => (
   <iframe 
@@ -52,7 +51,6 @@ const Text: React.FC<{ item: any }> = ({ item }) => {
       case 'link':
         result = <a href={mark.attrs.href} target={mark.attrs.target} rel={mark.attrs.rel}>{result}</a>;
         break;
-      // Añade más casos según sea necesario
     }
   });
   return result;
@@ -66,8 +64,8 @@ const ContentRenderer: React.FC<{ item: any }> = ({ item }) => {
       return <Figure content={item.content} attrs={item.attrs} />;
     case 'image':
       return <Image attrs={item.attrs} />;
-    // case 'figcaption':
-    //   return <Figcaption content={item.content} />;
+    case 'figcaption':
+      return <Figcaption content={item.content} />;
     case 'youtube':
       return <Youtube attrs={item.attrs} />;
     case 'text':

@@ -16,7 +16,7 @@ interface ParagraphPost {
   createdAt: string; 
 }
 
-interface Author {
+export interface Author {
   avatar: string;
   name: string;
   wallet_address: string;
