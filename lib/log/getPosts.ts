@@ -74,7 +74,7 @@ async function getParagraphPosts(wallet: string): Promise<any> {
         const content = await fetchParagraphPostContent(post.id);
         console.log(content);
         if(!content) return;
-        return { ...post, ...content };
+        return { ...post, ...content, id: post.id };
       })
     );
 

@@ -20,6 +20,7 @@ const nextConfig = {
       "ipfs.decentralized-content.com",
       "euc.li",
       "rainbow.mypinata.cloud",
+      "storage.googleapis.com"
     ],
   },
 };

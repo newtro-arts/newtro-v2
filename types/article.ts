@@ -1,13 +1,51 @@
+
 export interface Article {
-    title: string;
-    subtitle: string;
-    date: string;
-    author: string;
-    image: string;
-    images: string[];
-    content: string;
+    staticHtml: string;
+    json: string;
+    markdown: string;
 }
 
 export interface ArticlePageProps {
-  article: Article
+  article: {
+    title: string;
+    subtitle: string;
+    image: string;
+    date: string;
+    author: string;
+    content: ArticlePostContent;
+  };
+}
+
+export interface ArticlePostContent {
+  type: string;
+  content: ContentItem[];
+}
+
+export interface ContentItem {
+  type: string;
+  attrs?: {
+    textAlign?: string;
+    float?: string;
+    width?: number | null;
+    videoId?: string;
+    src?: string;
+    alt?: string | null;
+    title?: string | null;
+    blurdataurl?: string;
+    nextheight?: number;
+    nextwidth?: number;
+  };
+  content?: ContentItem[];
+  text?: string;
+  marks?: Mark[];
+}
+
+interface Mark {
+  type: string;
+  attrs?: {
+    href?: string;
+    target?: string;
+    rel?: string;
+    class?: string;
+  };
 }
