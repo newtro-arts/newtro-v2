@@ -13,4 +13,12 @@ export const endpoints = [
     route:
       "/api/token?collectionAddress={COLLECTION_ADDRESS}&tokenId={TOKEN_ID}",
   },
+  {
+    apiType: "GET",
+    route: "/api/tokens",
+  },
+  {
+    apiType: "GET",
+    route: "/api/tokens?creatorAddress={CREATOR_ADDRESS}",
+  },
 ];

@@ -6,6 +6,8 @@ import { CHAIN_ID } from "@/lib/consts";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
+    const { creatorAddress } = req.query;
+
     const logs = await getSetupNewContractLogs();
     const collections = logs
       .map(({ args }) => args.newContract)
@@ -19,9 +21,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     );
 
     const allTokens = formatCollectionTokens(collectionTokens);
-    const count = allTokens.length;
+    const tokens = creatorAddress ?
+      allTokens.filter(token => token.creator == creatorAddress) :
+      allTokens
+    const count = tokens.length;
 
-    res.status(200).json({ count, tokens: allTokens });
+    res.status(200).json({ count, tokens });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error });
