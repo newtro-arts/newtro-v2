@@ -1,20 +1,10 @@
 import React from "react";
 import getTokenMetdata from "@/lib/ipfs/getTokenMetadata";
 import { useQuery } from "@tanstack/react-query";
-import { Address } from "viem";
 import FeaturedMintCard from "./FeaturedMintCard";
+import { Token } from "@/types/token";
 
-export interface Mint {
-  mint: {
-    id: number;
-    contract: { address: Address };
-    tokenURI: string;
-    tokenId: string;
-    totalMinted: string;
-  };
-}
-
-export default function FeaturedMintTokenURI({ mint }: Mint) {
+export default function FeaturedMintTokenURI({ mint }: { mint: Token }) {
   const { data, isSuccess } = useQuery({
     queryKey: [`${mint.contract.address}/${mint.tokenId}`],
     queryFn: () => getTokenMetdata(mint.tokenURI),
