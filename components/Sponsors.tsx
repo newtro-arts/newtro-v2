@@ -27,6 +27,15 @@ const Sponsors = () => {
             className="pr-8"
           />
         </Link>
+        <Link href="https://tezos.com/" target="_blank">
+          <Image
+            src="/tezos.svg"
+            width={72}
+            height={72}
+            alt="Optimism"
+            className="pr-8"
+          />
+        </Link>
         <Link href="https://warpcast.com/~/channel/energy" target="_blank">
           <p className="text-2xl lg:text-4xl text-white pragmatica-text">
             ENERGY

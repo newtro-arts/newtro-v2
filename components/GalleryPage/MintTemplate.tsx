@@ -34,8 +34,9 @@ const MintTemplate = ({ contract, token_id }: Drop) => {
   }, [data]);
 
   const totalSupply: string =
-    data?.zoraCreateTokens[0]?.totalSupply.toString() + " Minted" ??
-    "No mints yet";
+    data?.zoraCreateTokens?.[0]?.totalSupply
+      ? data.zoraCreateTokens[0].totalSupply.toString() + " Minted"
+      : "No mints yet";
   const { selectedDrop } = useToken(
     CHAIN_ID,
     contract,
