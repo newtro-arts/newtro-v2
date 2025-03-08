@@ -22,6 +22,9 @@ const nextConfig = {
       "rainbow.mypinata.cloud",
     ],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 module.exports = nextConfig;

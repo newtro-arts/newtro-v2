@@ -26,8 +26,9 @@ export default function FeaturedMintsHome({
     tokenId: parseInt(token_id),
   });
   const totalSupply: string =
-    data?.zoraCreateTokens[0]?.totalSupply.toString() + " Minted" ??
-    "No mints yet";
+    data?.zoraCreateTokens?.[0]?.totalSupply
+      ? data.zoraCreateTokens[0].totalSupply.toString() + " Minted"
+      : "No mints yet";
   return (
     <Link
       href={getTokenLink(contract, token_id)}
