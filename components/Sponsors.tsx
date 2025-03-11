@@ -27,10 +27,10 @@ const Sponsors = () => {
             className="pr-8"
           />
         </Link>
-        <Link href="https://tezos.com/" target="_blank">
+        <Link href="https://tezos.com/" target="_blank">  
           <Image
             src="/tezos.svg"
-            width={72}
+            width={150}
             height={72}
             alt="Optimism"
             className="pr-8"
